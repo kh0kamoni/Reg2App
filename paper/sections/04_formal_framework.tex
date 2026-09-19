@@ -1,0 +1,82 @@
+\section{The Reg2App Formal Specification and Analysis Framework}
+\label{sec:formal_framework}
+
+Regulatory compliance cannot be verified through informal heuristic wrapping of vulnerability scanners. Instead, statutory interpretation must be treated as a formal language translation problem governed by mathematical boundaries of program observability.
+
+\subsection{The 7-Tuple Mapping Model}
+\label{sec:formal:tuple}
+
+We formalize the bridge between legal jurisprudence and mobile program analysis by defining every statutory interpretation as a 7-tuple:
+\begin{equation}
+M_i = (R_i, O_i, C_i, P_i, E_i, A_i, V_i)
+\end{equation}
+where each component is formally defined in mathematical and operational terms:
+(1)~\textbf{Statutory Requirement Clause ($R_i$)}: A structured representation of authoritative legal text: $R_i = (\text{id}, \text{statute}, \text{section}, \text{tier}, \text{title}, \text{text}_{\text{en}}, \text{text}_{\text{bn}}, \text{sector})$, where $\text{id}$ is a unique key (e.g., \texttt{BB-CSF-4.1.3.12}), $\text{tier} \in \{\text{Statutory Mandate}, \text{Supervisory Baseline}, \text{Security-Risk Indicator}\}$ designates normative authority, and $\text{sector}$ specifies applicability.
+(2)~\textbf{Legal Obligation ($O_i$)}: The deontic constraint extracted from statutory text~\cite{legalruleml, breaux_requirements}: $O_i = (\text{modality}, \text{subject}, \text{action}, \text{object})$, where $\text{modality} \in \{\mathbf{OBL}, \mathbf{PROH}, \mathbf{PERM}\}$ denotes obligation, prohibition, and permission.
+(3)~\textbf{Technical Control ($C_i$)}: The software engineering mechanism satisfying the obligation: $C_i = (\text{control\_id}, \text{domain}, \text{mechanism})$, where $\text{domain}$ specifies the security area (e.g., \text{Crypto}, \text{NetSec}).
+(4)~\textbf{Observable Program Property ($P_i$)}: The machine-observable Android program property corresponding to control $C_i$: $P_i = (\text{artifact\_type}, \text{target\_symbol}, \phi)$, where $\text{artifact\_type}$ indicates the target domain, $\text{target\_symbol}$ identifies the symbol, and $\phi \in \mathcal{L}_{\text{pred}}$ is a boolean formula evaluated over evidence witnesses. The predicate language grammar is formally defined as:
+\begin{equation}
+\label{eq:predicate_grammar}
+\phi ::= p(\vec{a}) \mid \phi \wedge \phi \mid \phi \vee \phi \mid \neg \phi
+\end{equation}
+where atomic predicates $p(\vec{a})$ include manifest property checks ($\texttt{attrEquals}(k, v)$), API call assertions ($\texttt{invokesMethod}(c, m)$), parameter constraints ($\texttt{argNotIn}(i, S)$), and taint reachability ($\texttt{taintPath}(s_1, s_2)$).
+(5)~\textbf{Evidence Generation Rule ($E_i$)}: The operational static extraction specification: $E_i = (\text{analyzer\_id}, \text{sources}, \text{sinks}, \text{witness\_schema})$, defining how analyzers extract evidence witnesses (e.g., invocation offsets or taint paths).
+(6)~\textbf{Observability Metadata ($A_i \equiv \Omega(R_i)$)}: The epistemic boundary operator $\Omega(R_i) = (L_i, \mathcal{M}_i, \Phi_i)$ specifying observability level $L_i \in \mathcal{L}$, evidence modalities $\mathcal{M}_i \subseteq \mathbb{M}$, and decidability precondition $\Phi_i$~\cite{fagin_epistemic_logic}.
+(7)~\textbf{Validation Provenance ($V_i$)}: The audit trail certifying expert consensus: $V_i = (\text{raters}, \text{consensus\_status}, \text{timestamp})$, where $\text{consensus\_status}$ tracks Delphi panel approval.
+
+\subsection{Two-Dimensional Observability Taxonomy}
+\label{sec:formal:observability}
+
+Modern applications are distributed socio-technical systems: client bytecode executes alongside cloud backends, organizational processes, and legal instruments. We define the \textbf{Observability Operator} $\Omega(R_i) = (L_i, \mathcal{M}_i, \Phi_i)$ across two formal dimensions:
+
+\noindent\textbf{Dimension 1: Observability Level ($L_i \in \mathcal{L}$).} We partition requirements into three mutually exclusive levels: $\mathcal{L} = \{\mathbf{FULL}, \mathbf{PARTIAL}, \mathbf{NONE}\}$. Under $\mathbf{FULL}$, requirements can be completely verified or refuted from client-side mobile artifacts alone (e.g., verifying \texttt{android:allowBackup="false"}). Under $\mathbf{PARTIAL}$, client artifacts provide necessary, but insufficient, evidence (e.g., client TLS 1.3 configuration is necessary, but cannot confirm backend cipher negotiation). Under $\mathbf{NONE}$, requirements pertain entirely to backend infrastructure, organizational governance, or physical security, rendering client program analysis incapable of observation (e.g., Draft BD-PDPA §22 appointing a Data Protection Officer).
+
+\noindent\textbf{Dimension 2: Evidence Modalities ($\mathcal{M}_i \subseteq \mathbb{M}$).} We define six operational modalities: $\mathbb{M} = \{\text{Static}, \text{Dynamic}, \text{Hybrid}, \text{Backend}, \text{Organizational}, \text{Legal}\}$. Client analysis operates over $\mathbb{M}_{\text{client}} = \{\text{Static}, \text{Dynamic}, \text{Hybrid}\}$. In our current prototype, Reg2App focuses on \textit{static} Dalvik analysis; requirements demanding $\mathbb{M}_{\text{external}} = \{\text{Backend}, \text{Organizational}, \text{Legal}\}$ or dynamic execution are explicitly partitioned as unobservable by static analysis, preventing unsupported verdicts. The formal decidability precondition $\Phi_i: \mathcal{K}_{\text{app}} \times \mathcal{E}_{\text{env}} \rightarrow \{\text{True}, \text{False}\}$ determines whether code can be statically resolved. If $\Phi_i$ evaluates to False (due to unresolvable native JNI binaries, packing, or dynamic reflection~\cite{octeau_reflection, ernst_static_dynamic}), the requirement transitions to $\mathbf{InsufficientEvidence}$.
+
+\subsection{Regulation-as-Code Decoupling Architecture}
+\label{sec:formal:decoupling}
+
+In traditional compliance auditing tools, verification rules are tightly coupled to the static analysis engine: updating a rule requires modifying the scanner's source code. Reg2App realizes the \textit{Regulation-as-Code} paradigm by decoupling authoritative legal rules into external declarative ontologies.
+
+\noindent\textbf{Architectural Property 1 (Declarative Rule Extensibility).}
+\textit{Let $\mathcal{A}$ be the fixed set of program analysis primitives implemented in Reg2App:
+\begin{equation}
+\mathcal{A} = \{\text{ManifestAnalyzer}, \text{CryptoAnalyzer}, \text{StorageAnalyzer}, \text{NetworkAnalyzer}, \dots\}
+\end{equation}
+Let $\mathcal{K}$ be the external statutory knowledge base consisting of declarative YAML ontologies conforming to JSON Schema $\mathcal{S}_{\text{reg}}$. For any regulatory amendment $\Delta R$ expressible over existing predicate vocabulary $\mathcal{L}_{\text{pred}}$, the updated system state $\mathcal{K}' = \mathcal{K} \cup \{\Delta R\}$ is verifiable without modifying the source code of $\mathcal{A}$:
+\begin{equation}
+\forall \Delta R \in \mathcal{L}_{\text{pred}}, \;\; \text{Eval}(\mathcal{A}, \mathcal{K} \cup \{\Delta R\}) \equiv \text{Eval}(\mathcal{A}, \mathcal{K}')
+\end{equation}
+with $\Delta \text{Code}(\mathcal{A}) = \emptyset$.}
+
+\textit{Operational Justification.} Reg2App implements a formal interpretation layer wherein analyzers emit typed, context-free evidence triples $\tau = (\text{target}, \text{attribute}, \text{observed\_value})$. The assessment engine evaluates declarative predicates $\phi_{P_i}(\tau)$ defined in the external YAML schema via a deterministic evaluator over $\mathcal{L}_{\text{pred}}$. Because the mapping schema parameterizes symbols, regex patterns, and deontic thresholds declaratively, updating a legal clause or introducing a new national circular modifies only the external YAML data structures, leaving the underlying AST traversal routines invariant ($\Delta \text{Code} = \emptyset$).
+
+\paragraph{Concrete Case Study of Declarative Extensibility} Consider when Bangladesh Bank updated its regulatory guidance on local database storage under Section 4.1.5.21. Under traditional scanners (e.g., MobSF or custom SonarQube rules), checking a new database persistence requirement necessitates writing custom AST visitor methods. Under Reg2App, an auditor introduces the amendment $\Delta R_{\text{SQL}}$ into the external knowledge base:
+\begin{tcolorbox}[colback=gray!3!white,colframe=gray!50!black,arc=1.2mm,boxrule=0.6pt,left=2mm,right=2mm,top=1.5mm,bottom=1.5mm,fonttitle=\bfseries\sffamily\footnotesize,coltitle=black!90!white,colbacktitle=gray!15!white,titlerule=0.4pt,title={Declarative YAML Schema Example (BB-CSF Section 4.1.5.21)},fontupper=\fontsize{6.5pt}{7.8pt}\selectfont\ttfamily]
+clause\_id: "BB-CSF-4.1.5.21" \\
+statutory\_ref: "BB-CSF v1.0 §4.1.5.21" \\
+tier: "STATUTORY\_MANDATE" \\
+obligation: \\
+\hspace*{2mm} modality: "PROHIBITION" \\
+\hspace*{2mm} target: "ClientStorage" \\
+\hspace*{2mm} action: "PlaintextPersistence" \\
+technical\_control: \\
+\hspace*{2mm} domain: "StorageProtection" \\
+\hspace*{2mm} mechanism: "EncryptedDatabase" \\
+program\_property: \\
+\hspace*{2mm} artifact\_type: "BYTECODE" \\
+\hspace*{2mm} target\_symbol: "android.database.sqlite.SQLiteDatabase" \\
+\hspace*{2mm} predicate: >- \\
+\hspace*{4mm} "!invokesMethod('android.database.sqlite.' \\
+\hspace*{6mm}   + 'SQLiteDatabase', 'openOrCreateDatabase') \\
+\hspace*{4mm}  || invokesMethod('net.sqlcipher.database.' \\
+\hspace*{6mm}   + 'SQLiteDatabase', 'openOrCreateDatabase')" \\
+observability: \\
+\hspace*{2mm} level: "FULL", modality: ["Static"] \\
+validation: \\
+\hspace*{2mm} raters: ["EXP-01", "EXP-02", "EXP-03"] \\
+\hspace*{2mm} consensus\_status: "UNANIMOUS", delphi\_review: "VALIDATED"
+\end{tcolorbox}
+Because the Storage Protection Analyzer already extracts database creation calls and wrapper imports as typed triples, the assessment engine evaluates $\Delta R_{\text{SQL}}$ upon YAML ingestion with zero code modifications ($\Delta \text{Code} = \emptyset$). Across our knowledge base, 10 of the 12 candidate regulatory rules are directly expressible purely within $\mathcal{L}_{\text{pred}}$ syntax evaluated over standard manifest and AST triples without engine alterations; only two rules (anti-tampering detection threshold and inter-procedural foreign telemetry taint reachability) rely on composite analyzer plugins. When a supervisory circular introduces a new mandate, authoring a declarative YAML rule with atomic predicates over existing AST extractors instantiates the rule immediately.
+
+\paragraph{Knowledge Base Maintenance Lifecycle} In operational environments, updating the regulatory knowledge base when statutes change follows a structured four-stage governance pipeline: (1) \textit{Statutory Ingestion}, where newly promulgated parliamentary gazettes or central bank circulars are acquired; (2) \textit{Deontic Decomposition}, translating new obligations into the formal 7-tuple schema; (3) \textit{Automated Schema Linting}, verifying structural and type conformance against JSON Schema $\mathcal{S}_{\text{reg}}$; and (4) \textit{Expert Review and Provenance Sealing}, where multi-disciplinary panels record consensus scores and approval signatures in $V_i$. Once sealed, new YAML ontologies are placed in the active rule repository and ingested dynamically at runtime without recompiling or altering the static analysis engine.

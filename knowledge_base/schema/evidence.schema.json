@@ -1,0 +1,108 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "NormalizedProgramEvidenceSchema",
+  "description": "Schema for concrete technical evidence extracted from Android APKs by static and dynamic analyzers.",
+  "type": "object",
+  "required": [
+    "finding_id",
+    "rule_id",
+    "target_package",
+    "apk_hash_sha256",
+    "timestamp",
+    "modality",
+    "location",
+    "evidence_strength",
+    "description"
+  ],
+  "properties": {
+    "finding_id": {
+      "type": "string"
+    },
+    "rule_id": {
+      "type": "string"
+    },
+    "target_package": {
+      "type": "string"
+    },
+    "apk_hash_sha256": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string"
+    },
+    "modality": {
+      "type": "string",
+      "enum": [
+        "STATIC",
+        "DYNAMIC",
+        "HYBRID"
+      ]
+    },
+    "location": {
+      "type": "object",
+      "required": [
+        "component_type",
+        "file_path"
+      ],
+      "properties": {
+        "component_type": {
+          "type": "string",
+          "enum": [
+            "MANIFEST",
+            "BYTECODE",
+            "RESOURCE",
+            "NATIVE_LIB",
+            "NETWORK_TRAFFIC"
+          ]
+        },
+        "file_path": {
+          "type": "string"
+        },
+        "class_name": {
+          "type": "string"
+        },
+        "method_name": {
+          "type": "string"
+        },
+        "line_number": {
+          "type": "integer"
+        }
+      }
+    },
+    "dataflow": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "type": "string"
+        },
+        "sink": {
+          "type": "string"
+        },
+        "intermediate_hops": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "extracted_value": {
+      "type": "string"
+    },
+    "evidence_strength": {
+      "type": "string",
+      "enum": [
+        "LOW",
+        "MEDIUM",
+        "HIGH",
+        "CONFIRMED"
+      ]
+    },
+    "description": {
+      "type": "string"
+    },
+    "raw_artifact_ref": {
+      "type": "string"
+    }
+  }
+}

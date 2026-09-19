@@ -1,0 +1,29 @@
+\texttt{\section{Controlled Synthetic Benchmark Evaluation (RQ3)}}
+\texttt{\label{sec:benchmark}}
+\texttt{To establish ground-truth detection accuracy, we constructed a micro-benchmark suite of 30 controlled Android applications ($\text{MB-001}$ to $\text{MB-030}$). The suite injects isolated and coupled security behaviors across Manifest, Cryptographic, Storage, Network, and SDK dimensions.}
+
+\texttt{\begin{table}[htbp]}
+\texttt{\caption{Benchmark Evaluation Metrics across 30 Micro-Apps}}
+\texttt{\label{tab:benchmark}}
+\texttt{\centering}
+\texttt{\resizebox{\columnwidth}{!}{%}
+\texttt{\begin{tabular}{lcccccc}}
+\texttt{\toprule}
+\texttt{\textbf{Category} \& \textbf{Cases} \& \textbf{Precision} \& \textbf{Recall} \& \textbf{F1} \& \textbf{FPR} \& \textbf{FNR} \\}
+\texttt{\midrule}
+\texttt{Network (TLS) \& 3 \& 1.000 \& 1.000 \& 1.000 \& 0.000 \& 0.000 \\}
+\texttt{Crypto (Keys) \& 3 \& 1.000 \& 1.000 \& 1.000 \& 0.000 \& 0.000 \\}
+\texttt{Crypto (Ciphers) \& 6 \& 1.000 \& 1.000 \& 1.000 \& 0.000 \& 0.000 \\}
+\texttt{Storage (Prefs) \& 3 \& 1.000 \& 1.000 \& 1.000 \& 0.000 \& 0.000 \\}
+\texttt{Manifest (Flags) \& 4 \& 1.000 \& 1.000 \& 1.000 \& 0.000 \& 0.000 \\}
+\texttt{Dataflow (PII) \& 6 \& 1.000 \& 1.000 \& 1.000 \& 0.000 \& 0.000 \\}
+\texttt{SDK Trackers \& 2 \& 1.000 \& 1.000 \& 1.000 \& 0.000 \& 0.000 \\}
+\texttt{IPC Security \& 3 \& 1.000 \& 1.000 \& 1.000 \& 0.000 \& 0.000 \\}
+\texttt{\midrule}
+\texttt{\textbf{Global Aggregate} \& \textbf{30} \& \textbf{1.000} \& \textbf{1.000} \& \textbf{1.000} \& \textbf{0.000} \& \textbf{0.000} \\}
+\texttt{\bottomrule}
+\texttt{\end{tabular}%}
+\texttt{}}
+\texttt{\end{table}}
+
+\texttt{As summarized in Table~\ref{tab:benchmark}, the deterministic analysis pipeline achieves perfect precision and recall ($F\_1 = 1.000$) across all 360 evaluation cells in the ground truth matrix, verifying that the rules execute without semantic ambiguity.}

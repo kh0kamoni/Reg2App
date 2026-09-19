@@ -1,0 +1,218 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TechnicalMappingSchema",
+  "description": "Schema for technical interpretations mapping statutory requirements to machine-observable Android properties.",
+  "type": "object",
+  "required": [
+    "mapping_id",
+    "regulation_id",
+    "mappings"
+  ],
+  "properties": {
+    "mapping_id": {
+      "type": "string"
+    },
+    "regulation_id": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "mappings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "requirement_ref",
+          "obligation",
+          "technical_control",
+          "program_property",
+          "observability",
+          "evidence_rule",
+          "validation"
+        ],
+        "properties": {
+          "requirement_ref": {
+            "type": "string"
+          },
+          "obligation": {
+            "type": "object",
+            "required": [
+              "category",
+              "description"
+            ],
+            "properties": {
+              "category": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            }
+          },
+          "technical_control": {
+            "type": "object",
+            "required": [
+              "control_id",
+              "name",
+              "description"
+            ],
+            "properties": {
+              "control_id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            }
+          },
+          "program_property": {
+            "type": "object",
+            "required": [
+              "property_id",
+              "name",
+              "target_platform",
+              "formal_specification"
+            ],
+            "properties": {
+              "property_id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "target_platform": {
+                "type": "string",
+                "enum": [
+                  "Android"
+                ]
+              },
+              "formal_specification": {
+                "type": "string"
+              }
+            }
+          },
+          "observability": {
+            "type": "object",
+            "required": [
+              "level",
+              "modalities",
+              "limitations_rationale"
+            ],
+            "properties": {
+              "level": {
+                "type": "string",
+                "enum": [
+                  "FULL",
+                  "PARTIAL",
+                  "NONE"
+                ]
+              },
+              "modalities": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "STATIC",
+                    "DYNAMIC",
+                    "HYBRID",
+                    "BACKEND",
+                    "ORGANIZATIONAL",
+                    "LEGAL"
+                  ]
+                }
+              },
+              "limitations_rationale": {
+                "type": "string"
+              }
+            }
+          },
+          "evidence_rule": {
+            "type": "object",
+            "required": [
+              "rule_id",
+              "analysis_type",
+              "supported_criteria",
+              "non_conformance_criteria",
+              "insufficient_evidence_criteria"
+            ],
+            "properties": {
+              "rule_id": {
+                "type": "string"
+              },
+              "analysis_type": {
+                "type": "string",
+                "enum": [
+                  "MANIFEST",
+                  "DATAFLOW",
+                  "STORAGE",
+                  "CRYPTO",
+                  "NETWORK",
+                  "SDK",
+                  "HYBRID"
+                ]
+              },
+              "sources": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "sinks": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "conditions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "supported_criteria": {
+                "type": "string"
+              },
+              "non_conformance_criteria": {
+                "type": "string"
+              },
+              "insufficient_evidence_criteria": {
+                "type": "string"
+              }
+            }
+          },
+          "validation": {
+            "type": "object",
+            "required": [
+              "status",
+              "rationale"
+            ],
+            "properties": {
+              "status": {
+                "type": "string",
+                "enum": [
+                  "PROPOSED",
+                  "EXPERT_REVIEWED",
+                  "VALIDATED",
+                  "REVISED"
+                ]
+              },
+              "expert_raters": {
+                "type": "integer"
+              },
+              "inter_rater_agreement": {
+                "type": "number"
+              },
+              "rationale": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

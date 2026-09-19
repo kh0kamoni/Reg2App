@@ -1,0 +1,1255 @@
+{
+  "application": {
+    "package_name": "com.chaldal.poached",
+    "sector": "ECOMMERCE",
+    "total_regulations_evaluated": 3
+  },
+  "summary_profile": {
+    "Supported": 0,
+    "PotentialNonConformance": 5,
+    "InsufficientEvidence": 1,
+    "NotObservable": 0,
+    "NotApplicable": 6,
+    "TotalRequirements": 12
+  },
+  "metrics": {
+    "EvidenceCoverage": 0.8333,
+    "EvidenceSupportedCompliance": 0.0
+  },
+  "provenance_records": [
+    {
+      "finding_id": "EV-D22F0BAB5F",
+      "regulation_id": "BD-CSA-2026",
+      "regulation_title": "Cyber Security Act, 2026",
+      "clause_id": "CSA-SEC-17",
+      "statutory_category": "APPLICATION_SECURITY",
+      "statutory_text": "No person shall intentionally access or disrupt Critical Information Infrastructure (CII) without authorization.",
+      "obligation": "Component Access Control",
+      "control_id": "CTRL-IPC-01",
+      "control_name": "Securing Exported IPC Components",
+      "property_id": "PROP-EXPORTED-COMPONENTS-SECURED",
+      "property_name": "Authorization Enforcement on Exported Components",
+      "rule_id": "RULE-MANIFEST-EXPORTED-UNPROTECTED",
+      "evidence": {
+        "modality": "STATIC",
+        "component_type": "MANIFEST",
+        "file_path": "AndroidManifest.xml",
+        "class_name": null,
+        "method_name": null,
+        "line_number": null,
+        "extracted_value": "[\"activity:.ShareActivity\"]",
+        "strength": "HIGH",
+        "is_violation": true,
+        "description": "Application exposes unprotected exported components without permissions: activity:.ShareActivity"
+      }
+    },
+    {
+      "finding_id": "EV-D571A2A55F",
+      "regulation_id": "BD-PDPA-2026",
+      "regulation_title": "Personal Data Protection Act, 2026",
+      "clause_id": "PDPA-SEC-07",
+      "statutory_category": "DATA_PROTECTION",
+      "statutory_text": "Personal data collected must be adequate, relevant, and limited to what is necessary in relation to the purposes for which they are processed.",
+      "obligation": "Data Minimization Principle",
+      "control_id": "CTRL-PERM-01",
+      "control_name": "Least-Privilege Android Permission Request",
+      "property_id": "PROP-MINIMAL-PERMISSIONS",
+      "property_name": "Minimal Dangerous Permission Footprint",
+      "rule_id": "RULE-PERM-EXCESSIVE-DANGEROUS",
+      "evidence": {
+        "modality": "STATIC",
+        "component_type": "MANIFEST",
+        "file_path": "AndroidManifest.xml",
+        "class_name": null,
+        "method_name": null,
+        "line_number": null,
+        "extracted_value": "[\"android.permission.ACCESS_FINE_LOCATION\", \"android.permission.READ_CONTACTS\"]",
+        "strength": "HIGH",
+        "is_violation": true,
+        "description": "Application requests dangerous permissions without sectoral justification: android.permission.ACCESS_FINE_LOCATION, android.permission.READ_CONTACTS"
+      }
+    },
+    {
+      "finding_id": "EV-9F2E8D29C0",
+      "regulation_id": "BD-PDPA-2026",
+      "regulation_title": "Personal Data Protection Act, 2026",
+      "clause_id": "PDPA-SEC-15",
+      "statutory_category": "APPLICATION_SECURITY",
+      "statutory_text": "Data fiduciaries and processors must implement appropriate technical and organizational measures to ensure security of personal data against unauthorized access, alteration, or disclosure.",
+      "obligation": "Personal Data Technical Security",
+      "control_id": "CTRL-DATA-01",
+      "control_name": "Prohibition of PII Exfiltration to Insecure Sinks",
+      "property_id": "PROP-PII-FLOW-RESTRICTION",
+      "property_name": "Source-Sink Dataflow Restriction for PII",
+      "rule_id": "RULE-DATAFLOW-PII-TO-HTTP",
+      "evidence": {
+        "modality": "STATIC",
+        "component_type": "BYTECODE",
+        "file_path": "Telemetry.dex",
+        "class_name": "Telemetry.dex",
+        "method_name": null,
+        "line_number": null,
+        "extracted_value": "getDeviceId -> HttpURLConnection",
+        "strength": "HIGH",
+        "is_violation": true,
+        "description": "Taint flow path detected: personal identifier (getDeviceId) reaches unencrypted network sink (HttpURLConnection)."
+      }
+    },
+    {
+      "finding_id": "EV-6DDB5E9411",
+      "regulation_id": "BD-PDPA-2026",
+      "regulation_title": "Personal Data Protection Act, 2026",
+      "clause_id": "PDPA-SEC-06",
+      "statutory_category": "DATA_PROTECTION",
+      "statutory_text": "A data fiduciary cannot process personal data for purposes other than the original specified and lawful purpose.",
+      "obligation": "Purpose Limitation & Third-Party Disclosure",
+      "control_id": "CTRL-SDK-01",
+      "control_name": "Restricting Third-Party SDK Data Collection",
+      "property_id": "PROP-NO-SDK-PII-EXFILTRATION",
+      "property_name": "Isolation of PII from Commercial Tracking SDKs",
+      "rule_id": "RULE-SDK-TRACKER-PII-FLOW",
+      "evidence": {
+        "modality": "STATIC",
+        "component_type": "BYTECODE",
+        "file_path": "App.dex",
+        "class_name": "App.dex",
+        "method_name": null,
+        "line_number": null,
+        "extracted_value": "AppsFlyer Telemetry & Attribution <- IMEI",
+        "strength": "HIGH",
+        "is_violation": true,
+        "description": "Device/subscriber identifier passed directly to third-party tracker SDK (AppsFlyer Telemetry & Attribution): IMEI"
+      }
+    },
+    {
+      "finding_id": "EV-5D31C507B4",
+      "regulation_id": "BD-PDPA-2026",
+      "regulation_title": "Personal Data Protection Act, 2026",
+      "clause_id": "PDPA-SEC-16",
+      "statutory_category": "CRYPTOGRAPHY",
+      "statutory_text": "Confidentiality and integrity of personal data must be maintained during storage and transit using encryption and secure protocols.",
+      "obligation": "Personal Data Confidentiality",
+      "control_id": "CTRL-LOG-01",
+      "control_name": "Prohibition of PII in System Logcat",
+      "property_id": "PROP-NO-PII-IN-LOGS",
+      "property_name": "Absence of Personal Data in System Logs",
+      "rule_id": "RULE-DATAFLOW-PII-TO-LOG",
+      "evidence": {
+        "modality": "STATIC",
+        "component_type": "BYTECODE",
+        "file_path": "Login.dex",
+        "class_name": "Login.dex",
+        "method_name": null,
+        "line_number": null,
+        "extracted_value": "user_phone in Logcat",
+        "strength": "HIGH",
+        "is_violation": true,
+        "description": "Personal data or credential field (user_phone) emitted to Android Logcat sink (Log.d)."
+      }
+    }
+  ],
+  "assessments": [
+    {
+      "requirement_id": "BB-CSF-4.1.3.12",
+      "regulation_id": "BB-CSF-V1-2026",
+      "clause": {
+        "clause_id": "BB-CSF-4.1.3.12",
+        "chapter": "4",
+        "chapter_title": "PROTECT",
+        "section": "4.1.3",
+        "section_title": "ICT Infrastructure Security and Procedures",
+        "text_bn": null,
+        "text_en": "Unauthorized access and electronic tampering have to be controlled strictly. The mechanism has to be in place to encrypt and decrypt sensitive data traveling through WAN or public network.",
+        "statutory_category": "CRYPTOGRAPHY",
+        "primary_entity": "ALL_ORGANIZATIONS"
+      },
+      "mapping": {
+        "requirement_ref": "BB-CSF-4.1.3.12",
+        "obligation": {
+          "category": "Network Transport Security",
+          "description": "Obligation to enforce cryptographic encryption on sensitive communications traversing public networks and WAN."
+        },
+        "technical_control": {
+          "control_id": "CTRL-NET-01",
+          "name": "Mandatory Transport Layer Security (TLS)",
+          "description": "The application must disable cleartext HTTP traffic globally and configure network security config with strict HTTPS."
+        },
+        "program_property": {
+          "property_id": "PROP-NO-CLEARTEXT-HTTP",
+          "name": "Prohibition of Cleartext HTTP Communications",
+          "target_platform": "Android",
+          "formal_specification": "Manifest.application[android:usesCleartextTraffic] != true AND NetworkSecurityConfig.base-config[cleartextTrafficPermitted] == false"
+        },
+        "observability": {
+          "level": "FULL",
+          "modalities": [
+            "STATIC",
+            "DYNAMIC"
+          ],
+          "limitations_rationale": "Static manifest and XML resource inspection fully determines cleartext permissions; dynamic network capture confirms absence of unencrypted traffic."
+        },
+        "evidence_rule": {
+          "rule_id": "RULE-NET-CLEARTEXT-01",
+          "analysis_type": "NETWORK",
+          "sources": [
+            "Manifest:usesCleartextTraffic",
+            "Res:network_security_config.xml"
+          ],
+          "sinks": [
+            "HttpURLConnection",
+            "OkHttpClient",
+            "HttpClient"
+          ],
+          "conditions": [
+            "android:usesCleartextTraffic=true OR cleartextTrafficPermitted=true OR HTTP URL in bytecode"
+          ],
+          "supported_criteria": "android:usesCleartextTraffic is explicitly false AND network security config enforces cleartextTrafficPermitted=false AND no cleartext HTTP endpoints invoked.",
+          "non_conformance_criteria": "android:usesCleartextTraffic is true OR cleartextTrafficPermitted is true OR bytecode initiates connections to plaintext http:// endpoints.",
+          "insufficient_evidence_criteria": "Network configuration is dynamically initialized in obfuscated native code or reflection without capture."
+        },
+        "validation": {
+          "status": "EXPERT_REVIEWED",
+          "expert_raters": 3,
+          "inter_rater_agreement": 1.0,
+          "rationale": "Cleartext traffic is an unambiguous violation of Section 4.1.3.12 requirement to encrypt WAN/public network traffic."
+        }
+      },
+      "state": "NotApplicable",
+      "evidence_items": [
+        {
+          "finding_id": "EV-FE68A444A0",
+          "rule_id": "RULE-NET-CLEARTEXT-01",
+          "target_package": "com.chaldal.poached",
+          "apk_hash_sha256": "mock_sha256",
+          "timestamp": "2026-09-14T20:07:19.897262+00:00",
+          "modality": "STATIC",
+          "location": {
+            "component_type": "MANIFEST",
+            "file_path": "AndroidManifest.xml",
+            "class_name": null,
+            "method_name": null,
+            "line_number": null
+          },
+          "dataflow": null,
+          "extracted_value": "android:usesCleartextTraffic='true'",
+          "evidence_strength": "HIGH",
+          "description": "Manifest explicitly enables cleartext network traffic (android:usesCleartextTraffic='true').",
+          "is_violation": true,
+          "raw_artifact_ref": null
+        },
+        {
+          "finding_id": "EV-048FA5AD36",
+          "rule_id": "RULE-NET-CLEARTEXT-01",
+          "target_package": "com.chaldal.poached",
+          "apk_hash_sha256": "mock_sha256",
+          "timestamp": "2026-09-14T20:07:19.897408+00:00",
+          "modality": "STATIC",
+          "location": {
+            "component_type": "BYTECODE",
+            "file_path": "Tracker.dex",
+            "class_name": "Tracker.dex",
+            "method_name": null,
+            "line_number": null
+          },
+          "dataflow": null,
+          "extracted_value": "http://api.ecom-tracker.bd/log",
+          "evidence_strength": "HIGH",
+          "description": "Unencrypted cleartext HTTP endpoint found in bytecode invocation: http://api.ecom-tracker.bd/log",
+          "is_violation": true,
+          "raw_artifact_ref": null
+        }
+      ],
+      "assessment_rationale": "Bangladesh Bank Cybersecurity Framework does not apply to non-financial sector 'ECOMMERCE'."
+    },
+    {
+      "requirement_id": "BB-CSF-4.1.5.18",
+      "regulation_id": "BB-CSF-V1-2026",
+      "clause": {
+        "clause_id": "BB-CSF-4.1.5.18",
+        "chapter": "4",
+        "chapter_title": "PROTECT",
+        "section": "4.1.5",
+        "section_title": "Encryption and Data Security",
+        "text_bn": null,
+        "text_en": "The Organization shall ensure that cryptographic keys are securely generated. All materials used in the generation process shall be destroyed after usage and ensure that no single individual knows any key in its entirety or has access to all constituents making up these keys.",
+        "statutory_category": "CRYPTOGRAPHY",
+        "primary_entity": "ALL_ORGANIZATIONS"
+      },
+      "mapping": {
+        "requirement_ref": "BB-CSF-4.1.5.18",
+        "obligation": {
+          "category": "Cryptographic Key Governance",
+          "description": "Obligation to prevent hardcoded symmetric keys and ensure secure key generation materials are destroyed."
+        },
+        "technical_control": {
+          "control_id": "CTRL-CRYPTO-01",
+          "name": "Prohibition of Hardcoded Cryptographic Keys",
+          "description": "Cryptographic keys must be derived dynamically or stored in the Android Keystore rather than hardcoded in bytecode or resources."
+        },
+        "program_property": {
+          "property_id": "PROP-NO-HARDCODED-KEYS",
+          "name": "Absence of Static Cryptographic Keys in Bytecode",
+          "target_platform": "Android",
+          "formal_specification": "NOT EXISTS (Invoke javax.crypto.spec.SecretKeySpec(k, _)) WHERE k in StringConstants OR k in StaticByteArrays"
+        },
+        "observability": {
+          "level": "FULL",
+          "modalities": [
+            "STATIC"
+          ],
+          "limitations_rationale": "Dalvik bytecode instructions passing static literals to SecretKeySpec can be definitively detected statically."
+        },
+        "evidence_rule": {
+          "rule_id": "RULE-CRYPTO-HARDCODED-KEY",
+          "analysis_type": "CRYPTO",
+          "sources": [
+            "ConstString",
+            "ConstByteArray",
+            "ResourceString"
+          ],
+          "sinks": [
+            "javax.crypto.spec.SecretKeySpec.<init>",
+            "javax.crypto.Cipher.init"
+          ],
+          "conditions": [
+            "Key argument originates from immediate instruction operand or static field"
+          ],
+          "supported_criteria": "Cryptographic keys are retrieved via AndroidKeyStore provider (AndroidKeyStore) without static byte initialization.",
+          "non_conformance_criteria": "SecretKeySpec instantiated with string constant, hexadecimal byte array literal, or assets/resource file.",
+          "insufficient_evidence_criteria": "Key derivation occurs inside packed or encrypted native libraries (.so) not resolved statically."
+        },
+        "validation": {
+          "status": "EXPERT_REVIEWED",
+          "expert_raters": 3,
+          "inter_rater_agreement": 1.0,
+          "rationale": "Static keys violate Bangladesh Bank requirement that no single individual knows or has access to key constituents."
+        }
+      },
+      "state": "NotApplicable",
+      "evidence_items": [
+        {
+          "finding_id": "EV-F392D953B6",
+          "rule_id": "RULE-CRYPTO-HARDCODED-KEY",
+          "target_package": "com.chaldal.poached",
+          "apk_hash_sha256": "mock_sha256",
+          "timestamp": "2026-09-14T20:07:19.897379+00:00",
+          "modality": "STATIC",
+          "location": {
+            "component_type": "BYTECODE",
+            "file_path": "AdUtil.dex",
+            "class_name": "AdUtil.dex",
+            "method_name": null,
+            "line_number": null
+          },
+          "dataflow": null,
+          "extracted_value": "AdSecret12345",
+          "evidence_strength": "HIGH",
+          "description": "Cryptographic key initialized from static byte array or literal string constant: AdSecret12345",
+          "is_violation": true,
+          "raw_artifact_ref": null
+        }
+      ],
+      "assessment_rationale": "Bangladesh Bank Cybersecurity Framework does not apply to non-financial sector 'ECOMMERCE'."
+    },
+    {
+      "requirement_id": "BB-CSF-4.1.5.19",
+      "regulation_id": "BB-CSF-V1-2026",
+      "clause": {
+        "clause_id": "BB-CSF-4.1.5.19",
+        "chapter": "4",
+        "chapter_title": "PROTECT",
+        "section": "4.1.5",
+        "section_title": "Encryption and Data Security",
+        "text_bn": null,
+        "text_en": "Use strong cryptography and security protocols to safeguard sensitive data during transmission over open, public networks, including: only trusted keys and certificates are accepted; the protocol only supports secure versions/configurations; encryption strength is appropriate.",
+        "statutory_category": "CRYPTOGRAPHY",
+        "primary_entity": "ALL_ORGANIZATIONS"
+      },
+      "mapping": {
+        "requirement_ref": "BB-CSF-4.1.5.19",
+        "obligation": {
+          "category": "Cryptographic Strength Standard",
+          "description": "Obligation to use strong cryptography and secure protocol versions to safeguard sensitive data."
+        },
+        "technical_control": {
+          "control_id": "CTRL-CRYPTO-02",
+          "name": "Prohibition of Broken / Deprecated Ciphers",
+          "description": "Use of DES, 3DES, RC4, MD5, SHA-1 for encryption/integrity and AES in ECB mode is strictly forbidden."
+        },
+        "program_property": {
+          "property_id": "PROP-SECURE-CIPHERS",
+          "name": "Use of Standard Modern Cryptographic Algorithms",
+          "target_platform": "Android",
+          "formal_specification": "Cipher.getInstance(algo) => algo NOT IN ['DES', 'DESede', 'RC4', 'Blowfish', 'AES/ECB/PKCS5Padding'] AND MessageDigest.getInstance(algo) => algo NOT IN ['MD5', 'SHA-1']"
+        },
+        "observability": {
+          "level": "FULL",
+          "modalities": [
+            "STATIC",
+            "DYNAMIC"
+          ],
+          "limitations_rationale": "Cipher transformation strings passed to standard Java cryptographic APIs are statically observable."
+        },
+        "evidence_rule": {
+          "rule_id": "RULE-CRYPTO-WEAK-ALGO",
+          "analysis_type": "CRYPTO",
+          "sources": [
+            "AlgorithmNameLiteral"
+          ],
+          "sinks": [
+            "Cipher.getInstance",
+            "MessageDigest.getInstance"
+          ],
+          "conditions": [
+            "Cipher string contains DES, RC4, ECB, MD5, SHA1"
+          ],
+          "supported_criteria": "All Cipher and MessageDigest instances utilize AES-GCM, AES-CBC with HMAC, SHA-256, SHA-512.",
+          "non_conformance_criteria": "Invocation of Cipher.getInstance with weak ciphers or insecure modes (ECB).",
+          "insufficient_evidence_criteria": "Cipher algorithm string computed dynamically via reflective lookup."
+        },
+        "validation": {
+          "status": "EXPERT_REVIEWED",
+          "expert_raters": 3,
+          "inter_rater_agreement": 1.0,
+          "rationale": "Weak algorithms fail the regulatory mandate for appropriate encryption strength over public networks."
+        }
+      },
+      "state": "NotApplicable",
+      "evidence_items": [
+        {
+          "finding_id": "EV-1EB07DAA7C",
+          "rule_id": "RULE-CRYPTO-WEAK-ALGO",
+          "target_package": "com.chaldal.poached",
+          "apk_hash_sha256": "mock_sha256",
+          "timestamp": "2026-09-14T20:07:19.897356+00:00",
+          "modality": "STATIC",
+          "location": {
+            "component_type": "BYTECODE",
+            "file_path": "OldCrypto.dex",
+            "class_name": "OldCrypto.dex",
+            "method_name": null,
+            "line_number": null
+          },
+          "dataflow": null,
+          "extracted_value": "DES",
+          "evidence_strength": "HIGH",
+          "description": "Invocation of deprecated or broken cryptographic algorithm: DES",
+          "is_violation": true,
+          "raw_artifact_ref": null
+        },
+        {
+          "finding_id": "EV-6EC2ADF64C",
+          "rule_id": "RULE-CRYPTO-WEAK-ALGO",
+          "target_package": "com.chaldal.poached",
+          "apk_hash_sha256": "mock_sha256",
+          "timestamp": "2026-09-14T20:07:19.897367+00:00",
+          "modality": "STATIC",
+          "location": {
+            "component_type": "BYTECODE",
+            "file_path": "Hasher.dex",
+            "class_name": "Hasher.dex",
+            "method_name": null,
+            "line_number": null
+          },
+          "dataflow": null,
+          "extracted_value": "MD5",
+          "evidence_strength": "HIGH",
+          "description": "Invocation of deprecated or broken cryptographic algorithm: MD5",
+          "is_violation": true,
+          "raw_artifact_ref": null
+        }
+      ],
+      "assessment_rationale": "Bangladesh Bank Cybersecurity Framework does not apply to non-financial sector 'ECOMMERCE'."
+    },
+    {
+      "requirement_id": "BB-CSF-4.1.5.2",
+      "regulation_id": "BB-CSF-V1-2026",
+      "clause": {
+        "clause_id": "BB-CSF-4.1.5.2",
+        "chapter": "4",
+        "chapter_title": "PROTECT",
+        "section": "4.1.5",
+        "section_title": "Encryption and Data Security",
+        "text_bn": null,
+        "text_en": "The Organization shall appropriately protect Data-at-rest and Data-in-transit taking into consideration the level of risk.",
+        "statutory_category": "DATA_PROTECTION",
+        "primary_entity": "ALL_ORGANIZATIONS"
+      },
+      "mapping": {
+        "requirement_ref": "BB-CSF-4.1.5.2",
+        "obligation": {
+          "category": "Local Data Confidentiality",
+          "description": "Obligation to appropriately protect Data-at-rest stored on mobile endpoints."
+        },
+        "technical_control": {
+          "control_id": "CTRL-STORAGE-01",
+          "name": "Encrypted Local Storage for Financial Data",
+          "description": "Local SharedPreferences, SQLite databases, and cache files storing account or transactional data must use EncryptedSharedPreferences or SQLCipher."
+        },
+        "program_property": {
+          "property_id": "PROP-ENCRYPTED-LOCAL-STORAGE",
+          "name": "Protection of Local Storage at Rest",
+          "target_platform": "Android",
+          "formal_specification": "SensitiveField.Write(StorageSink) => StorageSink in [EncryptedSharedPreferences, SQLCipher, EncryptedFile]"
+        },
+        "observability": {
+          "level": "PARTIAL",
+          "modalities": [
+            "STATIC",
+            "DYNAMIC"
+          ],
+          "limitations_rationale": "Static analysis detects use of plaintext SharedPreferences vs. EncryptedSharedPreferences; dynamic inspection verifies database contents on rooted sandbox."
+        },
+        "evidence_rule": {
+          "rule_id": "RULE-STORAGE-PLAINTEXT-SECRETS",
+          "analysis_type": "STORAGE",
+          "sources": [
+            "AccountCredentials",
+            "AuthTokens",
+            "PIIFields"
+          ],
+          "sinks": [
+            "SharedPreferences.Editor.putString",
+            "SQLiteDatabase.insert",
+            "FileOutputStream.write"
+          ],
+          "conditions": [
+            "Sink is unencrypted SharedPreferences or standard openOrCreateDatabase"
+          ],
+          "supported_criteria": "Usage of AndroidX Security EncryptedSharedPreferences or net.sqlcipher.database.SQLiteDatabase for sensitive fields.",
+          "non_conformance_criteria": "Plaintext authentication tokens or credentials saved directly into standard SharedPreferences or MODE_WORLD_READABLE files.",
+          "insufficient_evidence_criteria": "Storage write uses proprietary encryption wrappers whose key derivation cannot be validated."
+        },
+        "validation": {
+          "status": "EXPERT_REVIEWED",
+          "expert_raters": 3,
+          "inter_rater_agreement": 0.9,
+          "rationale": "Plaintext local storage of credentials directly compromises data-at-rest safeguards required by Bangladesh Bank."
+        }
+      },
+      "state": "NotApplicable",
+      "evidence_items": [
+        {
+          "finding_id": "EV-8AAE34C537",
+          "rule_id": "RULE-STORAGE-PLAINTEXT-SECRETS",
+          "target_package": "com.chaldal.poached",
+          "apk_hash_sha256": "mock_sha256",
+          "timestamp": "2026-09-14T20:07:19.897397+00:00",
+          "modality": "STATIC",
+          "location": {
+            "component_type": "BYTECODE",
+            "file_path": "Session.dex",
+            "class_name": "Session.dex",
+            "method_name": null,
+            "line_number": null
+          },
+          "dataflow": null,
+          "extracted_value": "user_auth_token",
+          "evidence_strength": "HIGH",
+          "description": "Sensitive data written to unencrypted local storage sink: user_auth_token",
+          "is_violation": true,
+          "raw_artifact_ref": null
+        }
+      ],
+      "assessment_rationale": "Bangladesh Bank Cybersecurity Framework does not apply to non-financial sector 'ECOMMERCE'."
+    },
+    {
+      "requirement_id": "BB-CSF-4.1.5.10",
+      "regulation_id": "BB-CSF-V1-2026",
+      "clause": {
+        "clause_id": "BB-CSF-4.1.5.10",
+        "chapter": "4",
+        "chapter_title": "PROTECT",
+        "section": "4.1.5",
+        "section_title": "Encryption and Data Security",
+        "text_bn": null,
+        "text_en": "Data leak protections mechanism shall be implemented.",
+        "statutory_category": "DATA_PROTECTION",
+        "primary_entity": "ALL_ORGANIZATIONS"
+      },
+      "mapping": {
+        "requirement_ref": "BB-CSF-4.1.5.10",
+        "obligation": {
+          "category": "Application Data Leakage Prevention",
+          "description": "Obligation to prevent unauthorized data exfiltration and inadvertent backup extraction."
+        },
+        "technical_control": {
+          "control_id": "CTRL-BACKUP-01",
+          "name": "Disable Uncontrolled Application Backup",
+          "description": "Financial applications must explicitly disable ADB backup to prevent extraction of sandbox data via adb backup."
+        },
+        "program_property": {
+          "property_id": "PROP-BACKUP-DISABLED",
+          "name": "Explicit Disabling of Android Backup Agent",
+          "target_platform": "Android",
+          "formal_specification": "Manifest.application[android:allowBackup] == 'false'"
+        },
+        "observability": {
+          "level": "FULL",
+          "modalities": [
+            "STATIC"
+          ],
+          "limitations_rationale": "Determined strictly from AndroidManifest.xml application element attributes."
+        },
+        "evidence_rule": {
+          "rule_id": "RULE-MANIFEST-ALLOW-BACKUP",
+          "analysis_type": "MANIFEST",
+          "sources": [
+            "Manifest.application"
+          ],
+          "sinks": [
+            "AndroidBackupManager"
+          ],
+          "conditions": [
+            "android:allowBackup != false"
+          ],
+          "supported_criteria": "android:allowBackup is explicitly set to false.",
+          "non_conformance_criteria": "android:allowBackup is set to true or omitted (defaulting to true on targetSdk < 31).",
+          "insufficient_evidence_criteria": "Manifest cannot be decoded due to parser failure."
+        },
+        "validation": {
+          "status": "EXPERT_REVIEWED",
+          "expert_raters": 3,
+          "inter_rater_agreement": 1.0,
+          "rationale": "Leaving allowBackup enabled allows any user with physical USB access to dump the private app sandbox."
+        }
+      },
+      "state": "NotApplicable",
+      "evidence_items": [
+        {
+          "finding_id": "EV-7D32F250FB",
+          "rule_id": "RULE-MANIFEST-ALLOW-BACKUP",
+          "target_package": "com.chaldal.poached",
+          "apk_hash_sha256": "mock_sha256",
+          "timestamp": "2026-09-14T20:07:19.897295+00:00",
+          "modality": "STATIC",
+          "location": {
+            "component_type": "MANIFEST",
+            "file_path": "AndroidManifest.xml",
+            "class_name": null,
+            "method_name": null,
+            "line_number": null
+          },
+          "dataflow": null,
+          "extracted_value": "android:allowBackup='True'",
+          "evidence_strength": "HIGH",
+          "description": "Application allows ADB data backup extraction (android:allowBackup is true or omitted).",
+          "is_violation": true,
+          "raw_artifact_ref": null
+        }
+      ],
+      "assessment_rationale": "Bangladesh Bank Cybersecurity Framework does not apply to non-financial sector 'ECOMMERCE'."
+    },
+    {
+      "requirement_id": "BB-CSF-4.1.8.6",
+      "regulation_id": "BB-CSF-V1-2026",
+      "clause": {
+        "clause_id": "BB-CSF-4.1.8.6",
+        "chapter": "4",
+        "chapter_title": "PROTECT",
+        "section": "4.1.8",
+        "section_title": "Protective Technology",
+        "text_bn": null,
+        "text_en": "The Organization shall establish baseline standards to ensure security for Operating Systems, Networks, Databases, Applications and portable devices which have to meet the organization's policy.",
+        "statutory_category": "APPLICATION_SECURITY",
+        "primary_entity": "ALL_ORGANIZATIONS"
+      },
+      "mapping": {
+        "requirement_ref": "BB-CSF-4.1.8.6",
+        "obligation": {
+          "category": "Application Production Hardening",
+          "description": "Obligation to enforce baseline application security standards before deployment."
+        },
+        "technical_control": {
+          "control_id": "CTRL-BUILD-01",
+          "name": "Prohibition of Debuggable Release Builds",
+          "description": "Production applications must not have the android:debuggable flag enabled in the manifest."
+        },
+        "program_property": {
+          "property_id": "PROP-NO-DEBUGGABLE-FLAG",
+          "name": "Non-Debuggable Application Package",
+          "target_platform": "Android",
+          "formal_specification": "Manifest.application[android:debuggable] != 'true'"
+        },
+        "observability": {
+          "level": "FULL",
+          "modalities": [
+            "STATIC"
+          ],
+          "limitations_rationale": "Static manifest parsing definitively extracts the debuggable flag."
+        },
+        "evidence_rule": {
+          "rule_id": "RULE-MANIFEST-DEBUGGABLE",
+          "analysis_type": "MANIFEST",
+          "sources": [
+            "Manifest.application"
+          ],
+          "sinks": [
+            "JDWP_Debugger"
+          ],
+          "conditions": [
+            "android:debuggable == true"
+          ],
+          "supported_criteria": "android:debuggable is false or omitted in release build.",
+          "non_conformance_criteria": "android:debuggable is explicitly set to true.",
+          "insufficient_evidence_criteria": "Manifest parsing error."
+        },
+        "validation": {
+          "status": "EXPERT_REVIEWED",
+          "expert_raters": 3,
+          "inter_rater_agreement": 1.0,
+          "rationale": "Debuggable release allows runtime process attachment and arbitrary memory inspection via JDWP."
+        }
+      },
+      "state": "NotApplicable",
+      "evidence_items": [
+        {
+          "finding_id": "EV-627E944FDE",
+          "rule_id": "RULE-MANIFEST-DEBUGGABLE",
+          "target_package": "com.chaldal.poached",
+          "apk_hash_sha256": "mock_sha256",
+          "timestamp": "2026-09-14T20:07:19.897305+00:00",
+          "modality": "STATIC",
+          "location": {
+            "component_type": "MANIFEST",
+            "file_path": "AndroidManifest.xml",
+            "class_name": null,
+            "method_name": null,
+            "line_number": null
+          },
+          "dataflow": null,
+          "extracted_value": "android:debuggable='false'",
+          "evidence_strength": "HIGH",
+          "description": "Application is compiled with debugging disabled (android:debuggable='false' or omitted).",
+          "is_violation": false,
+          "raw_artifact_ref": null
+        }
+      ],
+      "assessment_rationale": "Bangladesh Bank Cybersecurity Framework does not apply to non-financial sector 'ECOMMERCE'."
+    },
+    {
+      "requirement_id": "CSA-SEC-17",
+      "regulation_id": "BD-CSA-2026",
+      "clause": {
+        "clause_id": "CSA-SEC-17",
+        "chapter": "2",
+        "chapter_title": "???????????? ???? ????????? ? ???????",
+        "section": "17",
+        "section_title": "???????????? ???? ??????????? ?????? ??????",
+        "text_bn": "???????????? ???? ??????????? (CII) ???? ??????? ?????? ?????? ?? ????????? ???????? ??????? ????? ?????? ???",
+        "text_en": "No person shall intentionally access or disrupt Critical Information Infrastructure (CII) without authorization.",
+        "statutory_category": "APPLICATION_SECURITY",
+        "primary_entity": "ALL_ORGANIZATIONS"
+      },
+      "mapping": {
+        "requirement_ref": "CSA-SEC-17",
+        "obligation": {
+          "category": "Component Access Control",
+          "description": "Obligation to prevent unauthorized access or hijacking of Critical Information Infrastructure components."
+        },
+        "technical_control": {
+          "control_id": "CTRL-IPC-01",
+          "name": "Securing Exported IPC Components",
+          "description": "All exported Activities, Services, Broadcast Receivers, and Content Providers must enforce explicit permission checks."
+        },
+        "program_property": {
+          "property_id": "PROP-EXPORTED-COMPONENTS-SECURED",
+          "name": "Authorization Enforcement on Exported Components",
+          "target_platform": "Android",
+          "formal_specification": "FORALL c IN Manifest.components: (c[exported]='true') => (c[permission] != NULL AND c[permission].protectionLevel IN ['signature', 'privileged'])"
+        },
+        "observability": {
+          "level": "FULL",
+          "modalities": [
+            "STATIC"
+          ],
+          "limitations_rationale": "Component export status and permission attributes are fully defined in AndroidManifest.xml."
+        },
+        "evidence_rule": {
+          "rule_id": "RULE-MANIFEST-EXPORTED-UNPROTECTED",
+          "analysis_type": "MANIFEST",
+          "sources": [
+            "Manifest.activity",
+            "Manifest.service",
+            "Manifest.receiver",
+            "Manifest.provider"
+          ],
+          "sinks": [
+            "Android_IPC_Binder"
+          ],
+          "conditions": [
+            "exported=true AND permission attribute is missing"
+          ],
+          "supported_criteria": "All exported components declare android:permission with signature-level enforcement.",
+          "non_conformance_criteria": "Application exposes unprotected exported components without permissions, allowing arbitrary external intent invocation.",
+          "insufficient_evidence_criteria": "Component performs internal runtime permission check in onCreate() not resolved statically."
+        },
+        "validation": {
+          "status": "EXPERT_REVIEWED",
+          "expert_raters": 3,
+          "inter_rater_agreement": 1.0,
+          "rationale": "Unprotected exported components permit unauthorized third-party apps to access internal app functionalities."
+        }
+      },
+      "state": "PotentialNonConformance",
+      "evidence_items": [
+        {
+          "finding_id": "EV-D22F0BAB5F",
+          "rule_id": "RULE-MANIFEST-EXPORTED-UNPROTECTED",
+          "target_package": "com.chaldal.poached",
+          "apk_hash_sha256": "mock_sha256",
+          "timestamp": "2026-09-14T20:07:19.897342+00:00",
+          "modality": "STATIC",
+          "location": {
+            "component_type": "MANIFEST",
+            "file_path": "AndroidManifest.xml",
+            "class_name": null,
+            "method_name": null,
+            "line_number": null
+          },
+          "dataflow": null,
+          "extracted_value": "[\"activity:.ShareActivity\"]",
+          "evidence_strength": "HIGH",
+          "description": "Application exposes unprotected exported components without permissions: activity:.ShareActivity",
+          "is_violation": true,
+          "raw_artifact_ref": null
+        }
+      ],
+      "assessment_rationale": "Observed technical behaviors contradict control CTRL-IPC-01: Application exposes unprotected exported components without permissions: activity:.ShareActivity"
+    },
+    {
+      "requirement_id": "CSA-SEC-20",
+      "regulation_id": "BD-CSA-2026",
+      "clause": {
+        "clause_id": "CSA-SEC-20",
+        "chapter": "2",
+        "chapter_title": "????????? ? ??????? ????????? ?????",
+        "section": "20",
+        "section_title": "????????? ????? ??? ???????? ?? ?????????",
+        "text_bn": "???? ??????? ???????? ???? ?????????, ????????? ?? ????? ??? ????, ???????? ?? ???? ????? ?????? ???",
+        "text_en": "Tampering, altering, concealing, or destroying computer program source code is prohibited.",
+        "statutory_category": "APPLICATION_SECURITY",
+        "primary_entity": "ALL_ORGANIZATIONS"
+      },
+      "mapping": {
+        "requirement_ref": "CSA-SEC-20",
+        "obligation": {
+          "category": "Source Code Integrity & Obfuscation",
+          "description": "Obligation to protect software against unauthorized tampering and reverse engineering."
+        },
+        "technical_control": {
+          "control_id": "CTRL-OBFUSCATION-01",
+          "name": "Bytecode Obfuscation and Symbol Stripping",
+          "description": "Application production bytecode must be processed with ProGuard/R8 to prevent reverse engineering."
+        },
+        "program_property": {
+          "property_id": "PROP-BYTECODE-OBFUSCATED",
+          "name": "Bytecode Symbol Transformation",
+          "target_platform": "Android",
+          "formal_specification": "Ratio(ObfuscatedClassNames, TotalInternalClasses) >= 0.70"
+        },
+        "observability": {
+          "level": "PARTIAL",
+          "modalities": [
+            "STATIC"
+          ],
+          "limitations_rationale": "Symbol distribution and short package name patterns (e.g. a.b.c) can be calculated statically from DEX."
+        },
+        "evidence_rule": {
+          "rule_id": "RULE-CODE-OBFUSCATION-CHECK",
+          "analysis_type": "HYBRID",
+          "sources": [
+            "DEX_Class_Identifiers"
+          ],
+          "sinks": [
+            "Decompilation_AST"
+          ],
+          "conditions": [
+            "Obfuscation ratio < 0.30 in non-library packages"
+          ],
+          "supported_criteria": "DEX packages show systematic identifier renaming (short 1-2 char identifiers, flattened packages).",
+          "non_conformance_criteria": "DEX contains complete, unobfuscated business logic classes and method names matching sensitive financial workflows.",
+          "insufficient_evidence_criteria": "Binary packing or commercial protector prevents standard DEX inspection."
+        },
+        "validation": {
+          "status": "EXPERT_REVIEWED",
+          "expert_raters": 3,
+          "inter_rater_agreement": 0.85,
+          "rationale": "Publishing completely unobfuscated banking bytecode drastically facilitates malicious tampering."
+        }
+      },
+      "state": "InsufficientEvidence",
+      "evidence_items": [],
+      "assessment_rationale": "No static or dynamic program evidence was observed for this technical property."
+    },
+    {
+      "requirement_id": "PDPA-SEC-07",
+      "regulation_id": "BD-PDPA-2026",
+      "clause": {
+        "clause_id": "PDPA-SEC-07",
+        "chapter": "2",
+        "chapter_title": "????????? ?????? ?????????????? ?????? ???????",
+        "section": "7",
+        "section_title": "???????? ????????? (Data Minimization)",
+        "text_bn": "????????? ?????? ?????? ????????? ?????????????? ?????????? ???? ???????????, ???????? ??? ????????? ???????? ???? ???",
+        "text_en": "Personal data collected must be adequate, relevant, and limited to what is necessary in relation to the purposes for which they are processed.",
+        "statutory_category": "DATA_PROTECTION",
+        "primary_entity": "DATA_CONTROLLER"
+      },
+      "mapping": {
+        "requirement_ref": "PDPA-SEC-07",
+        "obligation": {
+          "category": "Data Minimization Principle",
+          "description": "Personal data collected must be adequate, relevant, and limited to necessary requirements."
+        },
+        "technical_control": {
+          "control_id": "CTRL-PERM-01",
+          "name": "Least-Privilege Android Permission Request",
+          "description": "The application must not declare dangerous permissions (e.g., READ_SMS, READ_CONTACTS, ACCESS_FINE_LOCATION) unrelated to its primary functional category."
+        },
+        "program_property": {
+          "property_id": "PROP-MINIMAL-PERMISSIONS",
+          "name": "Minimal Dangerous Permission Footprint",
+          "target_platform": "Android",
+          "formal_specification": "Manifest.uses-permission INTERSECT DangerousPermissions <= CategoryPermittedSet(AppCategory)"
+        },
+        "observability": {
+          "level": "PARTIAL",
+          "modalities": [
+            "STATIC"
+          ],
+          "limitations_rationale": "Permission presence is fully observable statically, but statutory necessity requires correlating with app business sector."
+        },
+        "evidence_rule": {
+          "rule_id": "RULE-PERM-EXCESSIVE-DANGEROUS",
+          "analysis_type": "MANIFEST",
+          "sources": [
+            "Manifest:uses-permission"
+          ],
+          "sinks": [
+            "Android_OS_Permission_Manager"
+          ],
+          "conditions": [
+            "Dangerous permission declared without category justification (e.g. READ_SMS in Calculator or Flashlight)"
+          ],
+          "supported_criteria": "App requests zero unneeded dangerous permissions; permissions strictly align with declared sector.",
+          "non_conformance_criteria": "Application declares high-risk permissions (SMS, Call Log, Contacts) with no sectoral justification.",
+          "insufficient_evidence_criteria": "Application category cannot be unambiguously identified."
+        },
+        "validation": {
+          "status": "EXPERT_REVIEWED",
+          "expert_raters": 3,
+          "inter_rater_agreement": 0.95,
+          "rationale": "Excessive permissions constitute prima facie evidence of non-compliance with statutory data minimization."
+        }
+      },
+      "state": "PotentialNonConformance",
+      "evidence_items": [
+        {
+          "finding_id": "EV-D571A2A55F",
+          "rule_id": "RULE-PERM-EXCESSIVE-DANGEROUS",
+          "target_package": "com.chaldal.poached",
+          "apk_hash_sha256": "mock_sha256",
+          "timestamp": "2026-09-14T20:07:19.897326+00:00",
+          "modality": "STATIC",
+          "location": {
+            "component_type": "MANIFEST",
+            "file_path": "AndroidManifest.xml",
+            "class_name": null,
+            "method_name": null,
+            "line_number": null
+          },
+          "dataflow": null,
+          "extracted_value": "[\"android.permission.ACCESS_FINE_LOCATION\", \"android.permission.READ_CONTACTS\"]",
+          "evidence_strength": "HIGH",
+          "description": "Application requests dangerous permissions without sectoral justification: android.permission.ACCESS_FINE_LOCATION, android.permission.READ_CONTACTS",
+          "is_violation": true,
+          "raw_artifact_ref": null
+        }
+      ],
+      "assessment_rationale": "Observed technical behaviors contradict control CTRL-PERM-01: Application requests dangerous permissions without sectoral justification: android.permission.ACCESS_FINE_LOCATION, android.permission.READ_CONTACTS"
+    },
+    {
+      "requirement_id": "PDPA-SEC-15",
+      "regulation_id": "BD-PDPA-2026",
+      "clause": {
+        "clause_id": "PDPA-SEC-15",
+        "chapter": "4",
+        "chapter_title": "??????-??????????? ??????????? ? ?????????",
+        "section": "15",
+        "section_title": "??????? ? ????????????? ????????? ????????",
+        "text_bn": "??????-????????? ?? ????????????? ????????? ???????? ????????? ??????? ????? ????????? ??????? ? ????????????? ??????? ???????? ????? ????? ?????? ????????? ??????, ???????? ?? ?????? ??? ??? ????",
+        "text_en": "Data fiduciaries and processors must implement appropriate technical and organizational measures to ensure security of personal data against unauthorized access, alteration, or disclosure.",
+        "statutory_category": "APPLICATION_SECURITY",
+        "primary_entity": "ALL_ORGANIZATIONS"
+      },
+      "mapping": {
+        "requirement_ref": "PDPA-SEC-15",
+        "obligation": {
+          "category": "Personal Data Technical Security",
+          "description": "Mandate to implement technical measures preventing unauthorized disclosure or exfiltration of personal data."
+        },
+        "technical_control": {
+          "control_id": "CTRL-DATA-01",
+          "name": "Prohibition of PII Exfiltration to Insecure Sinks",
+          "description": "Personal data (IMEI, phone number, NID, geolocation) must not flow to unencrypted network sinks or public logs."
+        },
+        "program_property": {
+          "property_id": "PROP-PII-FLOW-RESTRICTION",
+          "name": "Source-Sink Dataflow Restriction for PII",
+          "target_platform": "Android",
+          "formal_specification": "NOT EXISTS (Path(Source_PII, Sink_InsecureNetwork))"
+        },
+        "observability": {
+          "level": "PARTIAL",
+          "modalities": [
+            "STATIC",
+            "DYNAMIC",
+            "HYBRID"
+          ],
+          "limitations_rationale": "Data flow reachability can be detected via static taint tracking and corroborated dynamically by packet payloads."
+        },
+        "evidence_rule": {
+          "rule_id": "RULE-DATAFLOW-PII-TO-HTTP",
+          "analysis_type": "DATAFLOW",
+          "sources": [
+            "TelephonyManager.getDeviceId",
+            "TelephonyManager.getLine1Number",
+            "Location.getLatitude",
+            "ClipboardManager.getText"
+          ],
+          "sinks": [
+            "HttpURLConnection.getOutputStream",
+            "OkHttpClient.newCall",
+            "Log.d"
+          ],
+          "conditions": [
+            "Taint path exists from PII source to network or log sink without cryptographic transform"
+          ],
+          "supported_criteria": "No reachable path exists between PII sources and unencrypted external sinks.",
+          "non_conformance_criteria": "Identified reachable flow path where personal identifiers reach cleartext HTTP or unencrypted sockets.",
+          "insufficient_evidence_criteria": "Source flows into complex obfuscated reflection or native JNI boundary."
+        },
+        "validation": {
+          "status": "EXPERT_REVIEWED",
+          "expert_raters": 3,
+          "inter_rater_agreement": 1.0,
+          "rationale": "Transmitting PII over unencrypted channels directly violates technical safeguard obligations under Section 15."
+        }
+      },
+      "state": "PotentialNonConformance",
+      "evidence_items": [
+        {
+          "finding_id": "EV-9F2E8D29C0",
+          "rule_id": "RULE-DATAFLOW-PII-TO-HTTP",
+          "target_package": "com.chaldal.poached",
+          "apk_hash_sha256": "mock_sha256",
+          "timestamp": "2026-09-14T20:07:19.897433+00:00",
+          "modality": "STATIC",
+          "location": {
+            "component_type": "BYTECODE",
+            "file_path": "Telemetry.dex",
+            "class_name": "Telemetry.dex",
+            "method_name": null,
+            "line_number": null
+          },
+          "dataflow": {
+            "source": "getDeviceId",
+            "sink": "HttpURLConnection",
+            "intermediate_hops": []
+          },
+          "extracted_value": "getDeviceId -> HttpURLConnection",
+          "evidence_strength": "HIGH",
+          "description": "Taint flow path detected: personal identifier (getDeviceId) reaches unencrypted network sink (HttpURLConnection).",
+          "is_violation": true,
+          "raw_artifact_ref": null
+        }
+      ],
+      "assessment_rationale": "Observed technical behaviors contradict control CTRL-DATA-01: Taint flow path detected: personal identifier (getDeviceId) reaches unencrypted network sink (HttpURLConnection)."
+    },
+    {
+      "requirement_id": "PDPA-SEC-06",
+      "regulation_id": "BD-PDPA-2026",
+      "clause": {
+        "clause_id": "PDPA-SEC-06",
+        "chapter": "2",
+        "chapter_title": "????????? ?????? ?????????????? ?????? ???????",
+        "section": "6",
+        "section_title": "???????? ??????????",
+        "text_bn": "???? ??????-?????????, ??? ???????? ?????? ???? ???? ????????? ??????????? ????????? ?????? ???????????? ????? ?????? ???",
+        "text_en": "A data fiduciary cannot process personal data for purposes other than the original specified and lawful purpose.",
+        "statutory_category": "DATA_PROTECTION",
+        "primary_entity": "DATA_CONTROLLER"
+      },
+      "mapping": {
+        "requirement_ref": "PDPA-SEC-06",
+        "obligation": {
+          "category": "Purpose Limitation & Third-Party Disclosure",
+          "description": "Personal data must not be transferred to third-party tracking ecosystems without explicit user consent."
+        },
+        "technical_control": {
+          "control_id": "CTRL-SDK-01",
+          "name": "Restricting Third-Party SDK Data Collection",
+          "description": "Third-party advertising and analytics SDKs must not automatically collect hardware and subscriber identifiers."
+        },
+        "program_property": {
+          "property_id": "PROP-NO-SDK-PII-EXFILTRATION",
+          "name": "Isolation of PII from Commercial Tracking SDKs",
+          "target_platform": "Android",
+          "formal_specification": "NOT EXISTS (Path(Source_HardwareID, Sink_ThirdPartySDK))"
+        },
+        "observability": {
+          "level": "PARTIAL",
+          "modalities": [
+            "STATIC",
+            "DYNAMIC"
+          ],
+          "limitations_rationale": "Static package attribution identifies tracker SDKs; dynamic traffic analysis observes actual telemetry payloads."
+        },
+        "evidence_rule": {
+          "rule_id": "RULE-SDK-TRACKER-PII-FLOW",
+          "analysis_type": "SDK",
+          "sources": [
+            "TelephonyManager.getDeviceId",
+            "Settings.Secure.ANDROID_ID"
+          ],
+          "sinks": [
+            "com.facebook.ads",
+            "com.google.android.gms.ads",
+            "com.appsflyer"
+          ],
+          "conditions": [
+            "Device identifier passed directly into advertising or tracking SDK initializers"
+          ],
+          "supported_criteria": "No advertising or analytics SDKs access persistent device identifiers.",
+          "non_conformance_criteria": "Tracking SDK invoked with raw hardware identifiers or dynamic traffic reveals IMEI transmitted to ad networks.",
+          "insufficient_evidence_criteria": "SDK uses dynamic server-side configuration to toggle identifier transmission."
+        },
+        "validation": {
+          "status": "EXPERT_REVIEWED",
+          "expert_raters": 3,
+          "inter_rater_agreement": 0.95,
+          "rationale": "Third-party ad networks harvesting device identifiers without consent contradicts purpose limitation."
+        }
+      },
+      "state": "PotentialNonConformance",
+      "evidence_items": [
+        {
+          "finding_id": "EV-6DDB5E9411",
+          "rule_id": "RULE-SDK-TRACKER-PII-FLOW",
+          "target_package": "com.chaldal.poached",
+          "apk_hash_sha256": "mock_sha256",
+          "timestamp": "2026-09-14T20:07:19.897420+00:00",
+          "modality": "STATIC",
+          "location": {
+            "component_type": "BYTECODE",
+            "file_path": "App.dex",
+            "class_name": "App.dex",
+            "method_name": null,
+            "line_number": null
+          },
+          "dataflow": null,
+          "extracted_value": "AppsFlyer Telemetry & Attribution <- IMEI",
+          "evidence_strength": "HIGH",
+          "description": "Device/subscriber identifier passed directly to third-party tracker SDK (AppsFlyer Telemetry & Attribution): IMEI",
+          "is_violation": true,
+          "raw_artifact_ref": null
+        }
+      ],
+      "assessment_rationale": "Observed technical behaviors contradict control CTRL-SDK-01: Device/subscriber identifier passed directly to third-party tracker SDK (AppsFlyer Telemetry & Attribution): IMEI"
+    },
+    {
+      "requirement_id": "PDPA-SEC-16",
+      "regulation_id": "BD-PDPA-2026",
+      "clause": {
+        "clause_id": "PDPA-SEC-16",
+        "chapter": "4",
+        "chapter_title": "??????-??????????? ??????????? ? ?????????",
+        "section": "16",
+        "section_title": "???????? ????????? ? ???????",
+        "text_bn": "????????? ?????? ???? ?? ???????????? ??? ??????? ????????? ?? ????????? ???????? ??????? ????? ???? ????????? ???? ?????? ?????",
+        "text_en": "Confidentiality and integrity of personal data must be maintained during storage and transit using encryption and secure protocols.",
+        "statutory_category": "CRYPTOGRAPHY",
+        "primary_entity": "ALL_ORGANIZATIONS"
+      },
+      "mapping": {
+        "requirement_ref": "PDPA-SEC-16",
+        "obligation": {
+          "category": "Personal Data Confidentiality",
+          "description": "Obligation to prevent leakage of personal data into operating system logs accessible to other apps."
+        },
+        "technical_control": {
+          "control_id": "CTRL-LOG-01",
+          "name": "Prohibition of PII in System Logcat",
+          "description": "Personal identifiers and customer financial tokens must never be written to Android Logcat."
+        },
+        "program_property": {
+          "property_id": "PROP-NO-PII-IN-LOGS",
+          "name": "Absence of Personal Data in System Logs",
+          "target_platform": "Android",
+          "formal_specification": "NOT EXISTS (Invoke android.util.Log.*(tag, msg)) WHERE msg CONTAINS Source_PII"
+        },
+        "observability": {
+          "level": "FULL",
+          "modalities": [
+            "STATIC",
+            "DYNAMIC"
+          ],
+          "limitations_rationale": "Log calls in Dalvik bytecode are statically identifiable; dynamic logcat capture provides confirmatory evidence."
+        },
+        "evidence_rule": {
+          "rule_id": "RULE-DATAFLOW-PII-TO-LOG",
+          "analysis_type": "DATAFLOW",
+          "sources": [
+            "AccountCredentials",
+            "PhoneNumbers",
+            "NationalID"
+          ],
+          "sinks": [
+            "android.util.Log.d",
+            "android.util.Log.v",
+            "android.util.Log.i",
+            "android.util.Log.e"
+          ],
+          "conditions": [
+            "PII string reaches logging sink"
+          ],
+          "supported_criteria": "Zero logging statements emit user credentials or PII fields in release bytecode.",
+          "non_conformance_criteria": "Bytecode contains calls passing customer phone, password, or NID to android.util.Log.",
+          "insufficient_evidence_criteria": "Logging utility uses custom formatting wrapper."
+        },
+        "validation": {
+          "status": "EXPERT_REVIEWED",
+          "expert_raters": 3,
+          "inter_rater_agreement": 1.0,
+          "rationale": "Logcat leakage exposes personal data to all tools with READ_LOGS or desktop ADB access."
+        }
+      },
+      "state": "PotentialNonConformance",
+      "evidence_items": [
+        {
+          "finding_id": "EV-5D31C507B4",
+          "rule_id": "RULE-DATAFLOW-PII-TO-LOG",
+          "target_package": "com.chaldal.poached",
+          "apk_hash_sha256": "mock_sha256",
+          "timestamp": "2026-09-14T20:07:19.897445+00:00",
+          "modality": "STATIC",
+          "location": {
+            "component_type": "BYTECODE",
+            "file_path": "Login.dex",
+            "class_name": "Login.dex",
+            "method_name": null,
+            "line_number": null
+          },
+          "dataflow": null,
+          "extracted_value": "user_phone in Logcat",
+          "evidence_strength": "HIGH",
+          "description": "Personal data or credential field (user_phone) emitted to Android Logcat sink (Log.d).",
+          "is_violation": true,
+          "raw_artifact_ref": null
+        }
+      ],
+      "assessment_rationale": "Observed technical behaviors contradict control CTRL-LOG-01: Personal data or credential field (user_phone) emitted to Android Logcat sink (Log.d)."
+    }
+  ]
+}

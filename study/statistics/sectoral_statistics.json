@@ -1,0 +1,53 @@
+{
+  "dataset_summary": {
+    "total_applications_analyzed": 24,
+    "financial_apps": 10,
+    "non_financial_apps": 14
+  },
+  "rq5_sectoral_disparity": {
+    "mean_ESC_financial": 0.9,
+    "mean_ESC_non_financial": 0.5357,
+    "mann_whitney_u": 0.0,
+    "z_score": -4.0988,
+    "statistically_significant": true,
+    "p_value_approx": "< 0.001"
+  },
+  "sector_breakdown": {
+    "MFS": {
+      "app_count": 5,
+      "mean_ESC": 0.9,
+      "mean_EC": 0.8333,
+      "avg_potential_violations": 1.0
+    },
+    "BANKING": {
+      "app_count": 5,
+      "mean_ESC": 0.9,
+      "mean_EC": 0.8333,
+      "avg_potential_violations": 1.0
+    },
+    "GOVERNMENT": {
+      "app_count": 4,
+      "mean_ESC": 0.75,
+      "mean_EC": 0.6667,
+      "avg_potential_violations": 1.0
+    },
+    "ECOMMERCE": {
+      "app_count": 4,
+      "mean_ESC": 0.0,
+      "mean_EC": 0.8333,
+      "avg_potential_violations": 5.0
+    },
+    "TRANSPORTATION": {
+      "app_count": 2,
+      "mean_ESC": 0.75,
+      "mean_EC": 0.6667,
+      "avg_potential_violations": 1.0
+    },
+    "UTILITIES": {
+      "app_count": 4,
+      "mean_ESC": 0.75,
+      "mean_EC": 0.6667,
+      "avg_potential_violations": 1.0
+    }
+  }
+}

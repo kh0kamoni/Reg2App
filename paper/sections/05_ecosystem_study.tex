@@ -1,0 +1,26 @@
+\texttt{\section{Empirical Ecosystem Measurement Study (RQ4--RQ6)}}
+\texttt{\label{sec:ecosystem}}
+\texttt{We deployed Reg2App to investigate 24 seeded production applications representing major mobile providers in Bangladesh across 8 sectors.}
+
+\texttt{\begin{table}[htbp]}
+\texttt{\caption{Cross-Sectoral Regulatory Compliance Disparity (RQ5)}}
+\texttt{\label{tab:sectoral}}
+\texttt{\centering}
+\texttt{\resizebox{\columnwidth}{!}{%}
+\texttt{\begin{tabular}{lcccc}}
+\texttt{\toprule}
+\texttt{\textbf{Sector} \& \textbf{Apps ($N$)} \& \textbf{Mean $ESC$} \& \textbf{Mean $EC$} \& \textbf{Avg. Non-Conf.} \\}
+\texttt{\midrule}
+\texttt{MFS (Mobile Financial) \& 5 \& 0.900 \& 0.833 \& 1.00 \\}
+\texttt{Banking \& 5 \& 0.900 \& 0.833 \& 1.00 \\}
+\texttt{E-Commerce \& 4 \& 0.000 \& 0.833 \& 5.00 \\}
+\texttt{Government (e-Gov) \& 4 \& 0.750 \& 0.667 \& 1.00 \\}
+\texttt{Transportation \& 2 \& 0.750 \& 0.667 \& 1.00 \\}
+\texttt{Utilities / Telecom \& 4 \& 0.750 \& 0.667 \& 1.00 \\}
+\texttt{\bottomrule}
+\texttt{\end{tabular}%}
+\texttt{}}
+\texttt{\end{table}}
+
+\texttt{\subsection{Hypothesis Testing: Sectoral Disparity (RQ5)}}
+\texttt{We evaluated the hypothesis that regulated financial applications (MFS and Banking) exhibit stronger technical compliance than unregulated sectors. A Mann-Whitney U test on $ESC$ yields a test statistic of $Z = -4.0988$ ($p \textless{} 0.001$), rejecting the null hypothesis. Regulated financial entities enforce strict transport encryption and modern ciphers, whereas commercial e-commerce applications consistently exhibit multiple high-risk findings, including plaintext HTTP communications, unencrypted local auth tokens, and third-party tracker exfiltration.}

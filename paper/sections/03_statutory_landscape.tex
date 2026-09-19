@@ -1,0 +1,60 @@
+\section{The Bangladesh Statutory Landscape}
+\label{sec:statutory}
+
+To evaluate mobile applications against real-world statutory obligations, we ground our analysis in authoritative legal instruments. Emerging digital economies exhibit multi-tiered regulatory architectures where sector-specific administrative directives intersect with national horizontal data protection legislation, mirroring international frameworks such as the EU GDPR~\cite{gdpr_2016}, PCI-DSS v4.0~\cite{pci_dss_v4}, and NIST SP 800-53~\cite{nist_sp800_53}. In Bangladesh, this intersection is defined by three complementary legal instruments promulgated, enacted, or advanced between 2023 and 2025 (Table~\ref{tab:statutory_pillars}; full statutory texts and mappings are archived in our open artifact repository).
+
+\begin{table*}[t]
+\centering
+\small
+\caption{\textbf{The Statutory Tri-Pillar}: Authoritative legal instruments governing mobile digital services in Bangladesh.}
+\label{tab:statutory_pillars}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lllll}
+\toprule
+\textbf{Regulatory Instrument} & \textbf{Statutory Authority} & \textbf{Jurisdictional Scope} & \textbf{Key Technical Mandates} & \textbf{Enforcement Sanctions} \\
+\midrule
+\textbf{Bangladesh Bank CSF v1.0}~\cite{bb_csf_2025} & Bangladesh Bank (Central Bank) & Banks, NBFIs, PSPs, MFS operators & TLS 1.2+, Pinning baseline, Keystore, Anti-Tamper & Administrative fines, operational license suspension \\
+\textbf{Draft Personal Data Protection Act (PDPA)}~\cite{bd_pdpa_2026} & Data Protection Board of BD & All entities processing citizen PII & Storage encryption, Data Minimization, Consent & Prospective: up to 5\% turnover (upon enactment) \\
+\textbf{Cyber Security Act, 2023 (Act XXVII of 2023)}~\cite{bd_csa_2026} & National Cyber Security Agency & Critical Information Infrastructure & System integrity, Interception defense, IPC security & Criminal prosecution, custodial penalties \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}
+
+\subsection{The Legal Hierarchy and the Interpretive Gap}
+\label{sec:statutory:interpretive_gap}
+
+A foundational challenge in Regulation-as-Code research is navigating the structural boundary between natural-language legal doctrine and low-level program analysis~\cite{breaux_requirements, catala}. In statutory jurisprudence, legal authorities operate across a three-tiered hierarchy:
+(1)~\textit{Primary Parliamentary Statutes}: Legislative acts (e.g., CSA 2023~\cite{bd_csa_2026}) and prospective legislation (Draft PDPA~\cite{bd_pdpa_2026}) define horizontal normative obligations (e.g., mandating appropriate technical measures for data security). To prevent rapid obsolescence, primary statutes refrain from codifying ephemeral software engineering standards into law.
+(2)~\textit{Delegated Administrative Directives}: Regulatory circulars issued under delegated authority. The \textit{Cybersecurity Framework for Banks and Financial Institutions (Version 1.0)}~\cite{bb_csf_2025} exemplifies this tier: Bangladesh Bank establishes sector-specific, prescriptive technical baselines for commercial banks and Mobile Financial Service (MFS) operators.
+(3)~\textit{Operationalized Technical Controls}: Industry benchmarks—such as OWASP MASVS~\cite{owasp_masvs} and central bank audit checklists—that operationalize regulatory mandates into concrete software mechanisms (e.g., TLS 1.2+ with certificate pinning on payment gateways, AES-256-GCM backed by hardware keystores~\cite{ekberg_tee}).
+
+This hierarchy clarifies the \textit{interpretive gap} in regulatory software analysis. Statutes rarely specify bytecode instructions; no statute explicitly names \texttt{KeyGenParameterSpec}. When an automated tool evaluates code against a clause, it verifies compliance with an \textit{operationalized technical control} derived from regulatory guidance. An observed deviation (e.g., missing certificate pinning) represents a \textit{technical indicator of non-conformance with an established regulatory baseline}, rather than a judicial determination of legal guilt. Formalizing this translation through transparent ontologies is the primary objective of our 7-tuple model.
+
+\subsection{Bangladesh Bank Cybersecurity Framework (BB-CSF v1.0)}
+\label{sec:statutory:bb}
+
+Promulgated by the central bank under BRPD Circular No. 04/2025 (updating BRPD Circular No. 07/2023), BB-CSF v1.0 establishes four core technical domains relevant to client software:
+(1)~\textit{Network Transport Security (Section 4.1.3.12)}: Mandates cryptographic encryption of sensitive data in transit over public networks (enforcing modern TLS 1.2+ without cleartext HTTP). Supervisory guidelines and industry baselines (OWASP MASVS-NETWORK-2) operationalize defense-in-depth via certificate pinning on primary payment endpoints to mitigate adversary-in-the-middle attacks~\cite{fahl_msc, castle_crypto}.
+(2)~\textit{Cryptographic Key Governance (Section 4.1.5.18) and Cipher Strength (Section 4.1.5.19)}: Mandates key lifecycle management, strictly prohibiting hardcoded static keys in APK distributions and barring deprecated ciphers (e.g., DES, RC4, electronic codebook modes)~\cite{crypto_misuse_ccs}.
+(3)~\textit{Sensitive Storage and Data-at-Rest Protection (Section 4.1.5.21)}: Prohibits unencrypted payment credentials or user identifiers in local device storage, directing institutions to utilize secure hardware-backed enclaves (AndroidKeyStore with StrongBox or TEE)~\cite{ekberg_tee}.
+(4)~\textit{Application Integrity, Backup, and Tampering (Sections 4.1.4.3, 4.1.5.10, and 4.1.5.21)}: Directs institutions to incorporate anti-tampering controls against debugging, restrict local extraction via application backup flags (\texttt{allowBackup="false"} under Sections 4.1.5.10 and 4.1.5.21), and prevent execution on rooted environments.
+
+\subsection{Personal Data Protection Act (Draft BD-PDPA)}
+\label{sec:statutory:pdpa}
+
+Formally designated as the Data Protection Act and approved in principle as a draft bill by the Cabinet of Bangladesh~\cite{bd_pdpa_2026}, the draft PDPA establishes Bangladesh's prospective horizontal data privacy framework across five domains:
+(1)~\textit{Lawful Processing and Consent (Sections 5 and 8)}: Mandates transparent data processing conditioned on unambiguous user consent.
+(2)~\textit{Data Minimization (Section 7)}: Mandates that data collection must be strictly limited to declared service delivery, mapping to requesting minimal dangerous OS permissions.
+(3)~\textit{Technical Security Safeguards (Section 15)}: Imposes a statutory duty to implement safeguards against unauthorized disclosure of personal data stored or cached on terminal devices.
+(4)~\textit{Cross-Border Restrictions and Third-Party Data Transfer (Section 23)}: Bars cross-border data transfer or third-party sharing without affirmative consent and verified jurisdictional adequacy.
+(5)~\textit{Purpose Specification and Third-Party Notice (Section 28)}: Requires transparent notice regarding third-party telemetry recipients and SDK tracking~\cite{binns_third_party_trackers}.
+
+\subsection{Cyber Security Act, 2023 (BD-CSA)}
+\label{sec:statutory:csa}
+
+Enacted by the Parliament of Bangladesh as Act No. XXVII of 2023 (published in the Bangladesh Gazette Extraordinary on September 18, 2023)~\cite{bd_csa_2026}\footnote{The CSA 2023 was the operative parliamentary enactment during our January--February 2026 empirical study window. If subsequent legislative ordinances amend section numbering, mappings are updated declaratively via Architectural Property~1 without analyzer modification.}, the CSA penalizes unauthorized cyber activities across four domains:
+(1)~\textit{Critical Information Infrastructure (Section 15)}: Imposes elevated cybersecurity audit obligations on mobile endpoints interfacing with national banking and identity registries.
+(2)~\textit{Component Access Control and IPC Security (Section 17)}: Mandates access controls on system interfaces, mapping to secure configuration of exported Android IPC components.
+(3)~\textit{Anti-Tampering and Data Alteration (Section 20)}: Prohibits unauthorized modification or alteration of digital system logic and integrity.
+(4)~\textit{Interception and Transmission Defense (Section 21)}: Penalizes unauthorized interception of telecommunications data, prohibiting unencrypted transmission of telemetry or customer traffic.

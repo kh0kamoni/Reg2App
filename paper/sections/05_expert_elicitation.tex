@@ -1,0 +1,66 @@
+\section{Expert Elicitation and Ontological Validation}
+\label{sec:expert}
+
+A fundamental threat to validity in Regulation-as-Code research is the subjectivity of legal interpretation: if software engineers formulate statutory mappings unilaterally, the resulting technical rules risk misinterpreting legal doctrine or incorporating personal bias~\cite{breaux_requirements}. To guarantee construct validity, Reg2App establishes an empirical, multi-disciplinary expert elicitation and validation protocol.
+
+\subsection{Expert Panel Composition}
+\label{sec:expert:panel}
+
+We convened an independent expert panel comprising three senior practitioners representing distinct disciplines essential to regulatory compliance in Bangladesh: (1) an advocate of the Supreme Court of Bangladesh with 14 years of practice in telecommunications law and statutory drafting, who participated in legislative consultations for the PDPA; (2) a lead cybersecurity auditor holding CISA, CISM, and CISSP credentials with 12 years of experience conducting mandatory cybersecurity audits for commercial banks and MFS operators under central bank regulations; and (3) a principal mobile software architect with 11 years of experience architecting large-scale financial Android applications across South Asia.
+
+\subsection{Elicitation Protocol and Review Pack}
+\label{sec:expert:protocol}
+
+The panel evaluated a blinded Review Pack containing 12 representative statutory mappings across BB-CSF v1.0, BD-PDPA, and BD-CSA. For each mapping $M_i = (R_i, O_i, C_i, P_i, E_i, A_i, V_i)$, each expert independently assessed three dimensions on an ordinal scale: (1)~\textit{Statutory Fidelity}; (2)~\textit{Observability Categorization} ($L_i \in \{\mathbf{FULL}, \mathbf{PARTIAL}, \mathbf{NONE}\}$); and (3)~\textit{Engineering Actionability}.
+
+The 12 mappings were purposively selected across the tri-pillar corpus to span core security domains across the three normative tiers (Statutory Mandates, Supervisory Baselines, and Risk Indicators) and observability categories. Crucially, the review pack focused on candidate \textit{software-observable} rules to evaluate whether they constituted $\mathbf{FULL}$ or $\mathbf{PARTIAL}$ client observations. Purely organizational and administrative requirements (such as BB-CSF §3.1 Board Governance, Draft PDPA §22 Appointment of Data Protection Officer, and CSA §28 Incident Notification) were classified \textit{a priori} as $L_i = \mathbf{NONE}$ during statutory scoping ($M = \emptyset$) because they mandate no client software mechanisms.
+
+\subsection{Inter-Rater Reliability Formulation}
+\label{sec:expert:reliability}
+
+To quantify consensus, we compute pairwise raw agreement, Fleiss' Multi-Rater Kappa ($\kappa$)~\cite{fleiss_kappa}, and Krippendorff's Alpha ($\alpha$)~\cite{krippendorff_alpha}. Let $N=12$ be the evaluated items, $m=3$ be raters, and $k=3$ be rating categories ($\mathbf{FULL}, \mathbf{PARTIAL}, \mathbf{NONE}$). The category proportion $p_j$ and per-item agreement $P_i$ are:
+\begin{equation}
+p_j = \frac{1}{Nm} \sum_{i=1}^N n_{ij}, \qquad P_i = \frac{1}{m(m-1)} \sum_{j=1}^k \left( n_{ij}^2 - n_{ij} \right)
+\end{equation}
+With mean agreement $\bar{P} = \frac{1}{N} \sum_{i=1}^N P_i$ and chance agreement $P_e = \sum_{j=1}^k p_j^2$, Fleiss' $\kappa = \frac{\bar{P} - P_e}{1 - P_e}$. Krippendorff's $\alpha = 1 - \frac{D_o}{D_e}$ accounts for nominal disagreements with finite-sample corrections.
+
+\begin{table*}[t]
+\small
+\caption{Expert Panel Rating Matrix and Consensus Classifications Across 12 Purposively Sampled Statutory Mappings ($m=3$ Raters)}
+\label{tab:expert_reliability}
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llllcccc}
+\toprule
+\textbf{Item ID} & \textbf{Statutory Ref.} & \textbf{Technical Security Control} & \textbf{Normative Tier} & \textbf{Rater 1} & \textbf{Rater 2} & \textbf{Rater 3} & \textbf{Reconciled $L_i$} \\
+\midrule
+REV-01 & BB-CSF §4.1.3.12 & Transport Layer Security ($\ge$ TLS 1.2, cleartext ban) & Delegated Directive & FULL & FULL & FULL & $\mathbf{FULL}$ \\
+REV-02 & BB-CSF §4.1.5.18 & Key Lifecycle Governance (AndroidKeyStore) & Delegated Directive & FULL & FULL & FULL & $\mathbf{FULL}$ \\
+REV-03 & BB-CSF §4.1.5.19 & Prohibited Ciphers (ban DES, RC4, ECB mode) & Delegated Directive & FULL & FULL & FULL & $\mathbf{FULL}$ \\
+REV-04 & BB-CSF §4.1.5.21 & Local Storage Encryption (SQLCipher/EncryptedPrefs) & Delegated Directive & FULL & FULL & FULL & $\mathbf{FULL}$ \\
+REV-05 & BB-CSF §4.1.5.10 \& §4.1.5.21 & Application Backup Prohibition (\texttt{allowBackup=false}) & Supervisory Baseline & FULL & FULL & FULL & $\mathbf{FULL}$ \\
+REV-06 & BB-CSF §4.1.3.10 & Session Inactivity \& Keystore Biometric Authorization & Delegated Directive & FULL & PARTIAL & PARTIAL & $\mathbf{PARTIAL}^*$ \\
+REV-07 & BD-CSA §17 & Exported IPC Access Control & Statutory Mandate & FULL & FULL & FULL & $\mathbf{FULL}$ \\
+REV-08 & BD-CSA §20 & Anti-Tampering \& Bytecode Obfuscation & Supervisory Baseline & PARTIAL & PARTIAL & PARTIAL & $\mathbf{PARTIAL}$ \\
+REV-09 & BD-PDPA §7 & Permission Minimization (dangerous manifest perms) & Draft Statutory & PARTIAL & PARTIAL & PARTIAL & $\mathbf{PARTIAL}$ \\
+REV-10 & BD-PDPA §15 & Personal Data Sandbox Isolation \& Storage Protection & Draft Statutory & PARTIAL & PARTIAL & PARTIAL & $\mathbf{PARTIAL}$ \\
+REV-11 & BD-PDPA §23 & Third-Party Telemetry \& Cross-Border Sharing Restrictions & Security-Risk Indicator & PARTIAL & NONE & PARTIAL & $\mathbf{PARTIAL}^*$ \\
+REV-12 & BD-PDPA §16 & Prohibition of PII \& Credential Leakage in Android Logs & Draft Statutory & FULL & FULL & FULL & $\mathbf{FULL}$ \\
+\midrule
+\multicolumn{8}{l}{\textit{Agreement Statistics ($N=12, m=3$):} 10 unanimous items, 2 split items; Raw Pairwise Agreement = $32/36 = \mathbf{88.9\%}$; Pre-Reconciliation $\mathbf{\text{Fleiss' } \kappa = 0.776}$ $[0.568, 0.952]$; $\mathbf{\text{Krippendorff's } \alpha = 0.782}$;} \\
+\multicolumn{8}{l}{Post-Reconciliation Delphi Consensus: $\mathbf{100\%}$ ($12/12$ unanimous consensus reached via structured Delphi reconciliation). $^*$Indicates initial split items resolved during deliberation.} \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}
+
+\subsection{Empirical Agreement and Consensus Reconciliation}
+\label{sec:expert:results}
+
+As detailed in Table~\ref{tab:expert_reliability}, prior to reconciliation, the 3 raters agreed unanimously on 10 of the 12 items ($83.3\%$), with 2 items exhibiting a 2-vs-1 split. This corresponds to 32 agreeing pairs out of 36 total rater pairs ($88.9\%$ raw pairwise agreement), yielding a pre-reconciliation Fleiss' $\kappa = 0.776$ ($95\%$ bootstrap CI $[0.568, 0.952]$) and Krippendorff's $\alpha = 0.782$, reflecting substantial initial consensus~\cite{landis_koch_1977}. Across the companion ordinal dimensions, the panel rated Statutory Fidelity at $4.75 \pm 0.45$ on a 5-point Likert scale (Krippendorff's ordinal $\alpha = 0.865$) and Engineering Actionability at $4.83 \pm 0.38$ ($\alpha = 0.882$). We note that Fidelity and Actionability means exhibit ceiling compression characteristic of small-sample Likert evaluations; these ratings serve as operational feasibility indicators rather than standardized psychometric scales.
+
+Following a two-phase Delphi protocol~\cite{delphi_method}, the two divergent items were deliberated:
+First, for BB-CSF §4.1.3.10 (session binding), Rater 1 initially rated it $\mathbf{FULL}$ based on BiometricPrompt detection. Raters 2 and 3 noted that client UI displays cannot confirm whether backend token expiration is enforced. The panel unanimously reconciled the clause as $\mathbf{PARTIAL}$.
+Second, for PDPA §23 (third-party telemetry), Rater 2 classified it as $\mathbf{NONE}$ because backend cross-border processing agreements reside off-device. Raters 1 and 3 argued that client-side initialization of foreign tracker endpoints constitutes an observable technical data egress channel. The panel reconciled it as $\mathbf{PARTIAL}$—verifying hardcoded SDK endpoints client-side while acknowledging backend consent verification remains off-device.
+
+Following reconciliation, the panel achieved $100\%$ unanimous consensus across all 12 mappings. The $\mathbf{NONE}$ class (applied to BB-CSF §3.1 Board Governance, Draft PDPA §22 DPO Appointment, and CSA §28 Incident Notification) was assigned \textit{a priori} during statutory scoping based on the absence of client software mechanisms, and was not submitted to the panel for observability rating. Invariant~1 therefore rests on the authors' classification that purely organizational requirements mandate no client artifacts. The Supreme Court advocate who served on the panel also vetted Bengali translation fidelity (Section~\ref{sec:usable:translation}); this review occurred after observability ratings were finalized and sealed. We emphasize that because these 12 items were purposively sampled across candidate technical categories, the resulting distribution reflects this pilot design, serving as an operational feasibility demonstration rather than an empirical census of all national statutory clauses.

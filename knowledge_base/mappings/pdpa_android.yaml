@@ -1,0 +1,170 @@
+mapping_id: MAP-PDPA-ANDROID-V1
+regulation_id: BD-PDPA-2026
+version: '1.0'
+mappings:
+- requirement_ref: PDPA-SEC-07
+  obligation:
+    category: Data Minimization Principle
+    description: Personal data collected must be adequate, relevant, and limited to necessary requirements.
+  technical_control:
+    control_id: CTRL-PERM-01
+    name: Least-Privilege Android Permission Request
+    description: The application must not declare dangerous permissions (e.g., READ_SMS, READ_CONTACTS, ACCESS_FINE_LOCATION)
+      unrelated to its primary functional category.
+  program_property:
+    property_id: PROP-MINIMAL-PERMISSIONS
+    name: Minimal Dangerous Permission Footprint
+    target_platform: Android
+    formal_specification: Manifest.uses-permission INTERSECT DangerousPermissions <= CategoryPermittedSet(AppCategory)
+  observability:
+    level: PARTIAL
+    modalities:
+    - STATIC
+    limitations_rationale: Permission presence is fully observable statically, but statutory necessity requires correlating
+      with app business sector.
+  evidence_rule:
+    rule_id: RULE-PERM-EXCESSIVE-DANGEROUS
+    analysis_type: MANIFEST
+    sources:
+    - Manifest:uses-permission
+    sinks:
+    - Android_OS_Permission_Manager
+    conditions:
+    - Dangerous permission declared without category justification (e.g. READ_SMS in Calculator or Flashlight)
+    supported_criteria: App requests zero unneeded dangerous permissions; permissions strictly align with declared sector.
+    non_conformance_criteria: Application declares high-risk permissions (SMS, Call Log, Contacts) with no sectoral justification.
+    insufficient_evidence_criteria: Application category cannot be unambiguously identified.
+  validation:
+    status: EXPERT_REVIEWED
+    expert_raters: 3
+    inter_rater_agreement: 0.95
+    rationale: Excessive permissions constitute prima facie evidence of non-compliance with statutory data minimization.
+- requirement_ref: PDPA-SEC-15
+  obligation:
+    category: Personal Data Technical Security
+    description: Mandate to implement technical measures preventing unauthorized disclosure or exfiltration of personal data.
+  technical_control:
+    control_id: CTRL-DATA-01
+    name: Prohibition of PII Exfiltration to Insecure Sinks
+    description: Personal data (IMEI, phone number, NID, geolocation) must not flow to unencrypted network sinks or public
+      logs.
+  program_property:
+    property_id: PROP-PII-FLOW-RESTRICTION
+    name: Source-Sink Dataflow Restriction for PII
+    target_platform: Android
+    formal_specification: NOT EXISTS (Path(Source_PII, Sink_InsecureNetwork))
+  observability:
+    level: PARTIAL
+    modalities:
+    - STATIC
+    - DYNAMIC
+    - HYBRID
+    limitations_rationale: Data flow reachability can be detected via static taint tracking and corroborated dynamically by
+      packet payloads.
+  evidence_rule:
+    rule_id: RULE-DATAFLOW-PII-TO-HTTP
+    analysis_type: DATAFLOW
+    sources:
+    - TelephonyManager.getDeviceId
+    - TelephonyManager.getLine1Number
+    - Location.getLatitude
+    - ClipboardManager.getText
+    sinks:
+    - HttpURLConnection.getOutputStream
+    - OkHttpClient.newCall
+    - Log.d
+    conditions:
+    - Taint path exists from PII source to network or log sink without cryptographic transform
+    supported_criteria: No reachable path exists between PII sources and unencrypted external sinks.
+    non_conformance_criteria: Identified reachable flow path where personal identifiers reach cleartext HTTP or unencrypted
+      sockets.
+    insufficient_evidence_criteria: Source flows into complex obfuscated reflection or native JNI boundary.
+  validation:
+    status: EXPERT_REVIEWED
+    expert_raters: 3
+    inter_rater_agreement: 1.0
+    rationale: Transmitting PII over unencrypted channels directly violates technical safeguard obligations under Section
+      15.
+- requirement_ref: PDPA-SEC-06
+  obligation:
+    category: Purpose Limitation & Third-Party Disclosure
+    description: Personal data must not be transferred to third-party tracking ecosystems without explicit user consent.
+  technical_control:
+    control_id: CTRL-SDK-01
+    name: Restricting Third-Party SDK Data Collection
+    description: Third-party advertising and analytics SDKs must not automatically collect hardware and subscriber identifiers.
+  program_property:
+    property_id: PROP-NO-SDK-PII-EXFILTRATION
+    name: Isolation of PII from Commercial Tracking SDKs
+    target_platform: Android
+    formal_specification: NOT EXISTS (Path(Source_HardwareID, Sink_ThirdPartySDK))
+  observability:
+    level: PARTIAL
+    modalities:
+    - STATIC
+    - DYNAMIC
+    limitations_rationale: Static package attribution identifies tracker SDKs; dynamic traffic analysis observes actual telemetry
+      payloads.
+  evidence_rule:
+    rule_id: RULE-SDK-TRACKER-PII-FLOW
+    analysis_type: SDK
+    sources:
+    - TelephonyManager.getDeviceId
+    - Settings.Secure.ANDROID_ID
+    sinks:
+    - com.facebook.ads
+    - com.google.android.gms.ads
+    - com.appsflyer
+    conditions:
+    - Device identifier passed directly into advertising or tracking SDK initializers
+    supported_criteria: No advertising or analytics SDKs access persistent device identifiers.
+    non_conformance_criteria: Tracking SDK invoked with raw hardware identifiers or dynamic traffic reveals IMEI transmitted
+      to ad networks.
+    insufficient_evidence_criteria: SDK uses dynamic server-side configuration to toggle identifier transmission.
+  validation:
+    status: EXPERT_REVIEWED
+    expert_raters: 3
+    inter_rater_agreement: 0.95
+    rationale: Third-party ad networks harvesting device identifiers without consent contradicts purpose limitation.
+- requirement_ref: PDPA-SEC-16
+  obligation:
+    category: Personal Data Confidentiality
+    description: Obligation to prevent leakage of personal data into operating system logs accessible to other apps.
+  technical_control:
+    control_id: CTRL-LOG-01
+    name: Prohibition of PII in System Logcat
+    description: Personal identifiers and customer financial tokens must never be written to Android Logcat.
+  program_property:
+    property_id: PROP-NO-PII-IN-LOGS
+    name: Absence of Personal Data in System Logs
+    target_platform: Android
+    formal_specification: NOT EXISTS (Invoke android.util.Log.*(tag, msg)) WHERE msg CONTAINS Source_PII
+  observability:
+    level: FULL
+    modalities:
+    - STATIC
+    - DYNAMIC
+    limitations_rationale: Log calls in Dalvik bytecode are statically identifiable; dynamic logcat capture provides confirmatory
+      evidence.
+  evidence_rule:
+    rule_id: RULE-DATAFLOW-PII-TO-LOG
+    analysis_type: DATAFLOW
+    sources:
+    - AccountCredentials
+    - PhoneNumbers
+    - NationalID
+    sinks:
+    - android.util.Log.d
+    - android.util.Log.v
+    - android.util.Log.i
+    - android.util.Log.e
+    conditions:
+    - PII string reaches logging sink
+    supported_criteria: Zero logging statements emit user credentials or PII fields in release bytecode.
+    non_conformance_criteria: Bytecode contains calls passing customer phone, password, or NID to android.util.Log.
+    insufficient_evidence_criteria: Logging utility uses custom formatting wrapper.
+  validation:
+    status: EXPERT_REVIEWED
+    expert_raters: 3
+    inter_rater_agreement: 1.0
+    rationale: Logcat leakage exposes personal data to all tools with READ_LOGS or desktop ADB access.

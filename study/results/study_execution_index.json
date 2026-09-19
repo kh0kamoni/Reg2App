@@ -1,0 +1,458 @@
+[
+  {
+    "package_name": "com.bKash.customerapp",
+    "app_name": "bKash App",
+    "sector": "MFS",
+    "is_regulated_financial": true,
+    "result_file": "C:\\Users\\Khoka Moni\\Downloads\\research_all\\bb_comp\\study\\executions\\..\\results\\com.bKash.customerapp.json",
+    "summary": {
+      "Supported": 9,
+      "PotentialNonConformance": 1,
+      "InsufficientEvidence": 2,
+      "NotObservable": 0,
+      "NotApplicable": 0,
+      "TotalRequirements": 12
+    },
+    "metrics": {
+      "EvidenceCoverage": 0.8333,
+      "EvidenceSupportedCompliance": 0.9
+    }
+  },
+  {
+    "package_name": "com.nagad.customer",
+    "app_name": "Nagad App",
+    "sector": "MFS",
+    "is_regulated_financial": true,
+    "result_file": "C:\\Users\\Khoka Moni\\Downloads\\research_all\\bb_comp\\study\\executions\\..\\results\\com.nagad.customer.json",
+    "summary": {
+      "Supported": 9,
+      "PotentialNonConformance": 1,
+      "InsufficientEvidence": 2,
+      "NotObservable": 0,
+      "NotApplicable": 0,
+      "TotalRequirements": 12
+    },
+    "metrics": {
+      "EvidenceCoverage": 0.8333,
+      "EvidenceSupportedCompliance": 0.9
+    }
+  },
+  {
+    "package_name": "com.dbbl.mwallet",
+    "app_name": "Rocket DBBL",
+    "sector": "MFS",
+    "is_regulated_financial": true,
+    "result_file": "C:\\Users\\Khoka Moni\\Downloads\\research_all\\bb_comp\\study\\executions\\..\\results\\com.dbbl.mwallet.json",
+    "summary": {
+      "Supported": 9,
+      "PotentialNonConformance": 1,
+      "InsufficientEvidence": 2,
+      "NotObservable": 0,
+      "NotApplicable": 0,
+      "TotalRequirements": 12
+    },
+    "metrics": {
+      "EvidenceCoverage": 0.8333,
+      "EvidenceSupportedCompliance": 0.9
+    }
+  },
+  {
+    "package_name": "bd.com.ucb.upay",
+    "app_name": "Upay App",
+    "sector": "MFS",
+    "is_regulated_financial": true,
+    "result_file": "C:\\Users\\Khoka Moni\\Downloads\\research_all\\bb_comp\\study\\executions\\..\\results\\bd.com.ucb.upay.json",
+    "summary": {
+      "Supported": 9,
+      "PotentialNonConformance": 1,
+      "InsufficientEvidence": 2,
+      "NotObservable": 0,
+      "NotApplicable": 0,
+      "TotalRequirements": 12
+    },
+    "metrics": {
+      "EvidenceCoverage": 0.8333,
+      "EvidenceSupportedCompliance": 0.9
+    }
+  },
+  {
+    "package_name": "com.tapnep.tap",
+    "app_name": "Trust Axiata TAP",
+    "sector": "MFS",
+    "is_regulated_financial": true,
+    "result_file": "C:\\Users\\Khoka Moni\\Downloads\\research_all\\bb_comp\\study\\executions\\..\\results\\com.tapnep.tap.json",
+    "summary": {
+      "Supported": 9,
+      "PotentialNonConformance": 1,
+      "InsufficientEvidence": 2,
+      "NotObservable": 0,
+      "NotApplicable": 0,
+      "TotalRequirements": 12
+    },
+    "metrics": {
+      "EvidenceCoverage": 0.8333,
+      "EvidenceSupportedCompliance": 0.9
+    }
+  },
+  {
+    "package_name": "com.thecitybank.citytouch",
+    "app_name": "Citytouch Digital Banking",
+    "sector": "BANKING",
+    "is_regulated_financial": true,
+    "result_file": "C:\\Users\\Khoka Moni\\Downloads\\research_all\\bb_comp\\study\\executions\\..\\results\\com.thecitybank.citytouch.json",
+    "summary": {
+      "Supported": 9,
+      "PotentialNonConformance": 1,
+      "InsufficientEvidence": 2,
+      "NotObservable": 0,
+      "NotApplicable": 0,
+      "TotalRequirements": 12
+    },
+    "metrics": {
+      "EvidenceCoverage": 0.8333,
+      "EvidenceSupportedCompliance": 0.9
+    }
+  },
+  {
+    "package_name": "com.bracbank.astha",
+    "app_name": "BRAC Bank Astha",
+    "sector": "BANKING",
+    "is_regulated_financial": true,
+    "result_file": "C:\\Users\\Khoka Moni\\Downloads\\research_all\\bb_comp\\study\\executions\\..\\results\\com.bracbank.astha.json",
+    "summary": {
+      "Supported": 9,
+      "PotentialNonConformance": 1,
+      "InsufficientEvidence": 2,
+      "NotObservable": 0,
+      "NotApplicable": 0,
+      "TotalRequirements": 12
+    },
+    "metrics": {
+      "EvidenceCoverage": 0.8333,
+      "EvidenceSupportedCompliance": 0.9
+    }
+  },
+  {
+    "package_name": "com.ibbl.cellfin",
+    "app_name": "Cellfin - IBBL",
+    "sector": "BANKING",
+    "is_regulated_financial": true,
+    "result_file": "C:\\Users\\Khoka Moni\\Downloads\\research_all\\bb_comp\\study\\executions\\..\\results\\com.ibbl.cellfin.json",
+    "summary": {
+      "Supported": 9,
+      "PotentialNonConformance": 1,
+      "InsufficientEvidence": 2,
+      "NotObservable": 0,
+      "NotApplicable": 0,
+      "TotalRequirements": 12
+    },
+    "metrics": {
+      "EvidenceCoverage": 0.8333,
+      "EvidenceSupportedCompliance": 0.9
+    }
+  },
+  {
+    "package_name": "com.ebl.skybanking",
+    "app_name": "EBL Skybanking",
+    "sector": "BANKING",
+    "is_regulated_financial": true,
+    "result_file": "C:\\Users\\Khoka Moni\\Downloads\\research_all\\bb_comp\\study\\executions\\..\\results\\com.ebl.skybanking.json",
+    "summary": {
+      "Supported": 9,
+      "PotentialNonConformance": 1,
+      "InsufficientEvidence": 2,
+      "NotObservable": 0,
+      "NotApplicable": 0,
+      "TotalRequirements": 12
+    },
+    "metrics": {
+      "EvidenceCoverage": 0.8333,
+      "EvidenceSupportedCompliance": 0.9
+    }
+  },
+  {
+    "package_name": "com.sc.banca.bd",
+    "app_name": "Standard Chartered BD",
+    "sector": "BANKING",
+    "is_regulated_financial": true,
+    "result_file": "C:\\Users\\Khoka Moni\\Downloads\\research_all\\bb_comp\\study\\executions\\..\\results\\com.sc.banca.bd.json",
+    "summary": {
+      "Supported": 9,
+      "PotentialNonConformance": 1,
+      "InsufficientEvidence": 2,
+      "NotObservable": 0,
+      "NotApplicable": 0,
+      "TotalRequirements": 12
+    },
+    "metrics": {
+      "EvidenceCoverage": 0.8333,
+      "EvidenceSupportedCompliance": 0.9
+    }
+  },
+  {
+    "package_name": "gov.bd.nidwallet",
+    "app_name": "NID Wallet",
+    "sector": "GOVERNMENT",
+    "is_regulated_financial": false,
+    "result_file": "C:\\Users\\Khoka Moni\\Downloads\\research_all\\bb_comp\\study\\executions\\..\\results\\gov.bd.nidwallet.json",
+    "summary": {
+      "Supported": 3,
+      "PotentialNonConformance": 1,
+      "InsufficientEvidence": 2,
+      "NotObservable": 0,
+      "NotApplicable": 6,
+      "TotalRequirements": 12
+    },
+    "metrics": {
+      "EvidenceCoverage": 0.6667,
+      "EvidenceSupportedCompliance": 0.75
+    }
+  },
+  {
+    "package_name": "gov.bd.surokkha",
+    "app_name": "Surokkha Vaccine Verification",
+    "sector": "GOVERNMENT",
+    "is_regulated_financial": false,
+    "result_file": "C:\\Users\\Khoka Moni\\Downloads\\research_all\\bb_comp\\study\\executions\\..\\results\\gov.bd.surokkha.json",
+    "summary": {
+      "Supported": 3,
+      "PotentialNonConformance": 1,
+      "InsufficientEvidence": 2,
+      "NotObservable": 0,
+      "NotApplicable": 6,
+      "TotalRequirements": 12
+    },
+    "metrics": {
+      "EvidenceCoverage": 0.6667,
+      "EvidenceSupportedCompliance": 0.75
+    }
+  },
+  {
+    "package_name": "gov.bd.epassport",
+    "app_name": "e-Passport BD",
+    "sector": "GOVERNMENT",
+    "is_regulated_financial": false,
+    "result_file": "C:\\Users\\Khoka Moni\\Downloads\\research_all\\bb_comp\\study\\executions\\..\\results\\gov.bd.epassport.json",
+    "summary": {
+      "Supported": 3,
+      "PotentialNonConformance": 1,
+      "InsufficientEvidence": 2,
+      "NotObservable": 0,
+      "NotApplicable": 6,
+      "TotalRequirements": 12
+    },
+    "metrics": {
+      "EvidenceCoverage": 0.6667,
+      "EvidenceSupportedCompliance": 0.75
+    }
+  },
+  {
+    "package_name": "gov.bd.mygov",
+    "app_name": "MyGov Bangladesh",
+    "sector": "GOVERNMENT",
+    "is_regulated_financial": false,
+    "result_file": "C:\\Users\\Khoka Moni\\Downloads\\research_all\\bb_comp\\study\\executions\\..\\results\\gov.bd.mygov.json",
+    "summary": {
+      "Supported": 3,
+      "PotentialNonConformance": 1,
+      "InsufficientEvidence": 2,
+      "NotObservable": 0,
+      "NotApplicable": 6,
+      "TotalRequirements": 12
+    },
+    "metrics": {
+      "EvidenceCoverage": 0.6667,
+      "EvidenceSupportedCompliance": 0.75
+    }
+  },
+  {
+    "package_name": "com.daraz.android",
+    "app_name": "Daraz Online Shopping",
+    "sector": "ECOMMERCE",
+    "is_regulated_financial": false,
+    "result_file": "C:\\Users\\Khoka Moni\\Downloads\\research_all\\bb_comp\\study\\executions\\..\\results\\com.daraz.android.json",
+    "summary": {
+      "Supported": 0,
+      "PotentialNonConformance": 5,
+      "InsufficientEvidence": 1,
+      "NotObservable": 0,
+      "NotApplicable": 6,
+      "TotalRequirements": 12
+    },
+    "metrics": {
+      "EvidenceCoverage": 0.8333,
+      "EvidenceSupportedCompliance": 0.0
+    }
+  },
+  {
+    "package_name": "com.chaldal.poached",
+    "app_name": "Chaldal Grocery",
+    "sector": "ECOMMERCE",
+    "is_regulated_financial": false,
+    "result_file": "C:\\Users\\Khoka Moni\\Downloads\\research_all\\bb_comp\\study\\executions\\..\\results\\com.chaldal.poached.json",
+    "summary": {
+      "Supported": 0,
+      "PotentialNonConformance": 5,
+      "InsufficientEvidence": 1,
+      "NotObservable": 0,
+      "NotApplicable": 6,
+      "TotalRequirements": 12
+    },
+    "metrics": {
+      "EvidenceCoverage": 0.8333,
+      "EvidenceSupportedCompliance": 0.0
+    }
+  },
+  {
+    "package_name": "com.rokomari",
+    "app_name": "Rokomari Books & Electronics",
+    "sector": "ECOMMERCE",
+    "is_regulated_financial": false,
+    "result_file": "C:\\Users\\Khoka Moni\\Downloads\\research_all\\bb_comp\\study\\executions\\..\\results\\com.rokomari.json",
+    "summary": {
+      "Supported": 0,
+      "PotentialNonConformance": 5,
+      "InsufficientEvidence": 1,
+      "NotObservable": 0,
+      "NotApplicable": 6,
+      "TotalRequirements": 12
+    },
+    "metrics": {
+      "EvidenceCoverage": 0.8333,
+      "EvidenceSupportedCompliance": 0.0
+    }
+  },
+  {
+    "package_name": "com.pickaboo",
+    "app_name": "Pickaboo BD",
+    "sector": "ECOMMERCE",
+    "is_regulated_financial": false,
+    "result_file": "C:\\Users\\Khoka Moni\\Downloads\\research_all\\bb_comp\\study\\executions\\..\\results\\com.pickaboo.json",
+    "summary": {
+      "Supported": 0,
+      "PotentialNonConformance": 5,
+      "InsufficientEvidence": 1,
+      "NotObservable": 0,
+      "NotApplicable": 6,
+      "TotalRequirements": 12
+    },
+    "metrics": {
+      "EvidenceCoverage": 0.8333,
+      "EvidenceSupportedCompliance": 0.0
+    }
+  },
+  {
+    "package_name": "com.pathao.user",
+    "app_name": "Pathao Rides & Food",
+    "sector": "TRANSPORTATION",
+    "is_regulated_financial": false,
+    "result_file": "C:\\Users\\Khoka Moni\\Downloads\\research_all\\bb_comp\\study\\executions\\..\\results\\com.pathao.user.json",
+    "summary": {
+      "Supported": 3,
+      "PotentialNonConformance": 1,
+      "InsufficientEvidence": 2,
+      "NotObservable": 0,
+      "NotApplicable": 6,
+      "TotalRequirements": 12
+    },
+    "metrics": {
+      "EvidenceCoverage": 0.6667,
+      "EvidenceSupportedCompliance": 0.75
+    }
+  },
+  {
+    "package_name": "com.shohoz.shohozride",
+    "app_name": "Shohoz Rides & Tickets",
+    "sector": "TRANSPORTATION",
+    "is_regulated_financial": false,
+    "result_file": "C:\\Users\\Khoka Moni\\Downloads\\research_all\\bb_comp\\study\\executions\\..\\results\\com.shohoz.shohozride.json",
+    "summary": {
+      "Supported": 3,
+      "PotentialNonConformance": 1,
+      "InsufficientEvidence": 2,
+      "NotObservable": 0,
+      "NotApplicable": 6,
+      "TotalRequirements": 12
+    },
+    "metrics": {
+      "EvidenceCoverage": 0.6667,
+      "EvidenceSupportedCompliance": 0.75
+    }
+  },
+  {
+    "package_name": "com.portonics.mygp",
+    "app_name": "MyGP - Grameenphone",
+    "sector": "UTILITIES",
+    "is_regulated_financial": false,
+    "result_file": "C:\\Users\\Khoka Moni\\Downloads\\research_all\\bb_comp\\study\\executions\\..\\results\\com.portonics.mygp.json",
+    "summary": {
+      "Supported": 3,
+      "PotentialNonConformance": 1,
+      "InsufficientEvidence": 2,
+      "NotObservable": 0,
+      "NotApplicable": 6,
+      "TotalRequirements": 12
+    },
+    "metrics": {
+      "EvidenceCoverage": 0.6667,
+      "EvidenceSupportedCompliance": 0.75
+    }
+  },
+  {
+    "package_name": "net.robi.myrobi",
+    "app_name": "MyRobi - Robi Axiata",
+    "sector": "UTILITIES",
+    "is_regulated_financial": false,
+    "result_file": "C:\\Users\\Khoka Moni\\Downloads\\research_all\\bb_comp\\study\\executions\\..\\results\\net.robi.myrobi.json",
+    "summary": {
+      "Supported": 3,
+      "PotentialNonConformance": 1,
+      "InsufficientEvidence": 2,
+      "NotObservable": 0,
+      "NotApplicable": 6,
+      "TotalRequirements": 12
+    },
+    "metrics": {
+      "EvidenceCoverage": 0.6667,
+      "EvidenceSupportedCompliance": 0.75
+    }
+  },
+  {
+    "package_name": "com.banglalink.mybl",
+    "app_name": "MyBL - Banglalink",
+    "sector": "UTILITIES",
+    "is_regulated_financial": false,
+    "result_file": "C:\\Users\\Khoka Moni\\Downloads\\research_all\\bb_comp\\study\\executions\\..\\results\\com.banglalink.mybl.json",
+    "summary": {
+      "Supported": 3,
+      "PotentialNonConformance": 1,
+      "InsufficientEvidence": 2,
+      "NotObservable": 0,
+      "NotApplicable": 6,
+      "TotalRequirements": 12
+    },
+    "metrics": {
+      "EvidenceCoverage": 0.6667,
+      "EvidenceSupportedCompliance": 0.75
+    }
+  },
+  {
+    "package_name": "gov.bd.desco.smartapp",
+    "app_name": "DESCO Prepaid Electricity",
+    "sector": "UTILITIES",
+    "is_regulated_financial": false,
+    "result_file": "C:\\Users\\Khoka Moni\\Downloads\\research_all\\bb_comp\\study\\executions\\..\\results\\gov.bd.desco.smartapp.json",
+    "summary": {
+      "Supported": 3,
+      "PotentialNonConformance": 1,
+      "InsufficientEvidence": 2,
+      "NotObservable": 0,
+      "NotApplicable": 6,
+      "TotalRequirements": 12
+    },
+    "metrics": {
+      "EvidenceCoverage": 0.6667,
+      "EvidenceSupportedCompliance": 0.75
+    }
+  }
+]

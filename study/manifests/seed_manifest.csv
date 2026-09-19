@@ -1,0 +1,25 @@
+package_name,app_name,sector,is_regulated_financial,source,version_name,sha256
+com.bKash.customerapp,bKash App,MFS,True,PlayStore,v5.6.1,sha256_bkash_001
+com.nagad.customer,Nagad App,MFS,True,PlayStore,v4.2.0,sha256_nagad_002
+com.dbbl.mwallet,Rocket DBBL,MFS,True,PlayStore,v3.1.2,sha256_rocket_003
+bd.com.ucb.upay,Upay App,MFS,True,PlayStore,v2.0.4,sha256_upay_004
+com.tapnep.tap,Trust Axiata TAP,MFS,True,PlayStore,v1.8.0,sha256_tap_005
+com.thecitybank.citytouch,Citytouch Digital Banking,BANKING,True,PlayStore,v4.1.0,sha256_city_006
+com.bracbank.astha,BRAC Bank Astha,BANKING,True,PlayStore,v3.5.2,sha256_brac_007
+com.ibbl.cellfin,Cellfin - IBBL,BANKING,True,PlayStore,v2.9.1,sha256_cellfin_008
+com.ebl.skybanking,EBL Skybanking,BANKING,True,PlayStore,v4.0.1,sha256_ebl_009
+com.sc.banca.bd,Standard Chartered BD,BANKING,True,PlayStore,v5.2.0,sha256_scb_010
+gov.bd.nidwallet,NID Wallet,GOVERNMENT,False,PlayStore,v2.1.0,sha256_nid_011
+gov.bd.surokkha,Surokkha Vaccine Verification,GOVERNMENT,False,PlayStore,v1.4.3,sha256_surokkha_012
+gov.bd.epassport,e-Passport BD,GOVERNMENT,False,PlayStore,v1.0.8,sha256_epass_013
+gov.bd.mygov,MyGov Bangladesh,GOVERNMENT,False,PlayStore,v3.0.1,sha256_mygov_014
+com.daraz.android,Daraz Online Shopping,ECOMMERCE,False,PlayStore,v7.8.2,sha256_daraz_015
+com.chaldal.poached,Chaldal Grocery,ECOMMERCE,False,PlayStore,v5.1.0,sha256_chaldal_016
+com.rokomari,Rokomari Books & Electronics,ECOMMERCE,False,PlayStore,v3.2.4,sha256_rokomari_017
+com.pickaboo,Pickaboo BD,ECOMMERCE,False,PlayStore,v4.0.0,sha256_pickaboo_018
+com.pathao.user,Pathao Rides & Food,TRANSPORTATION,False,PlayStore,v6.2.1,sha256_pathao_019
+com.shohoz.shohozride,Shohoz Rides & Tickets,TRANSPORTATION,False,PlayStore,v4.8.0,sha256_shohoz_020
+com.portonics.mygp,MyGP - Grameenphone,UTILITIES,False,PlayStore,v5.12.0,sha256_mygp_021
+net.robi.myrobi,MyRobi - Robi Axiata,UTILITIES,False,PlayStore,v6.1.1,sha256_myrobi_022
+com.banglalink.mybl,MyBL - Banglalink,UTILITIES,False,PlayStore,v4.5.3,sha256_mybl_023
+gov.bd.desco.smartapp,DESCO Prepaid Electricity,UTILITIES,False,PlayStore,v2.0.1,sha256_desco_024

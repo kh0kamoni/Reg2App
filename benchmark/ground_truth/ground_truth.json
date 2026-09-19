@@ -1,0 +1,2030 @@
+{
+  "version": "1.0",
+  "total_micro_benchmarks": 30,
+  "rules": [
+    "RULE-NET-CLEARTEXT-01",
+    "RULE-CRYPTO-HARDCODED-KEY",
+    "RULE-CRYPTO-WEAK-ALGO",
+    "RULE-STORAGE-PLAINTEXT-SECRETS",
+    "RULE-MANIFEST-ALLOW-BACKUP",
+    "RULE-MANIFEST-DEBUGGABLE",
+    "RULE-PERM-EXCESSIVE-DANGEROUS",
+    "RULE-DATAFLOW-PII-TO-HTTP",
+    "RULE-SDK-TRACKER-PII-FLOW",
+    "RULE-DATAFLOW-PII-TO-LOG",
+    "RULE-MANIFEST-EXPORTED-UNPROTECTED",
+    "RULE-CODE-OBFUSCATION-CHECK"
+  ],
+  "matrix": {
+    "MB-001": {
+      "name": "Plaintext HTTP Transmission via HttpURLConnection",
+      "category": "NETWORK",
+      "is_compliant": false,
+      "rules": {
+        "RULE-NET-CLEARTEXT-01": {
+          "targeted": true,
+          "expected_state": "PotentialNonConformance",
+          "should_trigger_non_conformance": true
+        },
+        "RULE-CRYPTO-HARDCODED-KEY": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-WEAK-ALGO": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-STORAGE-PLAINTEXT-SECRETS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-ALLOW-BACKUP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-DEBUGGABLE": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-PERM-EXCESSIVE-DANGEROUS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-HTTP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-SDK-TRACKER-PII-FLOW": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-LOG": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-EXPORTED-UNPROTECTED": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CODE-OBFUSCATION-CHECK": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        }
+      }
+    },
+    "MB-002": {
+      "name": "Strict TLS Enforced via Network Security Config",
+      "category": "NETWORK",
+      "is_compliant": true,
+      "rules": {
+        "RULE-NET-CLEARTEXT-01": {
+          "targeted": true,
+          "expected_state": "Supported",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-HARDCODED-KEY": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-WEAK-ALGO": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-STORAGE-PLAINTEXT-SECRETS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-ALLOW-BACKUP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-DEBUGGABLE": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-PERM-EXCESSIVE-DANGEROUS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-HTTP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-SDK-TRACKER-PII-FLOW": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-LOG": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-EXPORTED-UNPROTECTED": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CODE-OBFUSCATION-CHECK": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        }
+      }
+    },
+    "MB-003": {
+      "name": "Cleartext Permitted by Manifest Default (targetSdk < 28)",
+      "category": "NETWORK",
+      "is_compliant": false,
+      "rules": {
+        "RULE-NET-CLEARTEXT-01": {
+          "targeted": true,
+          "expected_state": "PotentialNonConformance",
+          "should_trigger_non_conformance": true
+        },
+        "RULE-CRYPTO-HARDCODED-KEY": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-WEAK-ALGO": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-STORAGE-PLAINTEXT-SECRETS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-ALLOW-BACKUP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-DEBUGGABLE": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-PERM-EXCESSIVE-DANGEROUS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-HTTP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-SDK-TRACKER-PII-FLOW": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-LOG": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-EXPORTED-UNPROTECTED": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CODE-OBFUSCATION-CHECK": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        }
+      }
+    },
+    "MB-004": {
+      "name": "Hardcoded Symmetric AES Key Constant String",
+      "category": "CRYPTO",
+      "is_compliant": false,
+      "rules": {
+        "RULE-NET-CLEARTEXT-01": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-HARDCODED-KEY": {
+          "targeted": true,
+          "expected_state": "PotentialNonConformance",
+          "should_trigger_non_conformance": true
+        },
+        "RULE-CRYPTO-WEAK-ALGO": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-STORAGE-PLAINTEXT-SECRETS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-ALLOW-BACKUP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-DEBUGGABLE": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-PERM-EXCESSIVE-DANGEROUS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-HTTP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-SDK-TRACKER-PII-FLOW": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-LOG": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-EXPORTED-UNPROTECTED": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CODE-OBFUSCATION-CHECK": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        }
+      }
+    },
+    "MB-005": {
+      "name": "Hardcoded Static Byte Array Key Literal",
+      "category": "CRYPTO",
+      "is_compliant": false,
+      "rules": {
+        "RULE-NET-CLEARTEXT-01": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-HARDCODED-KEY": {
+          "targeted": true,
+          "expected_state": "PotentialNonConformance",
+          "should_trigger_non_conformance": true
+        },
+        "RULE-CRYPTO-WEAK-ALGO": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-STORAGE-PLAINTEXT-SECRETS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-ALLOW-BACKUP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-DEBUGGABLE": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-PERM-EXCESSIVE-DANGEROUS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-HTTP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-SDK-TRACKER-PII-FLOW": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-LOG": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-EXPORTED-UNPROTECTED": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CODE-OBFUSCATION-CHECK": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        }
+      }
+    },
+    "MB-006": {
+      "name": "AndroidKeyStore Hardware-Backed Key Derivation",
+      "category": "CRYPTO",
+      "is_compliant": true,
+      "rules": {
+        "RULE-NET-CLEARTEXT-01": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-HARDCODED-KEY": {
+          "targeted": true,
+          "expected_state": "Supported",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-WEAK-ALGO": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-STORAGE-PLAINTEXT-SECRETS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-ALLOW-BACKUP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-DEBUGGABLE": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-PERM-EXCESSIVE-DANGEROUS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-HTTP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-SDK-TRACKER-PII-FLOW": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-LOG": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-EXPORTED-UNPROTECTED": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CODE-OBFUSCATION-CHECK": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        }
+      }
+    },
+    "MB-007": {
+      "name": "Deprecated DES Cipher Usage",
+      "category": "CRYPTO",
+      "is_compliant": false,
+      "rules": {
+        "RULE-NET-CLEARTEXT-01": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-HARDCODED-KEY": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-WEAK-ALGO": {
+          "targeted": true,
+          "expected_state": "PotentialNonConformance",
+          "should_trigger_non_conformance": true
+        },
+        "RULE-STORAGE-PLAINTEXT-SECRETS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-ALLOW-BACKUP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-DEBUGGABLE": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-PERM-EXCESSIVE-DANGEROUS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-HTTP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-SDK-TRACKER-PII-FLOW": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-LOG": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-EXPORTED-UNPROTECTED": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CODE-OBFUSCATION-CHECK": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        }
+      }
+    },
+    "MB-008": {
+      "name": "Triple-DES (3DES / DESede) Usage",
+      "category": "CRYPTO",
+      "is_compliant": false,
+      "rules": {
+        "RULE-NET-CLEARTEXT-01": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-HARDCODED-KEY": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-WEAK-ALGO": {
+          "targeted": true,
+          "expected_state": "PotentialNonConformance",
+          "should_trigger_non_conformance": true
+        },
+        "RULE-STORAGE-PLAINTEXT-SECRETS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-ALLOW-BACKUP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-DEBUGGABLE": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-PERM-EXCESSIVE-DANGEROUS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-HTTP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-SDK-TRACKER-PII-FLOW": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-LOG": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-EXPORTED-UNPROTECTED": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CODE-OBFUSCATION-CHECK": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        }
+      }
+    },
+    "MB-009": {
+      "name": "AES in Insecure ECB Mode",
+      "category": "CRYPTO",
+      "is_compliant": false,
+      "rules": {
+        "RULE-NET-CLEARTEXT-01": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-HARDCODED-KEY": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-WEAK-ALGO": {
+          "targeted": true,
+          "expected_state": "PotentialNonConformance",
+          "should_trigger_non_conformance": true
+        },
+        "RULE-STORAGE-PLAINTEXT-SECRETS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-ALLOW-BACKUP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-DEBUGGABLE": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-PERM-EXCESSIVE-DANGEROUS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-HTTP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-SDK-TRACKER-PII-FLOW": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-LOG": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-EXPORTED-UNPROTECTED": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CODE-OBFUSCATION-CHECK": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        }
+      }
+    },
+    "MB-010": {
+      "name": "Modern AES-GCM Authenticated Encryption",
+      "category": "CRYPTO",
+      "is_compliant": true,
+      "rules": {
+        "RULE-NET-CLEARTEXT-01": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-HARDCODED-KEY": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-WEAK-ALGO": {
+          "targeted": true,
+          "expected_state": "Supported",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-STORAGE-PLAINTEXT-SECRETS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-ALLOW-BACKUP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-DEBUGGABLE": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-PERM-EXCESSIVE-DANGEROUS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-HTTP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-SDK-TRACKER-PII-FLOW": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-LOG": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-EXPORTED-UNPROTECTED": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CODE-OBFUSCATION-CHECK": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        }
+      }
+    },
+    "MB-011": {
+      "name": "Weak MD5 Hashing for Integrity",
+      "category": "CRYPTO",
+      "is_compliant": false,
+      "rules": {
+        "RULE-NET-CLEARTEXT-01": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-HARDCODED-KEY": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-WEAK-ALGO": {
+          "targeted": true,
+          "expected_state": "PotentialNonConformance",
+          "should_trigger_non_conformance": true
+        },
+        "RULE-STORAGE-PLAINTEXT-SECRETS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-ALLOW-BACKUP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-DEBUGGABLE": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-PERM-EXCESSIVE-DANGEROUS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-HTTP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-SDK-TRACKER-PII-FLOW": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-LOG": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-EXPORTED-UNPROTECTED": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CODE-OBFUSCATION-CHECK": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        }
+      }
+    },
+    "MB-012": {
+      "name": "SHA-256 Strong Cryptographic Hash",
+      "category": "CRYPTO",
+      "is_compliant": true,
+      "rules": {
+        "RULE-NET-CLEARTEXT-01": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-HARDCODED-KEY": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-WEAK-ALGO": {
+          "targeted": true,
+          "expected_state": "Supported",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-STORAGE-PLAINTEXT-SECRETS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-ALLOW-BACKUP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-DEBUGGABLE": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-PERM-EXCESSIVE-DANGEROUS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-HTTP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-SDK-TRACKER-PII-FLOW": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-LOG": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-EXPORTED-UNPROTECTED": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CODE-OBFUSCATION-CHECK": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        }
+      }
+    },
+    "MB-013": {
+      "name": "Plaintext Credentials in SharedPreferences",
+      "category": "STORAGE",
+      "is_compliant": false,
+      "rules": {
+        "RULE-NET-CLEARTEXT-01": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-HARDCODED-KEY": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-WEAK-ALGO": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-STORAGE-PLAINTEXT-SECRETS": {
+          "targeted": true,
+          "expected_state": "PotentialNonConformance",
+          "should_trigger_non_conformance": true
+        },
+        "RULE-MANIFEST-ALLOW-BACKUP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-DEBUGGABLE": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-PERM-EXCESSIVE-DANGEROUS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-HTTP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-SDK-TRACKER-PII-FLOW": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-LOG": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-EXPORTED-UNPROTECTED": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CODE-OBFUSCATION-CHECK": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        }
+      }
+    },
+    "MB-014": {
+      "name": "EncryptedSharedPreferences with MasterKey",
+      "category": "STORAGE",
+      "is_compliant": true,
+      "rules": {
+        "RULE-NET-CLEARTEXT-01": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-HARDCODED-KEY": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-WEAK-ALGO": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-STORAGE-PLAINTEXT-SECRETS": {
+          "targeted": true,
+          "expected_state": "Supported",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-ALLOW-BACKUP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-DEBUGGABLE": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-PERM-EXCESSIVE-DANGEROUS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-HTTP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-SDK-TRACKER-PII-FLOW": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-LOG": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-EXPORTED-UNPROTECTED": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CODE-OBFUSCATION-CHECK": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        }
+      }
+    },
+    "MB-015": {
+      "name": "World-Readable File Storage",
+      "category": "STORAGE",
+      "is_compliant": false,
+      "rules": {
+        "RULE-NET-CLEARTEXT-01": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-HARDCODED-KEY": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-WEAK-ALGO": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-STORAGE-PLAINTEXT-SECRETS": {
+          "targeted": true,
+          "expected_state": "PotentialNonConformance",
+          "should_trigger_non_conformance": true
+        },
+        "RULE-MANIFEST-ALLOW-BACKUP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-DEBUGGABLE": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-PERM-EXCESSIVE-DANGEROUS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-HTTP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-SDK-TRACKER-PII-FLOW": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-LOG": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-EXPORTED-UNPROTECTED": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CODE-OBFUSCATION-CHECK": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        }
+      }
+    },
+    "MB-016": {
+      "name": "Application Backup Enabled (allowBackup=true)",
+      "category": "MANIFEST",
+      "is_compliant": false,
+      "rules": {
+        "RULE-NET-CLEARTEXT-01": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-HARDCODED-KEY": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-WEAK-ALGO": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-STORAGE-PLAINTEXT-SECRETS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-ALLOW-BACKUP": {
+          "targeted": true,
+          "expected_state": "PotentialNonConformance",
+          "should_trigger_non_conformance": true
+        },
+        "RULE-MANIFEST-DEBUGGABLE": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-PERM-EXCESSIVE-DANGEROUS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-HTTP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-SDK-TRACKER-PII-FLOW": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-LOG": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-EXPORTED-UNPROTECTED": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CODE-OBFUSCATION-CHECK": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        }
+      }
+    },
+    "MB-017": {
+      "name": "Application Backup Explicitly Disabled",
+      "category": "MANIFEST",
+      "is_compliant": true,
+      "rules": {
+        "RULE-NET-CLEARTEXT-01": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-HARDCODED-KEY": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-WEAK-ALGO": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-STORAGE-PLAINTEXT-SECRETS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-ALLOW-BACKUP": {
+          "targeted": true,
+          "expected_state": "Supported",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-DEBUGGABLE": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-PERM-EXCESSIVE-DANGEROUS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-HTTP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-SDK-TRACKER-PII-FLOW": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-LOG": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-EXPORTED-UNPROTECTED": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CODE-OBFUSCATION-CHECK": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        }
+      }
+    },
+    "MB-018": {
+      "name": "Debuggable Flag Enabled in Production Release",
+      "category": "MANIFEST",
+      "is_compliant": false,
+      "rules": {
+        "RULE-NET-CLEARTEXT-01": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-HARDCODED-KEY": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-WEAK-ALGO": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-STORAGE-PLAINTEXT-SECRETS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-ALLOW-BACKUP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-DEBUGGABLE": {
+          "targeted": true,
+          "expected_state": "PotentialNonConformance",
+          "should_trigger_non_conformance": true
+        },
+        "RULE-PERM-EXCESSIVE-DANGEROUS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-HTTP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-SDK-TRACKER-PII-FLOW": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-LOG": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-EXPORTED-UNPROTECTED": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CODE-OBFUSCATION-CHECK": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        }
+      }
+    },
+    "MB-019": {
+      "name": "Non-Debuggable Release Build",
+      "category": "MANIFEST",
+      "is_compliant": true,
+      "rules": {
+        "RULE-NET-CLEARTEXT-01": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-HARDCODED-KEY": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-WEAK-ALGO": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-STORAGE-PLAINTEXT-SECRETS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-ALLOW-BACKUP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-DEBUGGABLE": {
+          "targeted": true,
+          "expected_state": "Supported",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-PERM-EXCESSIVE-DANGEROUS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-HTTP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-SDK-TRACKER-PII-FLOW": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-LOG": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-EXPORTED-UNPROTECTED": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CODE-OBFUSCATION-CHECK": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        }
+      }
+    },
+    "MB-020": {
+      "name": "Excessive Dangerous Permission (READ_SMS in Calculator App)",
+      "category": "MANIFEST",
+      "is_compliant": false,
+      "rules": {
+        "RULE-NET-CLEARTEXT-01": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-HARDCODED-KEY": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-WEAK-ALGO": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-STORAGE-PLAINTEXT-SECRETS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-ALLOW-BACKUP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-DEBUGGABLE": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-PERM-EXCESSIVE-DANGEROUS": {
+          "targeted": true,
+          "expected_state": "PotentialNonConformance",
+          "should_trigger_non_conformance": true
+        },
+        "RULE-DATAFLOW-PII-TO-HTTP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-SDK-TRACKER-PII-FLOW": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-LOG": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-EXPORTED-UNPROTECTED": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CODE-OBFUSCATION-CHECK": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        }
+      }
+    },
+    "MB-021": {
+      "name": "Minimal Permissions (Zero Dangerous Permissions Requested)",
+      "category": "MANIFEST",
+      "is_compliant": true,
+      "rules": {
+        "RULE-NET-CLEARTEXT-01": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-HARDCODED-KEY": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-WEAK-ALGO": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-STORAGE-PLAINTEXT-SECRETS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-ALLOW-BACKUP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-DEBUGGABLE": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-PERM-EXCESSIVE-DANGEROUS": {
+          "targeted": true,
+          "expected_state": "Supported",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-HTTP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-SDK-TRACKER-PII-FLOW": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-LOG": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-EXPORTED-UNPROTECTED": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CODE-OBFUSCATION-CHECK": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        }
+      }
+    },
+    "MB-022": {
+      "name": "Device Identifier (IMEI) to Cleartext HTTP Network Sink",
+      "category": "DATAFLOW",
+      "is_compliant": false,
+      "rules": {
+        "RULE-NET-CLEARTEXT-01": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-HARDCODED-KEY": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-WEAK-ALGO": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-STORAGE-PLAINTEXT-SECRETS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-ALLOW-BACKUP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-DEBUGGABLE": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-PERM-EXCESSIVE-DANGEROUS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-HTTP": {
+          "targeted": true,
+          "expected_state": "PotentialNonConformance",
+          "should_trigger_non_conformance": true
+        },
+        "RULE-SDK-TRACKER-PII-FLOW": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-LOG": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-EXPORTED-UNPROTECTED": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CODE-OBFUSCATION-CHECK": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        }
+      }
+    },
+    "MB-023": {
+      "name": "Phone Number Transmitted over Encrypted HTTPS Endpoint",
+      "category": "DATAFLOW",
+      "is_compliant": true,
+      "rules": {
+        "RULE-NET-CLEARTEXT-01": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-HARDCODED-KEY": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-WEAK-ALGO": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-STORAGE-PLAINTEXT-SECRETS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-ALLOW-BACKUP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-DEBUGGABLE": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-PERM-EXCESSIVE-DANGEROUS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-HTTP": {
+          "targeted": true,
+          "expected_state": "Supported",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-SDK-TRACKER-PII-FLOW": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-LOG": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-EXPORTED-UNPROTECTED": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CODE-OBFUSCATION-CHECK": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        }
+      }
+    },
+    "MB-024": {
+      "name": "Customer Credentials Emitted to Android Logcat",
+      "category": "DATAFLOW",
+      "is_compliant": false,
+      "rules": {
+        "RULE-NET-CLEARTEXT-01": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-HARDCODED-KEY": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-WEAK-ALGO": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-STORAGE-PLAINTEXT-SECRETS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-ALLOW-BACKUP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-DEBUGGABLE": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-PERM-EXCESSIVE-DANGEROUS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-HTTP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-SDK-TRACKER-PII-FLOW": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-LOG": {
+          "targeted": true,
+          "expected_state": "PotentialNonConformance",
+          "should_trigger_non_conformance": true
+        },
+        "RULE-MANIFEST-EXPORTED-UNPROTECTED": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CODE-OBFUSCATION-CHECK": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        }
+      }
+    },
+    "MB-025": {
+      "name": "Sanitized Log Statements without PII",
+      "category": "DATAFLOW",
+      "is_compliant": true,
+      "rules": {
+        "RULE-NET-CLEARTEXT-01": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-HARDCODED-KEY": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-WEAK-ALGO": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-STORAGE-PLAINTEXT-SECRETS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-ALLOW-BACKUP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-DEBUGGABLE": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-PERM-EXCESSIVE-DANGEROUS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-HTTP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-SDK-TRACKER-PII-FLOW": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-LOG": {
+          "targeted": true,
+          "expected_state": "Supported",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-EXPORTED-UNPROTECTED": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CODE-OBFUSCATION-CHECK": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        }
+      }
+    },
+    "MB-026": {
+      "name": "Advertising SDK Harvester Passing Hardware ID",
+      "category": "SDK",
+      "is_compliant": false,
+      "rules": {
+        "RULE-NET-CLEARTEXT-01": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-HARDCODED-KEY": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-WEAK-ALGO": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-STORAGE-PLAINTEXT-SECRETS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-ALLOW-BACKUP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-DEBUGGABLE": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-PERM-EXCESSIVE-DANGEROUS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-HTTP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-SDK-TRACKER-PII-FLOW": {
+          "targeted": true,
+          "expected_state": "PotentialNonConformance",
+          "should_trigger_non_conformance": true
+        },
+        "RULE-DATAFLOW-PII-TO-LOG": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-EXPORTED-UNPROTECTED": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CODE-OBFUSCATION-CHECK": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        }
+      }
+    },
+    "MB-027": {
+      "name": "Zero Third-Party Commercial Tracking SDKs Included",
+      "category": "SDK",
+      "is_compliant": true,
+      "rules": {
+        "RULE-NET-CLEARTEXT-01": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-HARDCODED-KEY": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-WEAK-ALGO": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-STORAGE-PLAINTEXT-SECRETS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-ALLOW-BACKUP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-DEBUGGABLE": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-PERM-EXCESSIVE-DANGEROUS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-HTTP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-SDK-TRACKER-PII-FLOW": {
+          "targeted": true,
+          "expected_state": "Supported",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-LOG": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-EXPORTED-UNPROTECTED": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CODE-OBFUSCATION-CHECK": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        }
+      }
+    },
+    "MB-028": {
+      "name": "Unprotected Exported Service without Permission",
+      "category": "MANIFEST",
+      "is_compliant": false,
+      "rules": {
+        "RULE-NET-CLEARTEXT-01": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-HARDCODED-KEY": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-WEAK-ALGO": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-STORAGE-PLAINTEXT-SECRETS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-ALLOW-BACKUP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-DEBUGGABLE": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-PERM-EXCESSIVE-DANGEROUS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-HTTP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-SDK-TRACKER-PII-FLOW": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-LOG": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-EXPORTED-UNPROTECTED": {
+          "targeted": true,
+          "expected_state": "PotentialNonConformance",
+          "should_trigger_non_conformance": true
+        },
+        "RULE-CODE-OBFUSCATION-CHECK": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        }
+      }
+    },
+    "MB-029": {
+      "name": "Exported Activity Protected by Signature Permission",
+      "category": "MANIFEST",
+      "is_compliant": true,
+      "rules": {
+        "RULE-NET-CLEARTEXT-01": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-HARDCODED-KEY": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-WEAK-ALGO": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-STORAGE-PLAINTEXT-SECRETS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-ALLOW-BACKUP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-DEBUGGABLE": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-PERM-EXCESSIVE-DANGEROUS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-HTTP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-SDK-TRACKER-PII-FLOW": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-LOG": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-EXPORTED-UNPROTECTED": {
+          "targeted": true,
+          "expected_state": "Supported",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CODE-OBFUSCATION-CHECK": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        }
+      }
+    },
+    "MB-030": {
+      "name": "Bytecode Obfuscation with ProGuard / R8",
+      "category": "HYBRID",
+      "is_compliant": true,
+      "rules": {
+        "RULE-NET-CLEARTEXT-01": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-HARDCODED-KEY": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CRYPTO-WEAK-ALGO": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-STORAGE-PLAINTEXT-SECRETS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-ALLOW-BACKUP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-DEBUGGABLE": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-PERM-EXCESSIVE-DANGEROUS": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-HTTP": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-SDK-TRACKER-PII-FLOW": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-DATAFLOW-PII-TO-LOG": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-MANIFEST-EXPORTED-UNPROTECTED": {
+          "targeted": false,
+          "expected_state": "NotApplicable",
+          "should_trigger_non_conformance": false
+        },
+        "RULE-CODE-OBFUSCATION-CHECK": {
+          "targeted": true,
+          "expected_state": "Supported",
+          "should_trigger_non_conformance": false
+        }
+      }
+    }
+  }
+}

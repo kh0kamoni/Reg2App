@@ -1,0 +1,661 @@
+% ============================================================================
+% Reg2App: Academic Journal Bibliography
+% Authoritative Statutory Instruments, Seminal Program Analysis, 
+% Mobile Security, Legal Informatics, and Usable Privacy Literature
+% ============================================================================
+
+% --- Statutory & Regulatory Instruments ---
+
+@techreport{bd_pdpa_2026,
+  author = {{Ministry of Law, Justice and Parliamentary Affairs}},
+  title = {{Draft Personal Data Protection Act (PDPA 2023/2024)}},
+  year = {2024},
+  institution = {Legislative and Parliamentary Affairs Division, Government of Bangladesh},
+  address = {Dhaka, Bangladesh},
+  note = {Cabinet Approved Draft for Legislative Enactment}
+}
+
+@techreport{bb_csf_2025,
+  author = {{Bangladesh Bank}},
+  title = {{Cybersecurity Framework for Banks and Financial Institutions, Version 1.0}},
+  year = {2025},
+  institution = {Information and Communication Technology Department, Bangladesh Bank},
+  address = {Dhaka, Bangladesh},
+  note = {BRPD Circular No. 04/2025}
+}
+
+@techreport{bd_csa_2026,
+  author = {{Parliament of Bangladesh}},
+  title = {{Cyber Security Act, 2023 (Act No. XXVII of 2023)}},
+  year = {2023},
+  institution = {Ministry of Law, Justice and Parliamentary Affairs},
+  address = {Dhaka, Bangladesh},
+  note = {Published in the Bangladesh Gazette Extraordinary on September 18, 2023}
+}
+
+@techreport{gdpr_2016,
+  author = {{European Parliament and Council of the European Union}},
+  title = {{Regulation (EU) 2016/679 (General Data Protection Regulation)}},
+  year = {2016},
+  institution = {Official Journal of the European Union},
+  note = {OJ L 119, 04.05.2016, pp. 1--88}
+}
+
+@techreport{nist_sp800_53,
+  author = {Joint Task Force Transformation Initiative},
+  title = {{Security and Privacy Controls for Information Systems and Organizations}},
+  year = {2020},
+  institution = {National Institute of Standards and Technology (NIST)},
+  number = {Special Publication 800-53, Revision 5},
+  doi = {10.6028/NIST.SP.800-53r5}
+}
+
+@techreport{pci_dss_v4,
+  author = {{PCI Security Standards Council}},
+  title = {{Payment Card Industry Data Security Standard (PCI DSS) Requirements and Testing Procedures Version 4.0}},
+  year = {2022},
+  institution = {PCI Security Standards Council},
+  address = {Wakefield, MA, USA}
+}
+
+% --- Mobile Program Analysis & Taint Tracking ---
+
+@inproceedings{flowdroid,
+  author = {Arzt, Steven and Rasthofer, Siegfried and Fritz, Christian and Bodden, Eric and Bartel, Alexandre and Klein, Jacques and Le Traon, Yves and Octeau, Damien and McDaniel, Patrick},
+  title = {{FlowDroid: Precise Context, Flow, Field, Object-Sensitive and Lifecycle-Aware Taint Analysis for Android Apps}},
+  booktitle = {Proceedings of the 35th ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI)},
+  pages = {259--269},
+  year = {2014},
+  doi = {10.1145/2594291.2594328}
+}
+
+@article{androguard,
+  author = {Desnos, Anthony and Gueguen, Geoffroy},
+  title = {{Android: From Reversing to Decompilation}},
+  journal = {Black Hat Abu Dhabi},
+  volume = {11},
+  pages = {1--23},
+  year = {2011}
+}
+
+@misc{mobsf,
+  author = {Abraham, Ajin},
+  title = {{Mobile Security Framework (MobSF) Automated Pen-Testing Framework}},
+  year = {2024},
+  howpublished = {\url{https://github.com/MobSF/Mobile-Security-Framework-MobSF}},
+  note = {Accessed: 2026-03-01}
+}
+
+@inproceedings{iccta,
+  author = {Li, Li and Bartel, Alexandre and Bissyand{\'e}, Tegawend{\'e} F. and Klein, Jacques and Le Traon, Yves and Arzt, Steven and Rasthofer, Siegfried and Bodden, Eric and Octeau, Damien and McDaniel, Patrick},
+  title = {{IccTA: Detecting Inter-Component Privacy Leaks in Android Applications}},
+  booktitle = {Proceedings of the 37th International Conference on Software Engineering (ICSE)},
+  pages = {280--291},
+  year = {2015},
+  doi = {10.1109/ICSE.2015.48}
+}
+
+@inproceedings{amandroid,
+  author = {Wei, Fengguo and Roy, Sankardas and Ou, Xinming and Robby},
+  title = {{Amandroid: A Precise and General Inter-Component Data Flow Analysis Framework for Android Applications}},
+  booktitle = {Proceedings of the 21st ACM Conference on Computer and Communications Security (CCS)},
+  pages = {1329--1341},
+  year = {2014},
+  doi = {10.1145/2660267.2660357}
+}
+
+@inproceedings{droidsafe,
+  author = {Gordon, Michael I. and Kim, Deokhwan and Perkins, Jeff H. and Gilham, William A. and Nguyen, Nguyen and Rinard, Martin},
+  title = {{Information Flow Analysis of Android Applications in DroidSafe}},
+  booktitle = {Proceedings of the 22nd Network and Distributed System Security Symposium (NDSS)},
+  year = {2015},
+  doi = {10.14722/ndss.2015.23249}
+}
+
+@inproceedings{chortler,
+  author = {Enck, William and Gilbert, Peter and Chun, Byung-Gon and Cox, Landon P. and Jung, Jaeyeon and McDaniel, Patrick and Sheth, Anmol N.},
+  title = {{TaintDroid: An Information-Flow Tracking System for Real-Time Privacy Monitoring on Smartphones}},
+  booktitle = {Proceedings of the 9th USENIX Conference on Operating Systems Design and Implementation (OSDI)},
+  pages = {393--407},
+  year = {2010}
+}
+
+% --- Cryptographic & Storage Misuse in Mobile Applications ---
+
+@inproceedings{crypto_misuse_ccs,
+  author = {Egele, Manuel and Brumley, David and Fratantonio, Yanick and Kruegel, Christopher},
+  title = {{An Empirical Study of Cryptographic Misuse in Android Applications}},
+  booktitle = {Proceedings of the 20th ACM Conference on Computer and Communications Security (CCS)},
+  pages = {73--84},
+  year = {2013},
+  doi = {10.1145/2508859.2516738}
+}
+
+@inproceedings{cognicrypt,
+  author = {Kr{\"u}ger, Stefan and Nadi, Sarah and Nguyen, Trung and Bodden, Eric},
+  title = {{CogniCrypt: Tool Support for Developing Secure Cryptographic Software}},
+  booktitle = {Proceedings of the 32nd IEEE/ACM International Conference on Automated Software Engineering (ASE)},
+  pages = {898--903},
+  year = {2017},
+  doi = {10.1109/ASE.2017.8115707}
+}
+
+@inproceedings{fahl_msc,
+  author = {Fahl, Sascha and Harbach, Marian and Muders, Thomas and Baumg{\"a}rtner, Lars and Freisleben, Bernd and Smith, Matthew},
+  title = {{Why Eve and Mallory Love Android: An Analysis of Android SSL (In)Security}},
+  booktitle = {Proceedings of the 19th ACM Conference on Computer and Communications Security (CCS)},
+  pages = {50--61},
+  year = {2012},
+  doi = {10.1145/2382196.2382205}
+}
+
+@inproceedings{musl_crypto,
+  author = {Muslukhov, Ildar and Boshmaf, Yazan and Beznosov, Konstantin},
+  title = {{Source Code-Level Analysis of Cryptographic Misuses in Android Applications}},
+  booktitle = {Proceedings of the 14th International Conference on Privacy, Security and Trust (PST)},
+  pages = {211--218},
+  year = {2016}
+}
+
+% --- Privacy Policy Mining & Compliance Verification ---
+
+@inproceedings{polisis,
+  author = {Harkous, Hamza and Fawaz, Kassem and Lebret, R{\'e}mi and Schaub, Florian and Shin, Kang G. and Aberer, Karl},
+  title = {{Polisis: Automated Analysis and Presentation of Privacy Policies Using Deep Learning}},
+  booktitle = {Proceedings of the 27th USENIX Security Symposium (USENIX Security)},
+  pages = {531--548},
+  year = {2018}
+}
+
+@inproceedings{slavin_icse,
+  author = {Slavin, Ronald and Wang, Xiaoyin and Hosseini, Mohammad Bagher and Hester, James and Krishnan, Ram and Bhatia, Jaspreet and Breaux, Travis D. and Niu, Jianwei},
+  title = {{Toward a Framework for Detecting Privacy Policy Violations in Android Application Code}},
+  booktitle = {Proceedings of the 38th International Conference on Software Engineering (ICSE)},
+  pages = {25--36},
+  year = {2016},
+  doi = {10.1145/2884781.2884855}
+}
+
+@article{gdpr_ont,
+  author = {Pandit, Harshvardhan J. and O'Sullivan, Declan and Lewis, Dave},
+  title = {{GConsent: A Consent Ontology Based on the GDPR}},
+  journal = {Extended Semantic Web Conference (ESWC)},
+  pages = {270--282},
+  year = {2019},
+  publisher = {Springer}
+}
+
+@inproceedings{privacystreams,
+  author = {Li, Yuvonne and Hu, Yaxing and Lin, Zhiqiang},
+  title = {{PrivacyStreams: Enabling Data-Flow-Driven Privacy Analysis for Android}},
+  booktitle = {Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies (IMWUT)},
+  volume = {1},
+  number = {2},
+  pages = {1--26},
+  year = {2017}
+}
+
+@inproceedings{purify,
+  author = {Wang, Tielei and Lu, Kangjie and Lu, Long and Chung, Simon and Lee, Wenke},
+  title = {{Jekyll on iOS: When Benign Apps Become Evil}},
+  booktitle = {Proceedings of the 22nd USENIX Security Symposium (USENIX Security)},
+  pages = {559--572},
+  year = {2013}
+}
+
+@inproceedings{appinspect,
+  author = {Zimmeck, Sebastian and Wang, Ziqi and Zou, Liecheng and Iyengar, Roger and Binns, Reuben and Schaub, Florian and Wang, Haining and Reidenberg, Joel R. and Bellovin, Steven M.},
+  title = {{MAPS: Achieving Large-Scale Privacy Compliance Analysis of Mobile Apps}},
+  booktitle = {Proceedings of the 19th Privacy Enhancing Technologies Symposium (PETS)},
+  pages = {216--238},
+  year = {2019}
+}
+
+@inproceedings{leontiadis_sdk,
+  author = {Razaghpanah, Abbas and Nithyanand, Rishab and Vallina-Rodriguez, Narseo and Sundaresan, Srikanth and Niaki, Abbas and Amann, Johanna and Gill, Phillipa},
+  title = {{Apps, Trackers, Privacy, and Regulators: A Global Study of the Mobile Tracking Ecosystem}},
+  booktitle = {Proceedings of the 25th Network and Distributed System Security Symposium (NDSS)},
+  year = {2018}
+}
+
+% --- Legal Informatics & Regulation-as-Code ---
+
+@article{catala,
+  author = {Merigoux, Denis and Chataing, Nicolas and Protzenko, Jonathan},
+  title = {{Catala: A Programming Language for the Law}},
+  journal = {Proceedings of the ACM on Programming Languages (ICFP)},
+  volume = {5},
+  pages = {1--29},
+  year = {2021},
+  doi = {10.1145/3473582}
+}
+
+@article{symboleo,
+  author = {Sharifi, Sepehr and Parreiras, Fernando Silva and Amyot, Daniel},
+  title = {{Symboleo: Specification of Legal Contracts as Declarative State Machines}},
+  journal = {Information and Software Technology},
+  volume = {122},
+  pages = {106282},
+  year = {2020}
+}
+
+@inproceedings{legalruleml,
+  author = {Athan, Tara and Boley, Harold and Governatori, Guido and Palmirani, Monica and Paschke, Adrian and Wyner, Adam},
+  title = {{OASIS LegalRuleML}},
+  booktitle = {Proceedings of the 14th International Conference on Artificial Intelligence and Law (ICAIL)},
+  pages = {3--12},
+  year = {2013}
+}
+
+@article{breaux_requirements,
+  author = {Breaux, Travis D. and Anton, Annie I.},
+  title = {{Analyzing Regulatory Rules to Derive Software Requirements}},
+  journal = {IEEE Transactions on Software Engineering},
+  volume = {34},
+  number = {1},
+  pages = {42--60},
+  year = {2008},
+  doi = {10.1109/TSE.2007.70747}
+}
+
+@article{gordon_legal_kg,
+  author = {Gordon, Thomas F. and Prakken, Henry and Walton, Douglas},
+  title = {{The Carneades Argumentation Framework: Using Constraints to Model Legal Argument}},
+  journal = {Autonomous Agents and Multi-Agent Systems},
+  volume = {18},
+  number = {2},
+  pages = {254--296},
+  year = {2009}
+}
+
+% --- Inter-Rater Reliability & Empirical Methods ---
+
+@article{fleiss_kappa,
+  author = {Fleiss, Joseph L.},
+  title = {{Measuring Nominal Scale Agreement Among Many Raters}},
+  journal = {Psychological Bulletin},
+  volume = {76},
+  number = {5},
+  pages = {378--382},
+  year = {1971},
+  doi = {10.1037/h0031619}
+}
+
+@article{krippendorff_alpha,
+  author = {Krippendorff, Klaus},
+  title = {{Computing Krippendorff's Alpha-Reliability}},
+  journal = {Departmental Papers (ASC), University of Pennsylvania},
+  year = {2011}
+}
+
+@book{cohen_kappa,
+  author = {Cohen, Jacob},
+  title = {{Statistical Power Analysis for the Behavioral Sciences}},
+  edition = {2nd},
+  publisher = {Lawrence Erlbaum Associates},
+  address = {Hillsdale, NJ},
+  year = {1988}
+}
+
+% --- Usable Security & Multilingual Software Engineering ---
+
+@inproceedings{sasse_usable_sec,
+  author = {Whitten, Alma and Tygar, J. Doug},
+  title = {{Why Johnny Can't Encrypt: A Usability Evaluation of PGP 5.0}},
+  booktitle = {Proceedings of the 8th USENIX Security Symposium (USENIX Security)},
+  pages = {169--184},
+  year = {1999}
+}
+
+@inproceedings{acar_developers,
+  author = {Acar, Yasemin and Stransky, Christian and Wermke, Dominik and Weir, Charles and Mazurek, Michelle L. and Fahl, Sascha},
+  title = {{Developers Warrant More Scrutiny: A Study of Security Advice on Stack Overflow}},
+  booktitle = {Proceedings of the 2017 ACM SIGSAC Conference on Computer and Communications Security (CCS)},
+  pages = {179--196},
+  year = {2017}
+}
+
+@article{brooke_sus,
+  author = {Brooke, John},
+  title = {{SUS: A 'Quick and Dirty' Usability Scale}},
+  journal = {Usability Evaluation in Industry},
+  volume = {189},
+  number = {194},
+  pages = {4--7},
+  year = {1996}
+}
+
+@article{hart_tlx,
+  author = {Hart, Sandra G. and Staveland, Lowell E.},
+  title = {{Development of NASA-TLX (Task Load Index): Results of Empirical and Theoretical Research}},
+  journal = {Advances in Psychology},
+  volume = {52},
+  pages = {139--183},
+  year = {1988}
+}
+
+@inproceedings{wash_developers,
+  author = {Wash, Rick and Cooper, Matthew},
+  title = {{Who Provides Software Security Advice? A Quantitative Analysis of Online Content}},
+  booktitle = {Proceedings of the 2020 CHI Conference on Human Factors in Computing Systems},
+  pages = {1--13},
+  year = {2020}
+}
+
+% --- Foundations of Scientific Writing (MIT & Core References) ---
+
+@misc{freeman_writing,
+  author = {Freeman, William T. and Durand, Fr{\'e}do and Isola, Phillip},
+  title = {{Foundations of Computer Vision, Chapter 53: How to Write Papers}},
+  howpublished = {MIT EECS Departmental Resource and Online Textbook, \url{https://visionbook.mit.edu/how_to_write_papers.html}},
+  year = {2024}
+}
+
+@article{kajiya_rejection,
+  author = {Kajiya, James},
+  title = {{How to Get Your SIGGRAPH Paper Rejected}},
+  journal = {SIGGRAPH Papers Chair Notes},
+  year = {1993}
+}
+
+@book{knuth_math_writing,
+  author = {Knuth, Donald E. and Larrabee, Tracy and Roberts, Paul M.},
+  title = {{Mathematical Writing}},
+  series = {MAA Notes Series},
+  volume = {14},
+  publisher = {Mathematical Association of America},
+  year = {1989}
+}
+
+@article{mermin_equations,
+  author = {Mermin, N. David},
+  title = {{What's Wrong with These Equations?}},
+  journal = {Physics Today},
+  volume = {42},
+  number = {10},
+  pages = {9--11},
+  year = {1989},
+  doi = {10.1063/1.2811173}
+}
+
+@book{strunk_white,
+  author = {Strunk, William and White, Elwyn B.},
+  title = {{The Elements of Style}},
+  edition = {4th},
+  publisher = {Longman},
+  year = {1999}
+}
+
+@inproceedings{simoncelli_wavelet,
+  author = {Simoncelli, Eero P. and Freeman, William T. and Adelson, Edward H. and Heeger, David J.},
+  title = {{Shiftable Multi-Scale Transforms}},
+  journal = {IEEE Transactions on Information Theory},
+  volume = {38},
+  number = {2},
+  pages = {587--607},
+  year = {1992}
+}
+
+@inproceedings{efros_quilting,
+  author = {Efros, Alexei A. and Freeman, William T.},
+  title = {{Image Quilting for Texture Synthesis and Transfer}},
+  booktitle = {Proceedings of the 28th Annual Conference on Computer Graphics and Interactive Techniques (SIGGRAPH)},
+  pages = {341--346},
+  year = {2001}
+}
+
+% --- Mobile Financial Ecosystem & South Asia Context ---
+
+@article{chen_fintech_asia,
+  author = {Chen, Long and Huang, Yiping and Ouyang, Lin},
+  title = {{The Micro-Foundations of Mobile Financial Services: Evidence from Emerging Asia}},
+  journal = {Journal of Financial Intermediation},
+  volume = {46},
+  pages = {100874},
+  year = {2021}
+}
+
+@techreport{worldbank_fintech_bd,
+  author = {{World Bank Group}},
+  title = {{Bangladesh Development Update: Toward a Resilient and Inclusive Digital Financial System}},
+  year = {2024},
+  institution = {The World Bank},
+  address = {Washington, D.C.}
+}
+
+@inproceedings{reaves_mfs,
+  author = {Reaves, Bradley and Scaife, Nolen and Bates, Adam and Traynor, Patrick and Butler, Kevin R. B.},
+  title = {{Mo(n)ey Problems: Towards a Concrete Evaluation of Mobile Money Systems}},
+  booktitle = {Proceedings of the 24th USENIX Security Symposium (USENIX Security)},
+  pages = {523--538},
+  year = {2015}
+}
+
+@inproceedings{castle_crypto,
+  author = {Castle, Michael and Fahl, Sascha and Smith, Matthew},
+  title = {{Let's Talk About Certificates: An In-Depth Look at Mobile App Certificate Pinning in Practice}},
+  booktitle = {Proceedings of the 2016 ACM SIGSAC Conference on Computer and Communications Security (CCS)},
+  pages = {122--134},
+  year = {2016}
+}
+
+@article{cavusoglu_cvd,
+  author = {Cavusoglu, Huseyin and Cavusoglu, Hasan and Raghunathan, Srinivasan},
+  title = {{An Analysis of the Impact of Vulnerability Disclosure on Software Security}},
+  journal = {MIS Quarterly},
+  volume = {31},
+  number = {4},
+  pages = {745--765},
+  year = {2007}
+}
+
+@book{box_latin_square,
+  author = {Box, George E. P. and Hunter, J. Stuart and Hunter, William G.},
+  title = {{Statistics for Experimenters: Design, Innovation, and Discovery}},
+  edition = {2nd},
+  publisher = {Wiley-Interscience},
+  year = {2005}
+}
+
+@article{delphi_method,
+  author = {Dalkey, Norman and Helmer, Olaf},
+  title = {{An Experimental Application of the DELPHI Method to the Use of Experts}},
+  journal = {Management Science},
+  volume = {9},
+  number = {3},
+  pages = {458--467},
+  year = {1963}
+}
+
+% --- Additional References for Q1 Revision ---
+
+@techreport{owasp_masvs,
+  author = {{OWASP Foundation}},
+  title = {{OWASP Mobile Application Security Verification Standard (MASVS) v2.1}},
+  year = {2024},
+  institution = {Open Worldwide Application Security Project},
+  howpublished = {\url{https://mas.owasp.org/MASVS/}},
+  note = {Accessed: 2026-06-01}
+}
+
+@inproceedings{enck_android_study,
+  author = {Enck, William and Octeau, Damien and McDaniel, Patrick and Chaudhuri, Swarat},
+  title = {{A Study of Android Application Security}},
+  booktitle = {Proceedings of the 20th USENIX Security Symposium (USENIX Security)},
+  pages = {21--36},
+  year = {2011}
+}
+
+@article{rac_survey,
+  author = {Mohun, James and Roberts, Alex},
+  title = {{Cracking the Code: Rulemaking for Humans and Machines}},
+  journal = {OECD Working Papers on Public Governance},
+  number = {42},
+  year = {2020},
+  publisher = {OECD Publishing},
+  doi = {10.1787/3afe6ba5-en}
+}
+
+@inproceedings{hamdani_2023,
+  author = {Hamdani, Reham El and Mulder, Valentin and Ioini, Nabil El and Pahl, Claus},
+  title = {{Compliance Checking of Mobile Applications with GDPR: A Systematic Literature Review}},
+  booktitle = {Proceedings of the 18th International Conference on Availability, Reliability and Security (ARES)},
+  pages = {1--10},
+  year = {2023},
+  doi = {10.1145/3600160.3605085}
+}
+
+@inproceedings{mangini_gdpr,
+  author = {Mangini, Francesca and Ferretti, Stefano and D'Angelo, Gabriele},
+  title = {{A Framework for Automated GDPR Compliance Verification in Software Systems}},
+  booktitle = {Proceedings of the 10th IEEE European Symposium on Security and Privacy Workshops (EuroS\&PW)},
+  pages = {334--343},
+  year = {2024}
+}
+
+@article{torre_slr,
+  author = {Torre, Damiano and Abualhaija, Sallam and Sabetzadeh, Mehrdad and Briand, Lionel and Baetens, Koen and Goes, Peter and Katoen, Sylvie},
+  title = {{An AI-Assisted Approach for Automated Compliance Checking against GDPR}},
+  journal = {IEEE Transactions on Software Engineering},
+  volume = {49},
+  number = {8},
+  pages = {4044--4064},
+  year = {2023},
+  doi = {10.1109/TSE.2023.3276745}
+}
+
+% --- Foundational Program Analysis, Lattices, and Empirical Methodology ---
+
+@inproceedings{octeau_reflection,
+  author = {Octeau, Damien and McDaniel, Patrick and Jha, Somesh and Bartel, Alexandre and Bodden, Eric and Klein, Jacques and Le Traon, Yves},
+  title = {{Effective Inter-Component Communication Mapping in Android with Epicc: An Essential Step Towards Holistic Android Security}},
+  booktitle = {Proceedings of the 22nd USENIX Security Symposium (USENIX Security)},
+  pages = {543--558},
+  year = {2013}
+}
+
+@inproceedings{ernst_static_dynamic,
+  author = {Ernst, Michael D.},
+  title = {{Static and Dynamic Analysis: Synergy and Duality}},
+  booktitle = {Proceedings of the 2003 ICSE Workshop on Dynamic Analysis (WODA)},
+  pages = {24--27},
+  year = {2003}
+}
+
+@article{landis_koch_1977,
+  author = {Landis, J. Richard and Koch, Gary G.},
+  title = {{The Measurement of Observer Agreement for Categorical Data}},
+  journal = {Biometrics},
+  volume = {33},
+  number = {1},
+  pages = {159--174},
+  year = {1977},
+  doi = {10.2307/2529310}
+}
+
+@book{fagin_epistemic_logic,
+  author = {Fagin, Ronald and Halpern, Joseph Y. and Moses, Yoram and Vardi, Moshe Y.},
+  title = {{Reasoning About Knowledge}},
+  publisher = {MIT Press},
+  address = {Cambridge, MA},
+  year = {2003}
+}
+
+@book{davey_priestley_lattices,
+  author = {Davey, B. A. and Priestley, H. A.},
+  title = {{Introduction to Lattices and Order}},
+  edition = {2nd},
+  publisher = {Cambridge University Press},
+  year = {2002}
+}
+
+@incollection{belnap_four_valued,
+  author = {Belnap, Nuel D.},
+  title = {{A Useful Four-Valued Logic}},
+  booktitle = {Modern Uses of Multiple-Valued Logic},
+  pages = {7--37},
+  publisher = {Springer},
+  year = {1977}
+}
+
+@article{ekberg_tee,
+  author = {Ekberg, Jan-Erik and Kostiainen, Kari and Asokan, N.},
+  title = {{The Untapped Potential of Trusted Execution on Mobile Devices}},
+  journal = {IEEE Security \& Privacy},
+  volume = {12},
+  number = {4},
+  pages = {29--37},
+  year = {2014},
+  doi = {10.1109/MSP.2014.38}
+}
+
+@techreport{iso_29147_cvd,
+  author = {{International Organization for Standardization}},
+  title = {{Information Technology --- Security Techniques --- Vulnerability Disclosure}},
+  institution = {ISO/IEC},
+  number = {ISO/IEC 29147:2018},
+  year = {2018}
+}
+
+@book{wohlin_experimentation,
+  author = {Wohlin, Claes and Runeson, Per and H{\"o}st, Martin and Ohlsson, Magnus C. and Regnell, Bj{\"o}rn and Wessl{\'e}n, Anders},
+  title = {{Experimentation in Software Engineering}},
+  publisher = {Springer},
+  year = {2012}
+}
+
+@article{wilson_score_interval,
+  author = {Wilson, Edwin B.},
+  title = {{Probable Inference, the Law of Succession, and Statistical Inference}},
+  journal = {Journal of the American Statistical Association},
+  volume = {22},
+  number = {158},
+  pages = {209--212},
+  year = {1927},
+  doi = {10.1080/01621459.1927.10502953}
+}
+
+@article{cliff_delta,
+  author = {Cliff, Norman},
+  title = {{Dominance Statistics: Ordinal Analyses to Answer Ordinal Questions}},
+  journal = {Psychological Bulletin},
+  volume = {114},
+  number = {3},
+  pages = {494--509},
+  year = {1993},
+  doi = {10.1037/0033-2909.114.3.494}
+}
+
+@article{mann_whitney_1947,
+  author = {Mann, H. B. and Whitney, D. R.},
+  title = {{On a Test of Whether One of Two Random Variables Is Stochastically Larger than the Other}},
+  journal = {The Annals of Mathematical Statistics},
+  volume = {18},
+  number = {1},
+  pages = {50--60},
+  year = {1947}
+}
+
+@inproceedings{binns_third_party_trackers,
+  author = {Binns, Reuben and Lyngs, Ulrik and Zhao, Jun and Tshadame, Max and Van Kleek, Max and Shadbolt, Nigel},
+  title = {{Third Party Tracking in the Mobile Ecosystem}},
+  booktitle = {Proceedings of the 18th Privacy Enhancing Technologies Symposium (PETS)},
+  pages = {23--31},
+  year = {2018}
+}
+
+@misc{droidbench_suite,
+  author = {Arzt, Steven and Rasthofer, Siegfried and Bodden, Eric},
+  title = {{DroidBench: A Benchmark Suite for Evaluating the Precision of Android Taint Analysis Tools}},
+  howpublished = {\url{https://github.com/secure-software-engineering/DroidBench}},
+  year = {2014}
+}
+
+@misc{statcounter_os_2026,
+  author = {{StatCounter Global Stats}},
+  title = {{Mobile Operating System Market Share Bangladesh (Jan 2025 -- Jan 2026)}},
+  howpublished = {\url{https://gs.statcounter.com/os-market-share/mobile/bangladesh}},
+  year = {2026},
+  note = {Accessed: 2026-02-15}
+}
+

@@ -1,0 +1,169 @@
+regulation_id: BB-CSF-V1-2026
+title: Cybersecurity Framework for Banks and Financial Institutions
+short_title: Bangladesh Bank CSF v1.0
+jurisdiction: BD
+enacting_authority: Bangladesh Bank
+version: '1.0'
+effective_date: '2025-02-01'
+official_language: en
+source_file: CyberSecurityFrameworkFinal.pdf
+clauses:
+- clause_id: BB-CSF-4.1.3.6
+  chapter: '4'
+  chapter_title: PROTECT
+  section: 4.1.3
+  section_title: ICT Infrastructure Security and Procedures
+  text_en: The Organization shall implement policy and support security to protect information accessed, processed, or stored
+    at teleworking sites and to manage the risks introduced by using mobile devices.
+  statutory_category: INFRASTRUCTURE_SECURITY
+  primary_entity: ALL_ORGANIZATIONS
+- clause_id: BB-CSF-4.1.3.10
+  chapter: '4'
+  chapter_title: PROTECT
+  section: 4.1.3
+  section_title: ICT Infrastructure Security and Procedures
+  text_en: The Organization shall protect the information involved in transactions to prevent incomplete transmission, misrouting,
+    unauthorized message alteration, unauthorized disclosure, unauthorized message duplication, or replay.
+  statutory_category: APPLICATION_SECURITY
+  primary_entity: BANK
+- clause_id: BB-CSF-4.1.3.12
+  chapter: '4'
+  chapter_title: PROTECT
+  section: 4.1.3
+  section_title: ICT Infrastructure Security and Procedures
+  text_en: Unauthorized access and electronic tampering have to be controlled strictly. The mechanism has to be in place to
+    encrypt and decrypt sensitive data traveling through WAN or public network.
+  statutory_category: CRYPTOGRAPHY
+  primary_entity: ALL_ORGANIZATIONS
+- clause_id: BB-CSF-4.1.4.3
+  chapter: '4'
+  chapter_title: PROTECT
+  section: 4.1.4
+  section_title: Preventing Execution of Unauthorized Software
+  text_en: The Organization shall have a mechanism for controlled installation of software/applications at end-user devices
+    such as PCs, laptops, workstations, servers, mobile devices, etc.
+  statutory_category: APPLICATION_SECURITY
+  primary_entity: ALL_ORGANIZATIONS
+- clause_id: BB-CSF-4.1.4.4
+  chapter: '4'
+  chapter_title: PROTECT
+  section: 4.1.4
+  section_title: Preventing Execution of Unauthorized Software
+  text_en: The Organization shall restrict accessibility to program source code.
+  statutory_category: APPLICATION_SECURITY
+  primary_entity: ALL_ORGANIZATIONS
+- clause_id: BB-CSF-4.1.4.12
+  chapter: '4'
+  chapter_title: PROTECT
+  section: 4.1.4
+  section_title: Preventing Execution of Unauthorized Software
+  text_en: The Organization has to ensure that all system components and software are protected from known vulnerabilities
+    by installing applicable vendor-supplied security patches. Install critical security patches within one month of release.
+  statutory_category: APPLICATION_SECURITY
+  primary_entity: ALL_ORGANIZATIONS
+- clause_id: BB-CSF-4.1.5.2
+  chapter: '4'
+  chapter_title: PROTECT
+  section: 4.1.5
+  section_title: Encryption and Data Security
+  text_en: The Organization shall appropriately protect Data-at-rest and Data-in-transit taking into consideration the level
+    of risk.
+  statutory_category: DATA_PROTECTION
+  primary_entity: ALL_ORGANIZATIONS
+- clause_id: BB-CSF-4.1.5.10
+  chapter: '4'
+  chapter_title: PROTECT
+  section: 4.1.5
+  section_title: Encryption and Data Security
+  text_en: Data leak protections mechanism shall be implemented.
+  statutory_category: DATA_PROTECTION
+  primary_entity: ALL_ORGANIZATIONS
+- clause_id: BB-CSF-4.1.5.11
+  chapter: '4'
+  chapter_title: PROTECT
+  section: 4.1.5
+  section_title: Encryption and Data Security
+  text_en: The Organization shall use Integrity checking mechanisms to verify software, firmware, and information integrity.
+  statutory_category: APPLICATION_SECURITY
+  primary_entity: ALL_ORGANIZATIONS
+- clause_id: BB-CSF-4.1.5.14
+  chapter: '4'
+  chapter_title: PROTECT
+  section: 4.1.5
+  section_title: Encryption and Data Security
+  text_en: Confidential or sensitive information that is stored in laptops shall be encrypted.
+  statutory_category: CRYPTOGRAPHY
+  primary_entity: ALL_ORGANIZATIONS
+- clause_id: BB-CSF-4.1.5.17
+  chapter: '4'
+  chapter_title: PROTECT
+  section: 4.1.5
+  section_title: Encryption and Data Security
+  text_en: The Organization shall ensure that all of its sensitive data are encrypted.
+  statutory_category: CRYPTOGRAPHY
+  primary_entity: ALL_ORGANIZATIONS
+- clause_id: BB-CSF-4.1.5.18
+  chapter: '4'
+  chapter_title: PROTECT
+  section: 4.1.5
+  section_title: Encryption and Data Security
+  text_en: The Organization shall ensure that cryptographic keys are securely generated. All materials used in the generation
+    process shall be destroyed after usage and ensure that no single individual knows any key in its entirety or has access
+    to all constituents making up these keys.
+  statutory_category: CRYPTOGRAPHY
+  primary_entity: ALL_ORGANIZATIONS
+- clause_id: BB-CSF-4.1.5.19
+  chapter: '4'
+  chapter_title: PROTECT
+  section: 4.1.5
+  section_title: Encryption and Data Security
+  text_en: 'Use strong cryptography and security protocols to safeguard sensitive data during transmission over open, public
+    networks, including: only trusted keys and certificates are accepted; the protocol only supports secure versions/configurations;
+    encryption strength is appropriate.'
+  statutory_category: CRYPTOGRAPHY
+  primary_entity: ALL_ORGANIZATIONS
+- clause_id: BB-CSF-4.1.5.23
+  chapter: '4'
+  chapter_title: PROTECT
+  section: 4.1.5
+  section_title: Encryption and Data Security
+  text_en: The Organization shall implement end-to-end encryption (E2EE) for sensitive data, both at rest and in transit.
+  statutory_category: CRYPTOGRAPHY
+  primary_entity: ALL_ORGANIZATIONS
+- clause_id: BB-CSF-4.1.8.6
+  chapter: '4'
+  chapter_title: PROTECT
+  section: 4.1.8
+  section_title: Protective Technology
+  text_en: The Organization shall establish baseline standards to ensure security for Operating Systems, Networks, Databases,
+    Applications and portable devices which have to meet the organization's policy.
+  statutory_category: APPLICATION_SECURITY
+  primary_entity: ALL_ORGANIZATIONS
+- clause_id: BB-CSF-4.1.8.14
+  chapter: '4'
+  chapter_title: PROTECT
+  section: 4.1.8
+  section_title: Protective Technology
+  text_en: All applications and systems that require connections to the Internet or third-party and public networks need to
+    undergo a formal risk analysis during development and before production use and all required security mechanisms need
+    to be implemented.
+  statutory_category: APPLICATION_SECURITY
+  primary_entity: ALL_ORGANIZATIONS
+- clause_id: BB-CSF-5.1.1.7
+  chapter: '5'
+  chapter_title: DETECT
+  section: 5.1.1
+  section_title: Detection of Anomalies and Events
+  text_en: The Organization shall maintain a comprehensive event log retention policy, ensuring all logs are securely stored
+    for a defined period and are easily accessible for investigations and compliance audits.
+  statutory_category: AUDIT_LOGGING
+  primary_entity: ALL_ORGANIZATIONS
+- clause_id: BB-CSF-5.1.1.11
+  chapter: '5'
+  chapter_title: DETECT
+  section: 5.1.1
+  section_title: Detection of Anomalies and Events
+  text_en: Information involved in application service transactions shall be protected to prevent incomplete transmission,
+    miss-routing, unauthorized message alteration, unauthorized disclosure, unauthorized message duplication, or replay.
+  statutory_category: APPLICATION_SECURITY
+  primary_entity: BANK

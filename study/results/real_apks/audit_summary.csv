@@ -1,0 +1,42 @@
+app_name,package_name,sector,subcategory,distribution,supported_S,non_conformance_P,insufficient_I,not_observable_O,not_applicable_A,evidence_coverage_EC,evidence_supported_compliance_ESC,structural_conformance_index_SCI,allow_backup,uses_cleartext_traffic,debuggable,keystore_usage,encrypted_prefs,trackers_count,trackers,ciphers,cleartext_urls_count
+Agrani Smart App,net.celloscope.ib_mobile_app,BANKING,SOCB,Multi-Split APKS,6,4,2,0,0,0.8333,0.6,0.5,False,False,False,True,True,0,,AES/GCM/NoPadding;AES/ECB/NoPadding,1
+BDBL Digital Bank,eraapps.bdbl.bdinternetbanking.apps,BANKING,SOCB,Multi-Split APKS,5,4,3,0,0,0.75,0.5556,0.4167,False,False,False,True,False,0,,AES/CBC/PKCS5Padding;Blowfish;Blowfish;Blowfish,10
+BRAC Bank Astha,com.bracbank.astha,BANKING,PCB_CONVENTIONAL,Multi-Split APKS,5,4,3,0,0,0.75,0.5556,0.4167,False,False,False,True,True,1,com.google.android.gms.ads,AES/GCM/NoPadding;AES/ECB/NoPadding;AES/GCM/NoPadding;RC4,9
+Bank Asia Zen,eraapps.bankasia.bdinternetbanking.apps,BANKING,PCB_CONVENTIONAL,Multi-Split APKS,5,5,2,0,0,0.8333,0.5,0.4167,,False,False,True,True,0,,AES/GCM/NoPadding;RC4;AES/ECB/NoPadding,1
+CellFin,com.ibbl.cellfin,MFS,MFS,Multi-Split APKS,4,5,3,0,0,0.75,0.4444,0.3333,True,True,False,True,False,0,,,3
+CitiDirect,com.citi.mobile.cdbe,BANKING,FCB,Monolithic APK,5,4,3,0,0,0.75,0.5556,0.4167,False,False,False,False,True,0,,AES/ECB/PKCS5Padding;Blowfish;RC4;DESede,2
+Citytouch,com.thecitybank.citytouch,BANKING,PCB_CONVENTIONAL,Multi-Split APKS,5,4,3,0,0,0.75,0.5556,0.4167,False,False,False,True,True,1,com.google.android.gms.ads,AES/CBC/PKCS5Padding;AES/GCM/NoPadding;RC4;Blowfish,4
+DBL Go Plus,com.dbl.goplus,BANKING,PCB_CONVENTIONAL,Multi-Split APKS,6,4,2,0,0,0.8333,0.6,0.5,False,False,False,True,True,0,,RC4;AES/GCM/NoPadding;AES/ECB/NoPadding,1
+EXIM aiser,com.eximbankbd.eWallet,BANKING,PCB_ISLAMIC,Multi-Split APKS,4,5,3,0,0,0.75,0.4444,0.3333,,,False,True,False,0,,,2
+EBL Skybanking,com.ebl.skybanking,BANKING,PCB_CONVENTIONAL,Multi-Split APKS,4,4,4,0,0,0.6667,0.5,0.3333,False,,False,True,False,1,com.google.android.gms.ads,RC4;RC4,4
+FirstCash,com.fsiblbd.customer,MFS,MFS,Multi-Split APKS,6,4,2,0,0,0.8333,0.6,0.5,False,False,False,True,True,0,,RC4;AES/GCM/NoPadding;AES/ECB/NoPadding,2
+HelloTalk,com.hellotalk,GENERAL,CONTROL,Multi-Split APKS,1,2,3,0,6,0.5,0.3333,0.1666,False,True,False,True,True,4,com.appsflyer;io.branch;com.facebook.ads;com.google.android.gms.ads,RC4;Blowfish;AES/CBC/PKCS5Padding;Blowfish,10
+IBBL iSmart,com.ionicframework.icellular894076,BANKING,PCB_ISLAMIC,Multi-Split APKS,5,5,2,0,0,0.8333,0.5,0.4167,,,False,True,True,0,,AES/GCM/NoPadding;AES/ECB/NoPadding,1
+IFIC Aamar Bank,com.ific.mobile,BANKING,PCB_CONVENTIONAL,Multi-Split APKS,6,4,2,0,0,0.8333,0.6,0.5,False,False,False,True,True,0,,RC4;AES/GCM/NoPadding;AES/ECB/NoPadding,3
+Islamic Wallet,com.iw.app,MFS,MFS,Multi-Split APKS,4,4,4,0,0,0.6667,0.5,0.3333,False,,False,True,False,1,com.google.android.gms.ads,RC4,1
+LENDEN,com.reddot.lenden.customerapp,MFS,MFS,Multi-Split APKS,5,4,3,0,0,0.75,0.5556,0.4167,False,True,False,True,False,0,,,4
+MBL Rainbow,com.konasl.mercantile,BANKING,PCB_CONVENTIONAL,Monolithic APK,4,4,4,0,0,0.6667,0.5,0.3333,False,True,False,True,False,1,com.google.android.gms.ads,AES/ECB/NoPadding;DESede;DESede;RC4,1
+MYCash,com.mycash,MFS,MFS,Multi-Split APKS,4,4,4,0,0,0.6667,0.5,0.3333,False,,False,False,True,1,com.google.android.gms.ads,AES/CBC/PKCS5Padding;RC4,4
+MeghnaPay,com.modefin.meghnaui,MFS,MFS,Multi-Split APKS,4,4,4,0,0,0.6667,0.5,0.3333,False,False,False,True,False,1,com.google.android.gms.ads,RC4,2
+MyPrime,bd.com.primebank.pib.altitudemobile,BANKING,PCB_CONVENTIONAL,Multi-Split APKS,4,4,4,0,0,0.6667,0.5,0.3333,False,False,False,True,False,1,com.google.android.gms.ads,RC4;Blowfish,1
+Nagad,com.konasl.nagad,MFS,MFS,Monolithic APK,3,4,5,0,0,0.5833,0.4286,0.25,False,False,False,False,False,1,com.google.android.gms.ads,AES/CBC/PKCS5Padding;AES/ECB/NoPadding;AES/GCM/NoPadding;DESede,2
+NexusPay,com.dbbl.nexus.pay,MFS,MFS,Multi-Split APKS,5,4,3,0,0,0.75,0.5556,0.4167,False,,False,True,True,1,com.google.android.gms.ads,RC4;AES/GCM/NoPadding;Blowfish;AES/ECB/PKCS5Padding,4
+PI Banking,com.pubali.internet.banking,BANKING,PCB_CONVENTIONAL,Multi-Split APKS,5,4,3,0,0,0.75,0.5556,0.4167,False,True,False,True,True,1,com.google.android.gms.ads,RC4;AES/CBC/PKCS5Padding;AES/ECB/NoPadding;AES/GCM/NoPadding,8
+Rocket,com.dbbl.mbs.apps.main,MFS,MFS,Multi-Split APKS,5,4,3,0,0,0.75,0.5556,0.4167,False,False,False,True,True,1,com.google.android.gms.ads,AES/GCM/NoPadding;Blowfish;AES/ECB/NoPadding;AES/GCM/NoPadding,4
+Rupali eBank,com.rbplc.rupaliebank,BANKING,SOCB,Multi-Split APKS,5,5,2,0,0,0.8333,0.5,0.4167,,False,False,True,True,0,,AES/GCM/NoPadding;AES/ECB/NoPadding,1
+SBL DigiBanking,com.cibl.sblmobilebanking,BANKING,PCB_ISLAMIC,Multi-Split APKS,4,4,4,0,0,0.6667,0.5,0.3333,False,False,False,True,False,1,com.google.android.gms.ads,RC4;Blowfish,3
+SC Mobile,com.sc.mobilebanking.bd,BANKING,FCB,Multi-Split APKS,5,4,3,0,0,0.75,0.5556,0.4167,False,False,False,True,True,2,com.appsflyer;com.google.android.gms.ads,Blowfish;Blowfish;AES/ECB/NoPadding;AES/GCM/NoPadding,6
+SIBL NOW,com.mislbd.sibl.now,BANKING,PCB_ISLAMIC,Multi-Split APKS,2,5,5,0,0,0.5833,0.2857,0.1666,,True,False,False,False,1,com.google.android.gms.ads,RC4,1
+Sonali e-Wallet,bd.com.sonalibank.sw,BANKING,SOCB,Multi-Split APKS,5,4,3,0,0,0.75,0.5556,0.4167,False,False,False,True,True,1,com.google.android.gms.ads,RC4;DESede,4
+Sonali eSheba,bd.com.sonalibank.ss,BANKING,SOCB,Multi-Split APKS,3,5,4,0,0,0.6667,0.375,0.25,,True,False,False,False,0,,RC4,3
+Southeast Bank PLC,com.seblit.ssa,BANKING,PCB_CONVENTIONAL,Multi-Split APKS,3,5,4,0,0,0.6667,0.375,0.25,True,True,False,True,False,1,com.google.android.gms.ads,AES/CBC/PKCS5Padding;AES/ECB/NoPadding;AES/GCM/NoPadding;RC4,10
+Super Backup,com.idea.backup.smscontacts,GENERAL,CONTROL,Monolithic APK,1,2,3,0,6,0.5,0.3333,0.1666,True,,False,False,False,1,com.google.android.gms.ads,AES/CBC/PKCS5Padding;AES/ECB/NoPadding;AES/GCM/NoPadding;AES/GCM/NoPadding,9
+TeleCash,com.reddot.telecash.mobile,MFS,MFS,Multi-Split APKS,5,5,2,0,0,0.8333,0.5,0.4167,,,False,True,True,0,,RC4;AES/GCM/NoPadding;AES/ECB/NoPadding,4
+TouchPay,com.cibl.app.shahjalalbankapp,BANKING,PCB_ISLAMIC,Multi-Split APKS,4,4,4,0,0,0.6667,0.5,0.3333,False,False,False,True,False,1,com.google.android.gms.ads,AES/CBC/PKCS5Padding;RC4;Blowfish;RC4,1
+Trust And Pay,com.trustandpay.customer,MFS,MFS,Multi-Split APKS,3,4,5,0,0,0.5833,0.4286,0.25,False,True,False,False,False,1,com.google.android.gms.ads,AES/CBC/PKCS5Padding;Blowfish;DESede;AES/ECB/PKCS5Padding,1
+UCB One,bd.com.ucb.unet,BANKING,PCB_CONVENTIONAL,Multi-Split APKS,5,4,3,0,0,0.75,0.5556,0.4167,False,,False,True,True,1,com.google.android.gms.ads,AES/GCM/NoPadding;AES/GCM/NoPadding;RC4;AES/CBC/PKCS5Padding,8
+aibl i-Banking,com.bd.aibl.ibapps,BANKING,PCB_ISLAMIC,Multi-Split APKS,2,5,5,0,0,0.5833,0.2857,0.1666,,True,False,False,False,1,com.google.android.gms.ads,RC4,1
+bKash,com.bKash.customerapp,MFS,MFS,Multi-Split APKS,5,4,3,0,0,0.75,0.5556,0.4167,False,True,False,True,True,1,com.google.android.gms.ads,AES/GCM/NoPadding;AES/CBC/PKCS5Padding;AES/GCM/NoPadding;AES/ECB/NoPadding,8
+eJanata,com.jb.ejanata,BANKING,SOCB,Multi-Split APKS,4,5,3,0,0,0.75,0.4444,0.3333,,,False,True,True,1,com.google.android.gms.ads,RC4;AES/GCM/NoPadding;RC4;AES/ECB/NoPadding,3
+mCash,com.ibbl.mcashcustomer,MFS,MFS,Multi-Split APKS,4,5,3,0,0,0.75,0.4444,0.3333,,False,False,True,True,1,com.google.android.gms.ads,AES/GCM/NoPadding;AES/ECB/NoPadding;AES/GCM/NoPadding;AES/GCM/NoPadding,1
+upay,bd.com.upay.customer,MFS,MFS,Multi-Split APKS,5,4,3,0,0,0.75,0.5556,0.4167,False,,False,True,True,1,com.google.android.gms.ads,AES/CBC/PKCS5Padding;AES/GCM/NoPadding;RC4;AES/ECB/NoPadding,10

@@ -1,0 +1,31 @@
+# Android APK binaries (proprietary commercial binaries evaluated offline under CVD)
+apks/
+*.apk
+*.apks
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# LaTeX build artifacts (keep main.pdf)
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.bbl
+paper/*.blg
+paper/*.toc
+paper/*.spl
+paper/*.synctex.gz
+paper/*.fdb_latexmk
+paper/*.fls
+paper/texput.*
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

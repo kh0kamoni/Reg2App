@@ -1,0 +1,82 @@
+mapping_id: MAP-CSA-ANDROID-V1
+regulation_id: BD-CSA-2026
+version: '1.0'
+mappings:
+- requirement_ref: CSA-SEC-17
+  obligation:
+    category: Component Access Control
+    description: Obligation to prevent unauthorized access or hijacking of Critical Information Infrastructure components.
+  technical_control:
+    control_id: CTRL-IPC-01
+    name: Securing Exported IPC Components
+    description: All exported Activities, Services, Broadcast Receivers, and Content Providers must enforce explicit permission
+      checks.
+  program_property:
+    property_id: PROP-EXPORTED-COMPONENTS-SECURED
+    name: Authorization Enforcement on Exported Components
+    target_platform: Android
+    formal_specification: 'FORALL c IN Manifest.components: (c[exported]=''true'') => (c[permission] != NULL AND c[permission].protectionLevel
+      IN [''signature'', ''privileged''])'
+  observability:
+    level: FULL
+    modalities:
+    - STATIC
+    limitations_rationale: Component export status and permission attributes are fully defined in AndroidManifest.xml.
+  evidence_rule:
+    rule_id: RULE-MANIFEST-EXPORTED-UNPROTECTED
+    analysis_type: MANIFEST
+    sources:
+    - Manifest.activity
+    - Manifest.service
+    - Manifest.receiver
+    - Manifest.provider
+    sinks:
+    - Android_IPC_Binder
+    conditions:
+    - exported=true AND permission attribute is missing
+    supported_criteria: All exported components declare android:permission with signature-level enforcement.
+    non_conformance_criteria: Application exposes unprotected exported components without permissions, allowing arbitrary
+      external intent invocation.
+    insufficient_evidence_criteria: Component performs internal runtime permission check in onCreate() not resolved statically.
+  validation:
+    status: EXPERT_REVIEWED
+    expert_raters: 3
+    inter_rater_agreement: 1.0
+    rationale: Unprotected exported components permit unauthorized third-party apps to access internal app functionalities.
+- requirement_ref: CSA-SEC-20
+  obligation:
+    category: Source Code Integrity & Obfuscation
+    description: Obligation to protect software against unauthorized tampering and reverse engineering.
+  technical_control:
+    control_id: CTRL-OBFUSCATION-01
+    name: Bytecode Obfuscation and Symbol Stripping
+    description: Application production bytecode must be processed with ProGuard/R8 to prevent reverse engineering.
+  program_property:
+    property_id: PROP-BYTECODE-OBFUSCATED
+    name: Bytecode Symbol Transformation
+    target_platform: Android
+    formal_specification: Ratio(ObfuscatedClassNames, TotalInternalClasses) >= 0.70
+  observability:
+    level: PARTIAL
+    modalities:
+    - STATIC
+    limitations_rationale: Symbol distribution and short package name patterns (e.g. a.b.c) can be calculated statically from
+      DEX.
+  evidence_rule:
+    rule_id: RULE-CODE-OBFUSCATION-CHECK
+    analysis_type: HYBRID
+    sources:
+    - DEX_Class_Identifiers
+    sinks:
+    - Decompilation_AST
+    conditions:
+    - Obfuscation ratio < 0.30 in non-library packages
+    supported_criteria: DEX packages show systematic identifier renaming (short 1-2 char identifiers, flattened packages).
+    non_conformance_criteria: DEX contains complete, unobfuscated business logic classes and method names matching sensitive
+      financial workflows.
+    insufficient_evidence_criteria: Binary packing or commercial protector prevents standard DEX inspection.
+  validation:
+    status: EXPERT_REVIEWED
+    expert_raters: 3
+    inter_rater_agreement: 0.85
+    rationale: Publishing completely unobfuscated banking bytecode drastically facilitates malicious tampering.

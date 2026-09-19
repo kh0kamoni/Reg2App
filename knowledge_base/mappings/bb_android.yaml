@@ -1,0 +1,246 @@
+mapping_id: MAP-BB-CSF-ANDROID-V1
+regulation_id: BB-CSF-V1-2026
+version: '1.0'
+mappings:
+- requirement_ref: BB-CSF-4.1.3.12
+  obligation:
+    category: Network Transport Security
+    description: Obligation to enforce cryptographic encryption on sensitive communications traversing public networks and
+      WAN.
+  technical_control:
+    control_id: CTRL-NET-01
+    name: Mandatory Transport Layer Security (TLS)
+    description: The application must disable cleartext HTTP traffic globally and configure network security config with strict
+      HTTPS.
+  program_property:
+    property_id: PROP-NO-CLEARTEXT-HTTP
+    name: Prohibition of Cleartext HTTP Communications
+    target_platform: Android
+    formal_specification: Manifest.application[android:usesCleartextTraffic] != true AND NetworkSecurityConfig.base-config[cleartextTrafficPermitted]
+      == false
+  observability:
+    level: FULL
+    modalities:
+    - STATIC
+    - DYNAMIC
+    limitations_rationale: Static manifest and XML resource inspection fully determines cleartext permissions; dynamic network
+      capture confirms absence of unencrypted traffic.
+  evidence_rule:
+    rule_id: RULE-NET-CLEARTEXT-01
+    analysis_type: NETWORK
+    sources:
+    - Manifest:usesCleartextTraffic
+    - Res:network_security_config.xml
+    sinks:
+    - HttpURLConnection
+    - OkHttpClient
+    - HttpClient
+    conditions:
+    - android:usesCleartextTraffic=true OR cleartextTrafficPermitted=true OR HTTP URL in bytecode
+    supported_criteria: android:usesCleartextTraffic is explicitly false AND network security config enforces cleartextTrafficPermitted=false
+      AND no cleartext HTTP endpoints invoked.
+    non_conformance_criteria: android:usesCleartextTraffic is true OR cleartextTrafficPermitted is true OR bytecode initiates
+      connections to plaintext http:// endpoints.
+    insufficient_evidence_criteria: Network configuration is dynamically initialized in obfuscated native code or reflection
+      without capture.
+  validation:
+    status: EXPERT_REVIEWED
+    expert_raters: 3
+    inter_rater_agreement: 1.0
+    rationale: Cleartext traffic is an unambiguous violation of Section 4.1.3.12 requirement to encrypt WAN/public network
+      traffic.
+- requirement_ref: BB-CSF-4.1.5.18
+  obligation:
+    category: Cryptographic Key Governance
+    description: Obligation to prevent hardcoded symmetric keys and ensure secure key generation materials are destroyed.
+  technical_control:
+    control_id: CTRL-CRYPTO-01
+    name: Prohibition of Hardcoded Cryptographic Keys
+    description: Cryptographic keys must be derived dynamically or stored in the Android Keystore rather than hardcoded in
+      bytecode or resources.
+  program_property:
+    property_id: PROP-NO-HARDCODED-KEYS
+    name: Absence of Static Cryptographic Keys in Bytecode
+    target_platform: Android
+    formal_specification: NOT EXISTS (Invoke javax.crypto.spec.SecretKeySpec(k, _)) WHERE k in StringConstants OR k in StaticByteArrays
+  observability:
+    level: FULL
+    modalities:
+    - STATIC
+    limitations_rationale: Dalvik bytecode instructions passing static literals to SecretKeySpec can be definitively detected
+      statically.
+  evidence_rule:
+    rule_id: RULE-CRYPTO-HARDCODED-KEY
+    analysis_type: CRYPTO
+    sources:
+    - ConstString
+    - ConstByteArray
+    - ResourceString
+    sinks:
+    - javax.crypto.spec.SecretKeySpec.<init>
+    - javax.crypto.Cipher.init
+    conditions:
+    - Key argument originates from immediate instruction operand or static field
+    supported_criteria: Cryptographic keys are retrieved via AndroidKeyStore provider (AndroidKeyStore) without static byte
+      initialization.
+    non_conformance_criteria: SecretKeySpec instantiated with string constant, hexadecimal byte array literal, or assets/resource
+      file.
+    insufficient_evidence_criteria: Key derivation occurs inside packed or encrypted native libraries (.so) not resolved statically.
+  validation:
+    status: EXPERT_REVIEWED
+    expert_raters: 3
+    inter_rater_agreement: 1.0
+    rationale: Static keys violate Bangladesh Bank requirement that no single individual knows or has access to key constituents.
+- requirement_ref: BB-CSF-4.1.5.19
+  obligation:
+    category: Cryptographic Strength Standard
+    description: Obligation to use strong cryptography and secure protocol versions to safeguard sensitive data.
+  technical_control:
+    control_id: CTRL-CRYPTO-02
+    name: Prohibition of Broken / Deprecated Ciphers
+    description: Use of DES, 3DES, RC4, MD5, SHA-1 for encryption/integrity and AES in ECB mode is strictly forbidden.
+  program_property:
+    property_id: PROP-SECURE-CIPHERS
+    name: Use of Standard Modern Cryptographic Algorithms
+    target_platform: Android
+    formal_specification: Cipher.getInstance(algo) => algo NOT IN ['DES', 'DESede', 'RC4', 'Blowfish', 'AES/ECB/PKCS5Padding']
+      AND MessageDigest.getInstance(algo) => algo NOT IN ['MD5', 'SHA-1']
+  observability:
+    level: FULL
+    modalities:
+    - STATIC
+    - DYNAMIC
+    limitations_rationale: Cipher transformation strings passed to standard Java cryptographic APIs are statically observable.
+  evidence_rule:
+    rule_id: RULE-CRYPTO-WEAK-ALGO
+    analysis_type: CRYPTO
+    sources:
+    - AlgorithmNameLiteral
+    sinks:
+    - Cipher.getInstance
+    - MessageDigest.getInstance
+    conditions:
+    - Cipher string contains DES, RC4, ECB, MD5, SHA1
+    supported_criteria: All Cipher and MessageDigest instances utilize AES-GCM, AES-CBC with HMAC, SHA-256, SHA-512.
+    non_conformance_criteria: Invocation of Cipher.getInstance with weak ciphers or insecure modes (ECB).
+    insufficient_evidence_criteria: Cipher algorithm string computed dynamically via reflective lookup.
+  validation:
+    status: EXPERT_REVIEWED
+    expert_raters: 3
+    inter_rater_agreement: 1.0
+    rationale: Weak algorithms fail the regulatory mandate for appropriate encryption strength over public networks.
+- requirement_ref: BB-CSF-4.1.5.2
+  obligation:
+    category: Local Data Confidentiality
+    description: Obligation to appropriately protect Data-at-rest stored on mobile endpoints.
+  technical_control:
+    control_id: CTRL-STORAGE-01
+    name: Encrypted Local Storage for Financial Data
+    description: Local SharedPreferences, SQLite databases, and cache files storing account or transactional data must use
+      EncryptedSharedPreferences or SQLCipher.
+  program_property:
+    property_id: PROP-ENCRYPTED-LOCAL-STORAGE
+    name: Protection of Local Storage at Rest
+    target_platform: Android
+    formal_specification: SensitiveField.Write(StorageSink) => StorageSink in [EncryptedSharedPreferences, SQLCipher, EncryptedFile]
+  observability:
+    level: PARTIAL
+    modalities:
+    - STATIC
+    - DYNAMIC
+    limitations_rationale: Static analysis detects use of plaintext SharedPreferences vs. EncryptedSharedPreferences; dynamic
+      inspection verifies database contents on rooted sandbox.
+  evidence_rule:
+    rule_id: RULE-STORAGE-PLAINTEXT-SECRETS
+    analysis_type: STORAGE
+    sources:
+    - AccountCredentials
+    - AuthTokens
+    - PIIFields
+    sinks:
+    - SharedPreferences.Editor.putString
+    - SQLiteDatabase.insert
+    - FileOutputStream.write
+    conditions:
+    - Sink is unencrypted SharedPreferences or standard openOrCreateDatabase
+    supported_criteria: Usage of AndroidX Security EncryptedSharedPreferences or net.sqlcipher.database.SQLiteDatabase for
+      sensitive fields.
+    non_conformance_criteria: Plaintext authentication tokens or credentials saved directly into standard SharedPreferences
+      or MODE_WORLD_READABLE files.
+    insufficient_evidence_criteria: Storage write uses proprietary encryption wrappers whose key derivation cannot be validated.
+  validation:
+    status: EXPERT_REVIEWED
+    expert_raters: 3
+    inter_rater_agreement: 0.9
+    rationale: Plaintext local storage of credentials directly compromises data-at-rest safeguards required by Bangladesh
+      Bank.
+- requirement_ref: BB-CSF-4.1.5.10
+  obligation:
+    category: Application Data Leakage Prevention
+    description: Obligation to prevent unauthorized data exfiltration and inadvertent backup extraction.
+  technical_control:
+    control_id: CTRL-BACKUP-01
+    name: Disable Uncontrolled Application Backup
+    description: Financial applications must explicitly disable ADB backup to prevent extraction of sandbox data via adb backup.
+  program_property:
+    property_id: PROP-BACKUP-DISABLED
+    name: Explicit Disabling of Android Backup Agent
+    target_platform: Android
+    formal_specification: Manifest.application[android:allowBackup] == 'false'
+  observability:
+    level: FULL
+    modalities:
+    - STATIC
+    limitations_rationale: Determined strictly from AndroidManifest.xml application element attributes.
+  evidence_rule:
+    rule_id: RULE-MANIFEST-ALLOW-BACKUP
+    analysis_type: MANIFEST
+    sources:
+    - Manifest.application
+    sinks:
+    - AndroidBackupManager
+    conditions:
+    - android:allowBackup != false
+    supported_criteria: android:allowBackup is explicitly set to false.
+    non_conformance_criteria: android:allowBackup is set to true or omitted (defaulting to true on targetSdk < 31).
+    insufficient_evidence_criteria: Manifest cannot be decoded due to parser failure.
+  validation:
+    status: EXPERT_REVIEWED
+    expert_raters: 3
+    inter_rater_agreement: 1.0
+    rationale: Leaving allowBackup enabled allows any user with physical USB access to dump the private app sandbox.
+- requirement_ref: BB-CSF-4.1.8.6
+  obligation:
+    category: Application Production Hardening
+    description: Obligation to enforce baseline application security standards before deployment.
+  technical_control:
+    control_id: CTRL-BUILD-01
+    name: Prohibition of Debuggable Release Builds
+    description: Production applications must not have the android:debuggable flag enabled in the manifest.
+  program_property:
+    property_id: PROP-NO-DEBUGGABLE-FLAG
+    name: Non-Debuggable Application Package
+    target_platform: Android
+    formal_specification: Manifest.application[android:debuggable] != 'true'
+  observability:
+    level: FULL
+    modalities:
+    - STATIC
+    limitations_rationale: Static manifest parsing definitively extracts the debuggable flag.
+  evidence_rule:
+    rule_id: RULE-MANIFEST-DEBUGGABLE
+    analysis_type: MANIFEST
+    sources:
+    - Manifest.application
+    sinks:
+    - JDWP_Debugger
+    conditions:
+    - android:debuggable == true
+    supported_criteria: android:debuggable is false or omitted in release build.
+    non_conformance_criteria: android:debuggable is explicitly set to true.
+    insufficient_evidence_criteria: Manifest parsing error.
+  validation:
+    status: EXPERT_REVIEWED
+    expert_raters: 3
+    inter_rater_agreement: 1.0
+    rationale: Debuggable release allows runtime process attachment and arbitrary memory inspection via JDWP.

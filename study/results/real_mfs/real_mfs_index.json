@@ -1,0 +1,110 @@
+[
+  {
+    "filename": "Nagad_1.1.118.03.apk",
+    "package": "com.konasl.nagad",
+    "supported": 3,
+    "potential_non_conformance": 4,
+    "insufficient_evidence": 5,
+    "EC": 0.5833,
+    "ESC": 0.4286
+  },
+  {
+    "filename": "bKash_7.3.0.apks",
+    "package": "com.bKash.customerapp",
+    "supported": 5,
+    "potential_non_conformance": 4,
+    "insufficient_evidence": 3,
+    "EC": 0.75,
+    "ESC": 0.5556
+  },
+  {
+    "filename": "FirstCash_2.0.45.apks",
+    "package": "com.fsiblbd.customer",
+    "supported": 6,
+    "potential_non_conformance": 4,
+    "insufficient_evidence": 2,
+    "EC": 0.8333,
+    "ESC": 0.6
+  },
+  {
+    "filename": "Islamic Wallet_1.0.15.apks",
+    "package": "com.iw.app",
+    "supported": 4,
+    "potential_non_conformance": 4,
+    "insufficient_evidence": 4,
+    "EC": 0.6667,
+    "ESC": 0.5
+  },
+  {
+    "filename": "LENDEN_2.3.4.apks",
+    "package": "com.reddot.lenden.customerapp",
+    "supported": 5,
+    "potential_non_conformance": 4,
+    "insufficient_evidence": 3,
+    "EC": 0.75,
+    "ESC": 0.5556
+  },
+  {
+    "filename": "mCash_2.1.74.apks",
+    "package": "com.ibbl.mcashcustomer",
+    "supported": 4,
+    "potential_non_conformance": 5,
+    "insufficient_evidence": 3,
+    "EC": 0.75,
+    "ESC": 0.4444
+  },
+  {
+    "filename": "MeghnaPay_1.41.apks",
+    "package": "com.modefin.meghnaui",
+    "supported": 4,
+    "potential_non_conformance": 4,
+    "insufficient_evidence": 4,
+    "EC": 0.6667,
+    "ESC": 0.5
+  },
+  {
+    "filename": "MYCash_11.4.apks",
+    "package": "com.mycash",
+    "supported": 4,
+    "potential_non_conformance": 4,
+    "insufficient_evidence": 4,
+    "EC": 0.6667,
+    "ESC": 0.5
+  },
+  {
+    "filename": "Rocket_3.1.5.apks",
+    "package": "com.dbbl.mbs.apps.main",
+    "supported": 5,
+    "potential_non_conformance": 4,
+    "insufficient_evidence": 3,
+    "EC": 0.75,
+    "ESC": 0.5556
+  },
+  {
+    "filename": "TeleCash_1.1.247.apks",
+    "package": "com.reddot.telecash.mobile",
+    "supported": 5,
+    "potential_non_conformance": 5,
+    "insufficient_evidence": 2,
+    "EC": 0.8333,
+    "ESC": 0.5
+  },
+  {
+    "filename": "Trust And Pay_1.6.015.apks",
+    "package": "com.trustandpay.customer",
+    "supported": 3,
+    "potential_non_conformance": 4,
+    "insufficient_evidence": 5,
+    "EC": 0.5833,
+    "ESC": 0.4286
+  },
+  {
+    "filename": "upay_2.14.6.apks",
+    "package": "bd.com.upay.customer",
+    "supported": 5,
+    "potential_non_conformance": 4,
+    "insufficient_evidence": 3,
+    "EC": 0.75,
+    "ESC": 0.5556
+  }
+]

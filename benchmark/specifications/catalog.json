@@ -1,0 +1,306 @@
+{
+  "version": "1.0",
+  "total_benchmarks": 30,
+  "benchmarks": [
+    {
+      "benchmark_id": "MB-001",
+      "name": "Plaintext HTTP Transmission via HttpURLConnection",
+      "category": "NETWORK",
+      "targeted_rule": "RULE-NET-CLEARTEXT-01",
+      "description": "App connects to an unencrypted http:// endpoint and enables usesCleartextTraffic in manifest.",
+      "expected_state": "PotentialNonConformance",
+      "expected_strength": "HIGH",
+      "is_compliant": false
+    },
+    {
+      "benchmark_id": "MB-002",
+      "name": "Strict TLS Enforced via Network Security Config",
+      "category": "NETWORK",
+      "targeted_rule": "RULE-NET-CLEARTEXT-01",
+      "description": "App configures network_security_config.xml with cleartextTrafficPermitted=false and uses strictly HTTPS endpoints.",
+      "expected_state": "Supported",
+      "expected_strength": "HIGH",
+      "is_compliant": true
+    },
+    {
+      "benchmark_id": "MB-003",
+      "name": "Cleartext Permitted by Manifest Default (targetSdk < 28)",
+      "category": "NETWORK",
+      "targeted_rule": "RULE-NET-CLEARTEXT-01",
+      "description": "App omits usesCleartextTraffic with targetSdkVersion 26, leaving cleartext traffic permitted implicitly.",
+      "expected_state": "PotentialNonConformance",
+      "expected_strength": "HIGH",
+      "is_compliant": false
+    },
+    {
+      "benchmark_id": "MB-004",
+      "name": "Hardcoded Symmetric AES Key Constant String",
+      "category": "CRYPTO",
+      "targeted_rule": "RULE-CRYPTO-HARDCODED-KEY",
+      "description": "SecretKeySpec initialized directly with literal ASCII string constant 'MySuperSecretKey'.",
+      "expected_state": "PotentialNonConformance",
+      "expected_strength": "HIGH",
+      "is_compliant": false
+    },
+    {
+      "benchmark_id": "MB-005",
+      "name": "Hardcoded Static Byte Array Key Literal",
+      "category": "CRYPTO",
+      "targeted_rule": "RULE-CRYPTO-HARDCODED-KEY",
+      "description": "SecretKeySpec initialized with hardcoded byte array field {0x01, 0x02, ..., 0x10}.",
+      "expected_state": "PotentialNonConformance",
+      "expected_strength": "HIGH",
+      "is_compliant": false
+    },
+    {
+      "benchmark_id": "MB-006",
+      "name": "AndroidKeyStore Hardware-Backed Key Derivation",
+      "category": "CRYPTO",
+      "targeted_rule": "RULE-CRYPTO-HARDCODED-KEY",
+      "description": "Key generated inside AndroidKeyStore with KeyGenParameterSpec without in-memory key exposure.",
+      "expected_state": "Supported",
+      "expected_strength": "HIGH",
+      "is_compliant": true
+    },
+    {
+      "benchmark_id": "MB-007",
+      "name": "Deprecated DES Cipher Usage",
+      "category": "CRYPTO",
+      "targeted_rule": "RULE-CRYPTO-WEAK-ALGO",
+      "description": "Cipher.getInstance('DES/CBC/PKCS5Padding') used for sensitive data encryption.",
+      "expected_state": "PotentialNonConformance",
+      "expected_strength": "HIGH",
+      "is_compliant": false
+    },
+    {
+      "benchmark_id": "MB-008",
+      "name": "Triple-DES (3DES / DESede) Usage",
+      "category": "CRYPTO",
+      "targeted_rule": "RULE-CRYPTO-WEAK-ALGO",
+      "description": "Cipher.getInstance('DESede') invoked for financial transaction payload encryption.",
+      "expected_state": "PotentialNonConformance",
+      "expected_strength": "HIGH",
+      "is_compliant": false
+    },
+    {
+      "benchmark_id": "MB-009",
+      "name": "AES in Insecure ECB Mode",
+      "category": "CRYPTO",
+      "targeted_rule": "RULE-CRYPTO-WEAK-ALGO",
+      "description": "Cipher.getInstance('AES/ECB/PKCS5Padding') invoked without initialization vector (IV).",
+      "expected_state": "PotentialNonConformance",
+      "expected_strength": "HIGH",
+      "is_compliant": false
+    },
+    {
+      "benchmark_id": "MB-010",
+      "name": "Modern AES-GCM Authenticated Encryption",
+      "category": "CRYPTO",
+      "targeted_rule": "RULE-CRYPTO-WEAK-ALGO",
+      "description": "Cipher.getInstance('AES/GCM/NoPadding') used with secure GCMParameterSpec.",
+      "expected_state": "Supported",
+      "expected_strength": "HIGH",
+      "is_compliant": true
+    },
+    {
+      "benchmark_id": "MB-011",
+      "name": "Weak MD5 Hashing for Integrity",
+      "category": "CRYPTO",
+      "targeted_rule": "RULE-CRYPTO-WEAK-ALGO",
+      "description": "MessageDigest.getInstance('MD5') utilized for sensitive token hashing.",
+      "expected_state": "PotentialNonConformance",
+      "expected_strength": "HIGH",
+      "is_compliant": false
+    },
+    {
+      "benchmark_id": "MB-012",
+      "name": "SHA-256 Strong Cryptographic Hash",
+      "category": "CRYPTO",
+      "targeted_rule": "RULE-CRYPTO-WEAK-ALGO",
+      "description": "MessageDigest.getInstance('SHA-256') utilized for message integrity verification.",
+      "expected_state": "Supported",
+      "expected_strength": "HIGH",
+      "is_compliant": true
+    },
+    {
+      "benchmark_id": "MB-013",
+      "name": "Plaintext Credentials in SharedPreferences",
+      "category": "STORAGE",
+      "targeted_rule": "RULE-STORAGE-PLAINTEXT-SECRETS",
+      "description": "User account password and auth token saved via getSharedPreferences without encryption.",
+      "expected_state": "PotentialNonConformance",
+      "expected_strength": "HIGH",
+      "is_compliant": false
+    },
+    {
+      "benchmark_id": "MB-014",
+      "name": "EncryptedSharedPreferences with MasterKey",
+      "category": "STORAGE",
+      "targeted_rule": "RULE-STORAGE-PLAINTEXT-SECRETS",
+      "description": "Credentials written using AndroidX Security EncryptedSharedPreferences.",
+      "expected_state": "Supported",
+      "expected_strength": "HIGH",
+      "is_compliant": true
+    },
+    {
+      "benchmark_id": "MB-015",
+      "name": "World-Readable File Storage",
+      "category": "STORAGE",
+      "targeted_rule": "RULE-STORAGE-PLAINTEXT-SECRETS",
+      "description": "Sensitive customer record written with Context.MODE_WORLD_READABLE flag.",
+      "expected_state": "PotentialNonConformance",
+      "expected_strength": "HIGH",
+      "is_compliant": false
+    },
+    {
+      "benchmark_id": "MB-016",
+      "name": "Application Backup Enabled (allowBackup=true)",
+      "category": "MANIFEST",
+      "targeted_rule": "RULE-MANIFEST-ALLOW-BACKUP",
+      "description": "android:allowBackup is explicitly enabled, allowing ADB backup extraction.",
+      "expected_state": "PotentialNonConformance",
+      "expected_strength": "HIGH",
+      "is_compliant": false
+    },
+    {
+      "benchmark_id": "MB-017",
+      "name": "Application Backup Explicitly Disabled",
+      "category": "MANIFEST",
+      "targeted_rule": "RULE-MANIFEST-ALLOW-BACKUP",
+      "description": "android:allowBackup is explicitly set to false in application tag.",
+      "expected_state": "Supported",
+      "expected_strength": "HIGH",
+      "is_compliant": true
+    },
+    {
+      "benchmark_id": "MB-018",
+      "name": "Debuggable Flag Enabled in Production Release",
+      "category": "MANIFEST",
+      "targeted_rule": "RULE-MANIFEST-DEBUGGABLE",
+      "description": "Manifest contains android:debuggable='true', allowing arbitrary JDWP debugging.",
+      "expected_state": "PotentialNonConformance",
+      "expected_strength": "HIGH",
+      "is_compliant": false
+    },
+    {
+      "benchmark_id": "MB-019",
+      "name": "Non-Debuggable Release Build",
+      "category": "MANIFEST",
+      "targeted_rule": "RULE-MANIFEST-DEBUGGABLE",
+      "description": "android:debuggable is false or omitted in production release APK.",
+      "expected_state": "Supported",
+      "expected_strength": "HIGH",
+      "is_compliant": true
+    },
+    {
+      "benchmark_id": "MB-020",
+      "name": "Excessive Dangerous Permission (READ_SMS in Calculator App)",
+      "category": "MANIFEST",
+      "targeted_rule": "RULE-PERM-EXCESSIVE-DANGEROUS",
+      "description": "Utility application requests android.permission.READ_SMS without functional rationale.",
+      "expected_state": "PotentialNonConformance",
+      "expected_strength": "HIGH",
+      "is_compliant": false
+    },
+    {
+      "benchmark_id": "MB-021",
+      "name": "Minimal Permissions (Zero Dangerous Permissions Requested)",
+      "category": "MANIFEST",
+      "targeted_rule": "RULE-PERM-EXCESSIVE-DANGEROUS",
+      "description": "Application requests only INTERNET and ACCESS_NETWORK_STATE normal permissions.",
+      "expected_state": "Supported",
+      "expected_strength": "HIGH",
+      "is_compliant": true
+    },
+    {
+      "benchmark_id": "MB-022",
+      "name": "Device Identifier (IMEI) to Cleartext HTTP Network Sink",
+      "category": "DATAFLOW",
+      "targeted_rule": "RULE-DATAFLOW-PII-TO-HTTP",
+      "description": "TelephonyManager.getDeviceId() output flows directly to URLConnection output stream.",
+      "expected_state": "PotentialNonConformance",
+      "expected_strength": "HIGH",
+      "is_compliant": false
+    },
+    {
+      "benchmark_id": "MB-023",
+      "name": "Phone Number Transmitted over Encrypted HTTPS Endpoint",
+      "category": "DATAFLOW",
+      "targeted_rule": "RULE-DATAFLOW-PII-TO-HTTP",
+      "description": "TelephonyManager.getLine1Number() flows strictly to an authenticated HTTPS endpoint.",
+      "expected_state": "Supported",
+      "expected_strength": "HIGH",
+      "is_compliant": true
+    },
+    {
+      "benchmark_id": "MB-024",
+      "name": "Customer Credentials Emitted to Android Logcat",
+      "category": "DATAFLOW",
+      "targeted_rule": "RULE-DATAFLOW-PII-TO-LOG",
+      "description": "User password and account number concatenated into android.util.Log.d() call.",
+      "expected_state": "PotentialNonConformance",
+      "expected_strength": "HIGH",
+      "is_compliant": false
+    },
+    {
+      "benchmark_id": "MB-025",
+      "name": "Sanitized Log Statements without PII",
+      "category": "DATAFLOW",
+      "targeted_rule": "RULE-DATAFLOW-PII-TO-LOG",
+      "description": "All Log calls strictly log generic status tags and error codes without payload strings.",
+      "expected_state": "Supported",
+      "expected_strength": "HIGH",
+      "is_compliant": true
+    },
+    {
+      "benchmark_id": "MB-026",
+      "name": "Advertising SDK Harvester Passing Hardware ID",
+      "category": "SDK",
+      "targeted_rule": "RULE-SDK-TRACKER-PII-FLOW",
+      "description": "AppsFlyer / Facebook Ads SDK initialized with subscriber IMEI / Android ID.",
+      "expected_state": "PotentialNonConformance",
+      "expected_strength": "HIGH",
+      "is_compliant": false
+    },
+    {
+      "benchmark_id": "MB-027",
+      "name": "Zero Third-Party Commercial Tracking SDKs Included",
+      "category": "SDK",
+      "targeted_rule": "RULE-SDK-TRACKER-PII-FLOW",
+      "description": "Application uses strictly first-party endpoints with zero tracking or ad libraries.",
+      "expected_state": "Supported",
+      "expected_strength": "HIGH",
+      "is_compliant": true
+    },
+    {
+      "benchmark_id": "MB-028",
+      "name": "Unprotected Exported Service without Permission",
+      "category": "MANIFEST",
+      "targeted_rule": "RULE-MANIFEST-EXPORTED-UNPROTECTED",
+      "description": "Service declares android:exported='true' with intent filter but lacks permission protection.",
+      "expected_state": "PotentialNonConformance",
+      "expected_strength": "HIGH",
+      "is_compliant": false
+    },
+    {
+      "benchmark_id": "MB-029",
+      "name": "Exported Activity Protected by Signature Permission",
+      "category": "MANIFEST",
+      "targeted_rule": "RULE-MANIFEST-EXPORTED-UNPROTECTED",
+      "description": "Exported Activity enforces custom android:permission with protectionLevel='signature'.",
+      "expected_state": "Supported",
+      "expected_strength": "HIGH",
+      "is_compliant": true
+    },
+    {
+      "benchmark_id": "MB-030",
+      "name": "Bytecode Obfuscation with ProGuard / R8",
+      "category": "HYBRID",
+      "targeted_rule": "RULE-CODE-OBFUSCATION-CHECK",
+      "description": "APK DEX identifiers stripped and renamed to single-letter packages and methods.",
+      "expected_state": "Supported",
+      "expected_strength": "MEDIUM",
+      "is_compliant": true
+    }
+  ]
+}

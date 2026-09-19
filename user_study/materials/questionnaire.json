@@ -1,0 +1,44 @@
+{
+  "total_tasks": 3,
+  "tasks": [
+    {
+      "task_id": "T1",
+      "scenario": "Evaluation of Financial Banking App Backup Configuration",
+      "question": "Can an unauthorized person with physical access to the device extract user credentials via ADB backup?",
+      "ground_truth_answer": "Yes, because android:allowBackup is true or omitted.",
+      "options": [
+        "Yes, because android:allowBackup is enabled.",
+        "No, backup is strictly encrypted by the OS.",
+        "Only if the device is rooted.",
+        "Cannot be determined from the report."
+      ],
+      "correct_option_index": 0
+    },
+    {
+      "task_id": "T2",
+      "scenario": "Network Security Configuration",
+      "question": "Does the application transmit personal subscriber data over plaintext HTTP?",
+      "ground_truth_answer": "Yes, IMEI flows to an unencrypted HTTP endpoint.",
+      "options": [
+        "No, all traffic uses TLS 1.3.",
+        "Yes, an unencrypted HTTP data flow was detected.",
+        "The report does not provide network evidence.",
+        "Traffic is protected by VPN."
+      ],
+      "correct_option_index": 1
+    },
+    {
+      "task_id": "T3",
+      "scenario": "Regulatory Remediation",
+      "question": "What is the recommended technical fix for the cryptographic key finding?",
+      "ground_truth_answer": "Use AndroidKeyStore hardware-backed key derivation instead of hardcoded strings.",
+      "options": [
+        "Base64 encode the string literal.",
+        "Use AndroidKeyStore hardware-backed key management.",
+        "Move the key string to strings.xml.",
+        "Ignore, keys in bytecode are secure."
+      ],
+      "correct_option_index": 1
+    }
+  ]
+}

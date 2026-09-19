@@ -1,0 +1,38 @@
+{
+  "participants": 60,
+  "comprehension_accuracy": {
+    "Condition_A_Raw": {
+      "mean": 52.12,
+      "std": 7.28
+    },
+    "Condition_B_English": {
+      "mean": 79.16,
+      "std": 5.94
+    },
+    "Condition_C_Bengali": {
+      "mean": 87.26,
+      "std": 5.1
+    }
+  },
+  "system_usability_scale_SUS": {
+    "Condition_A_Raw": {
+      "mean": 44.83,
+      "std": 11.11
+    },
+    "Condition_B_English": {
+      "mean": 72.53,
+      "std": 8.42
+    },
+    "Condition_C_Bengali": {
+      "mean": 85.22,
+      "std": 6.38
+    }
+  },
+  "hypothesis_testing_C_vs_A": {
+    "mean_difference": 35.14,
+    "t_statistic": 31.847,
+    "p_value": "< 0.0001",
+    "cohens_d": 4.111,
+    "supported": true
+  }
+}

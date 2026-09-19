@@ -1,0 +1,114 @@
+{
+  "Comprehension": {
+    "CondA_mean": 53.6,
+    "CondA_sd": 15.9,
+    "CondB_mean": 70.7,
+    "CondB_sd": 13.4,
+    "CondC_mean": 82.9,
+    "CondC_sd": 10.9,
+    "AvsB": {
+      "mean_diff": 17.01,
+      "t_stat": 7.57,
+      "p_val": 2.881952874235736e-10,
+      "cohen_d": 1.16
+    },
+    "BvsC": {
+      "mean_diff": 12.22,
+      "t_stat": 7.29,
+      "p_val": 8.668094158749933e-10,
+      "cohen_d": 1.0
+    },
+    "AvsC": {
+      "mean_diff": 29.23,
+      "t_stat": 13.15,
+      "p_val": 3.455948237004477e-19,
+      "cohen_d": 2.15
+    }
+  },
+  "SUS": {
+    "CondA_mean": 47.0,
+    "CondA_sd": 14.8,
+    "CondB_mean": 65.7,
+    "CondB_sd": 11.6,
+    "CondC_mean": 76.8,
+    "CondC_sd": 9.8,
+    "AvsB": {
+      "mean_diff": 18.68,
+      "t_stat": 10.96,
+      "p_val": 7.55259608751795e-16,
+      "cohen_d": 1.41
+    },
+    "BvsC": {
+      "mean_diff": 11.13,
+      "t_stat": 7.47,
+      "p_val": 4.3461560603910166e-10,
+      "cohen_d": 1.04
+    },
+    "AvsC": {
+      "mean_diff": 29.81,
+      "t_stat": 14.26,
+      "p_val": 8.986520910789786e-21,
+      "cohen_d": 2.38
+    }
+  },
+  "NASA_TLX": {
+    "CondA_mean": 65.5,
+    "CondA_sd": 15.8,
+    "CondB_mean": 47.2,
+    "CondB_sd": 12.6,
+    "CondC_mean": 36.9,
+    "CondC_sd": 12.3,
+    "AvsB": {
+      "mean_diff": -18.3,
+      "t_stat": -10.08,
+      "p_val": 1.873291010136038e-14,
+      "cohen_d": -1.28
+    },
+    "BvsC": {
+      "mean_diff": -10.35,
+      "t_stat": -7.22,
+      "p_val": 1.167523948256652e-09,
+      "cohen_d": -0.83
+    },
+    "AvsC": {
+      "mean_diff": -28.65,
+      "t_stat": -13.89,
+      "p_val": 2.95328646156614e-20,
+      "cohen_d": -2.02
+    }
+  },
+  "Remediation_Time": {
+    "CondA_mean": 39.7,
+    "CondA_sd": 10.4,
+    "CondB_mean": 28.6,
+    "CondB_sd": 8.7,
+    "CondC_mean": 19.0,
+    "CondC_sd": 5.9,
+    "AvsB": {
+      "mean_diff": -11.1,
+      "t_stat": -6.48,
+      "p_val": 4.3445037930447656e-07,
+      "cohen_d": -1.16
+    },
+    "BvsC": {
+      "mean_diff": -9.6,
+      "t_stat": -6.89,
+      "p_val": 1.4191503115189772e-07,
+      "cohen_d": -1.29
+    },
+    "AvsC": {
+      "mean_diff": -20.7,
+      "t_stat": -11.99,
+      "p_val": 9.229025259883097e-13,
+      "cohen_d": -2.45
+    }
+  },
+  "Patch_Success": {
+    "CondA_rate": 46.7,
+    "CondB_rate": 70.0,
+    "CondC_rate": 86.7,
+    "CondA_count": "14/30",
+    "CondB_count": "21/30",
+    "CondC_count": "26/30"
+  }
+}

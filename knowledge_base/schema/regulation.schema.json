@@ -1,0 +1,125 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "StatutoryRegulationSchema",
+  "description": "Schema for authoritative legal text and statutory clauses without technical interpretations.",
+  "type": "object",
+  "required": [
+    "regulation_id",
+    "title",
+    "short_title",
+    "jurisdiction",
+    "enacting_authority",
+    "version",
+    "official_language",
+    "clauses"
+  ],
+  "properties": {
+    "regulation_id": {
+      "type": "string",
+      "pattern": "^[A-Z0-9\\-]+$"
+    },
+    "title": {
+      "type": "string"
+    },
+    "short_title": {
+      "type": "string"
+    },
+    "jurisdiction": {
+      "type": "string",
+      "enum": [
+        "BD",
+        "GLOBAL"
+      ]
+    },
+    "enacting_authority": {
+      "type": "string"
+    },
+    "act_number": {
+      "type": "string"
+    },
+    "gazette_date": {
+      "type": "string"
+    },
+    "effective_date": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "official_language": {
+      "type": "string",
+      "enum": [
+        "bn",
+        "en",
+        "multilingual"
+      ]
+    },
+    "source_file": {
+      "type": "string"
+    },
+    "clauses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "clause_id",
+          "chapter",
+          "chapter_title",
+          "section",
+          "text_en",
+          "statutory_category",
+          "primary_entity"
+        ],
+        "properties": {
+          "clause_id": {
+            "type": "string",
+            "pattern": "^[A-Z0-9\\.\\-_]+$"
+          },
+          "chapter": {
+            "type": "string"
+          },
+          "chapter_title": {
+            "type": "string"
+          },
+          "section": {
+            "type": "string"
+          },
+          "section_title": {
+            "type": "string"
+          },
+          "text_bn": {
+            "type": "string"
+          },
+          "text_en": {
+            "type": "string"
+          },
+          "statutory_category": {
+            "type": "string",
+            "enum": [
+              "GOVERNANCE",
+              "DATA_PROTECTION",
+              "APPLICATION_SECURITY",
+              "INFRASTRUCTURE_SECURITY",
+              "CRYPTOGRAPHY",
+              "AUDIT_LOGGING",
+              "INCIDENT_RESPONSE",
+              "PENAL_SANCTIONS"
+            ]
+          },
+          "primary_entity": {
+            "type": "string",
+            "enum": [
+              "DATA_CONTROLLER",
+              "DATA_PROCESSOR",
+              "BANK",
+              "MFS_PROVIDER",
+              "PAYMENT_OPERATOR",
+              "ALL_ORGANIZATIONS",
+              "GENERAL_CITIZEN"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
