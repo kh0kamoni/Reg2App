@@ -102,9 +102,9 @@ python user_study/analyze_user_study.py
 
 ---
 
-## Coordinated Vulnerability Disclosure (CVD)
+## Ethical Considerations and Responsible Reporting
 
-Responsible Coordinated Vulnerability Disclosure was conducted strictly in accordance with ACM/IEEE ethics guidelines and ISO/IEC 29147. All institutional identities and package namespaces in the production empirical studies are pseudonymized. Comprehensive unredacted dossiers—including call graphs, bytecode offsets, and remediation patches—were submitted to the national computer emergency response team (**BGD e-GOV CIRT**) under case tracking reference **BGD-CIRT-2025-11-0428** and the Cyber Security Unit of Bangladesh Bank. All mandatory 90-day embargo periods elapsed prior to paper submission.
+All empirical audits were conducted strictly in accordance with ACM and IEEE ethical research guidelines. All analyses were performed entirely offline on publicly available application packages downloaded from Google Play. At no point were live production services, payment gateways, banking backends, or customer accounts probed, scanned, or attacked. Zero exploits were constructed. To eliminate operational risks to production infrastructure and prevent targeted attacks, all institutional identities, organization names, and package namespaces are strictly pseudonymized, and vulnerability details are restricted to high-level technical observation categories. Detailed bytecode offsets and call graphs that could facilitate weaponization are deliberately omitted from public artifacts.
 
 ---
 
