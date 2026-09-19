@@ -13,6 +13,7 @@ htmlcov/
 
 # Manuscript directory (kept local)
 paper/
+jss_submission/
 
 # OS and editor files
 .DS_Store
