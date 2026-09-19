@@ -50,8 +50,7 @@ Official reproducibility artifact repository for the research paper:
 ├── user_study/              # Usable security developer study (N=60)
 │   ├── human_study_n60_raw.csv # Counterbalanced experimental trial data
 │   └── analyze_user_study.py   # Statistical evaluation script (McNemar, Wilcoxon, ANOVA)
-├── tests/                   # 21 comprehensive unit tests
-└── paper/                   # Complete LaTeX manuscript (Elsevier elsarticle format)
+└── tests/                   # 21 comprehensive unit tests
 ```
 
 ---
