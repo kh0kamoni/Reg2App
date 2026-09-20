@@ -6,8 +6,8 @@
 
 Official reproducibility artifact repository for the research paper:
 > **"From Regulation to Bytecode: Evidence-Based Privacy and Cybersecurity Compliance Verification of the Android Application Ecosystem"**  
-> Authors: Khoka Moni (Mymensingh Engineering College) & Maria Akter (Southeast University).  
-> Target Venue: *Elsevier Computers & Security (COSE)*.
+> Authors: [Khoka Moni](https://orcid.org/0009-0000-3573-714X) (Mymensingh Engineering College) & [Maria Akter](https://orcid.org/0009-0005-7038-9490) (Southeast University).  
+> Target Venue: *Elsevier Journal of Systems and Software (JSS)*.
 
 ---
 
@@ -113,7 +113,7 @@ All empirical audits were conducted strictly in accordance with ACM and IEEE eth
 @article{moni2026reg2app,
   title={From Regulation to Bytecode: Evidence-Based Privacy and Cybersecurity Compliance Verification of the Android Application Ecosystem},
   author={Moni, Khoka and Akter, Maria},
-  journal={Computers \& Security},
+  journal={Journal of Systems and Software},
   year={2026},
   publisher={Elsevier}
 }
